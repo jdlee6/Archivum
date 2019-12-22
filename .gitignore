@@ -1,0 +1,9 @@
+media/
+scripts/
+backend/archivum/__pycache__
+backend/brands/__pycache__
+backend/brands/api/__pycache__
+backend/brands/migrations/__pycache__
+outline
+env/
+frontend/node_modules

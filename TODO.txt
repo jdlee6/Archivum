@@ -1,0 +1,16 @@
+################
+######TODO######
+################
+
+
+
+################
+#CHANGES I MADE#
+################
+- added local postgresql database
+- django make url parameter lowercase without spaces
+
+
+#################
+####COMPLETED####
+#################
