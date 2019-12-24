@@ -1,0 +1,56 @@
+# ARCHIVUM OUTLINE
+
+# Description
+minimalistic website that displays lookbooks and pictures of well known brands
+
+# Tech
+django, react, redux, postgresql, gcp, selenium script to download pictures
+
+# Include
+user registration/login to favorite their favorite lookbooks/pictures
+ability to share pictures with friends
+suggestion box for more brands
+comment section (?) 
+
+# api endpoints
+/home
+	- simple enter page animation
+	- navbar
+		- register, login, brands drop down menu
+
+/<selected: brand>
+	- menu to select specific year & szn to browse
+	- 
+
+/brands/lookbook<season parameter & year parameter>
+	- show all the pictures in a list view of the look book 
+
+/brands/lookbook<year parameter>/picture<number>
+	- full blown out picture of the selected picture
+
+
+# footer
+contact the dev information
+
+
+# brands to include from year 2017 winter
+bape [x]
+palace [x]
+c2h4 [x]
+bianca chandon [x]
+needles [x]
+
+# todo 
+chromehearts
+number nine
+undercover
+hysteric glamour
+supreme
+
+
+
+# code todo 
+learn how to set up cloudinary for django to host pictures of lookbooks on there
+start developing basic front end
+
+

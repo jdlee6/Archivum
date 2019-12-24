@@ -1,9 +1,10 @@
 media/
 scripts/
 backend/archivum/__pycache__
-backend/brands/__pycache__
-backend/brands/api/__pycache__
-backend/brands/migrations/__pycache__
+backend/feed/__pycache__
+backend/feed/api/__pycache__
+backend/feed/migrations/__pycache__
 outline
 env/
 frontend/node_modules
+backend/feed/migrations/

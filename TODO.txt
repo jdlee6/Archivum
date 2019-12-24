@@ -1,16 +1,26 @@
 ################
 ######TODO######
 ################
+- create picture model 
+    1 lookbook for many pictures
+    * picture models should have a url to image attribute
+- figure out where to host pics
 
 
+- start frontend
 
 ################
 #CHANGES I MADE#
 ################
-- added local postgresql database
-- django make url parameter lowercase without spaces
+
+- filter lookbooks by url parameter 
 
 
 #################
 ####COMPLETED####
 #################
+- added local postgresql database
+- django make url parameter lowercase without spaces
+- established 1 to many relationship between brand and lookbooks
+- feed app 
+    * consists of the brands, their lookbooks, and their pictures
