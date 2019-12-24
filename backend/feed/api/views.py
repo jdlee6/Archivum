@@ -1,8 +1,6 @@
 from rest_framework.generics import ListAPIView, RetrieveAPIView
-from feed.models import Brand, Lookbooks
-from .serializers import BrandSerializer, LookbooksSerializer
-from django.shortcuts import get_object_or_404
-
+from feed.models import Brand, Lookbook
+from .serializers import BrandSerializer, LookbookSerializer
 
 class BrandListView(ListAPIView):
     queryset = Brand.objects.all()
@@ -13,17 +11,19 @@ class BrandDetailView(RetrieveAPIView):
     serializer_class = BrandSerializer
     lookup_field = 'url_param'
 
-class LookbooksListView(ListAPIView):
-    serializer_class = LookbooksSerializer
+class LookbookListView(ListAPIView):
+    serializer_class = LookbookSerializer
 
     def get_queryset(self):
         brand = Brand.objects.filter(url_param=self.kwargs['url_param']).first()
-        return Lookbooks.objects.filter(brand=brand)
+        return Lookbook.objects.filter(brand=brand)
 
-class LookbooksDetailView(RetrieveAPIView):
-    serializer_class = LookbooksSerializer
+class LookbookDetailView(RetrieveAPIView):
+    serializer_class = LookbookSerializer
     lookup_field = 'season'
 
     def get_queryset(self):
         brand = Brand.objects.filter(url_param=self.kwargs['url_param']).first()
-        return Lookbooks.objects.filter(brand=brand, season=self.kwargs['season'])
+        return Lookbook.objects.filter(brand=brand, season=self.kwargs['season'])
+
+# TODO PicturesDetailView

@@ -12,14 +12,21 @@ class Brand(models.Model):
     def __str__(self):
         return self.name
 
-class Lookbooks(models.Model):
+class Lookbook(models.Model):
     season = models.CharField(max_length=120)
     year = models.DateField()
     brand = models.ForeignKey(Brand, related_name='lookbooks', on_delete=models.CASCADE)
     
     def save(self, *args, **kwargs):
         self.season = self.season.lower()
-        return super(Lookbooks, self).save(*args, **kwargs)
+        return super(Lookbook, self).save(*args, **kwargs)
 
     def __str__(self):
-        return f'{self.brand} {self.year}'
+        return f'{self.brand} {self.season}'
+
+class Picture(models.Model): 
+    url = models.CharField(max_length=120)
+    lookbook = models.ForeignKey(Lookbook, related_name='pictures', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Picture {self.id} from {self.lookbook}'
