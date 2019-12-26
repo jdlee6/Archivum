@@ -1,18 +1,18 @@
 ################
 ######TODO######
 ################
-- detail view for pictures
-- figure out where to host pics
-    * need to define 'MEDIA_URL' & 'MEDIA_ROOT' in settings.py
-
+- create a readme
 - start setting up frontend
+- implement backend testing with pytest
 
 
 ################
 #CHANGES I MADE#
 ################
-- create picture model
-- established 1 to many relationship between lookbook and pictures
+- added admin upload fields for image uploads
+- connect django w/ amazon s3 bucket to host images
+- setup aws cdn for s3
+- detail view for individual pictures
 
 
 #################
@@ -23,3 +23,5 @@
 - established 1 to many relationship between brand and lookbooks
 - feed app 
 - filter lookbooks by season parameter
+- create picture model
+- established 1 to many relationship between lookbook and pictures

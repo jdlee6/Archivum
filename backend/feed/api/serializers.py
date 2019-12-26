@@ -6,7 +6,7 @@ class PictureSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Picture
-        fields = ('lookbook_id', 'url')
+        fields = ('uuid', 'lookbook_id', 'photo')
 
 class LookbookSerializer(serializers.ModelSerializer):
     pictures = PictureSerializer(many=True, read_only=True)

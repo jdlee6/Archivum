@@ -1,6 +1,6 @@
 from rest_framework.generics import ListAPIView, RetrieveAPIView
-from feed.models import Brand, Lookbook
-from .serializers import BrandSerializer, LookbookSerializer
+from feed.models import Brand, Lookbook, Picture
+from .serializers import BrandSerializer, LookbookSerializer, PictureSerializer
 
 class BrandListView(ListAPIView):
     queryset = Brand.objects.all()
@@ -26,4 +26,9 @@ class LookbookDetailView(RetrieveAPIView):
         brand = Brand.objects.filter(url_param=self.kwargs['url_param']).first()
         return Lookbook.objects.filter(brand=brand, season=self.kwargs['season'])
 
-# TODO PicturesDetailView
+class PictureDetailView(RetrieveAPIView):
+    serializer_class = PictureSerializer
+    lookup_field = 'uuid'
+
+    def get_queryset(self):
+        return Picture.objects.filter(uuid=self.kwargs['uuid'])

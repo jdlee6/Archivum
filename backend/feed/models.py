@@ -1,6 +1,7 @@
 from django.db import models
+from django.utils import timezone
+import uuid
 
-# Create your models here.
 class Brand(models.Model):
     name = models.CharField(max_length=120)
     url_param = models.CharField(max_length=120, default='url')
@@ -25,8 +26,10 @@ class Lookbook(models.Model):
         return f'{self.brand} {self.season}'
 
 class Picture(models.Model): 
-    url = models.CharField(max_length=120)
+    uuid = models.UUIDField(primary_key=True, default=uuid.uuid1, editable=False, unique=True)
+    uploaded_at = models.DateTimeField(auto_now=True)
+    photo = models.FileField(upload_to="images/")
     lookbook = models.ForeignKey(Lookbook, related_name='pictures', on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'Picture {self.id} from {self.lookbook}'
+        return f'{self.photo} from {self.lookbook}'
