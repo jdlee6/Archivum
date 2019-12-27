@@ -21,4 +21,4 @@ class BrandSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Brand
-        fields = ('id', 'name', 'lookbooks')
+        fields = ('id', 'name', 'url_param', 'lookbooks')

@@ -18,7 +18,6 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "archivum.settings")
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -42,10 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'feed',
-    'storages'
+    'storages',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -146,3 +147,5 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_S3_CUSTOM_DOMAIN = 'd1n7cobwsi8961.cloudfront.net'
 # removes AWS credentials from url
 AWS_QUERYSTRING_AUTH = False
+
+CORS_ORIGIN_ALLOW_ALL = True
