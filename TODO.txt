@@ -2,33 +2,31 @@
 ######TODO######
 ################
 - create a readme
-- implement backend testing with pytest
 
-- fix image scaling
+* backend *
+    - order the lookbooks by date 
+        * figure out how to order by the child model's attribute
+    - implement backend testing with pytest
+    - fill backend with more data
 
-- create pages
-  * home page should show previews of the collection
-    - on hover -> specify which brand & season
-- need picture detail view
-
-- figure out how to theme mui components
-- need better icons
-- fill backend with more data
-- need transition animations
-
-- light & night theme mode switch
+* frontend *
+    - fix image scaling (Gallery.js)
+      * use an external npm package
+    - make title centered
+    - light & night theme mode switch
+    - need transition animations
+    * rename containers --> pages
 
 
 ################
 #CHANGES I MADE#
 ################
-- added font
-- menu with treeitem api 
-- figured out how to list multiple seasons
-- created custom urls depending on nav links 
-- found out how to display photos
-- mui grid list for image gallery & spinner
-- combined navbar + treeview 
+- order the brand names by name 
+- refactor LookbookListView component
+- changed font for treeview menu
+
+* in progress *
+  - picture detail page
 
 
 #################
@@ -45,3 +43,10 @@
 - connect django w/ amazon s3 bucket to host images
 - setup aws cdn for s3
 - detail view for individual pictures
+- added font
+- menu with treeitem api 
+- figured out how to list multiple seasons
+- created custom urls depending on nav links 
+- found out how to display photos
+- mui grid list for image gallery & spinner
+- combined navbar + treeview 

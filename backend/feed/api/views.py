@@ -1,9 +1,10 @@
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from feed.models import Brand, Lookbook, Picture
 from .serializers import BrandSerializer, LookbookSerializer, PictureSerializer
+from django.db.models import Max
 
 class BrandListView(ListAPIView):
-    queryset = Brand.objects.all()
+    queryset = Brand.objects.all().order_by('name')
     serializer_class = BrandSerializer
 
 class BrandDetailView(RetrieveAPIView):
@@ -16,7 +17,7 @@ class LookbookListView(ListAPIView):
 
     def get_queryset(self):
         brand = Brand.objects.filter(url_param=self.kwargs['url_param']).first()
-        return Lookbook.objects.filter(brand=brand)
+        return Lookbook.objects.filter(brand=brand).order_by('year')
 
 class LookbookDetailView(RetrieveAPIView):
     serializer_class = LookbookSerializer

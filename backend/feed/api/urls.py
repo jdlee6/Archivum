@@ -1,9 +1,9 @@
 from django.urls import path
 from .views import (
-    BrandListView, 
-    BrandDetailView, 
-    LookbookListView, 
-    LookbookDetailView, 
+    BrandListView,
+    BrandDetailView,
+    LookbookListView,
+    LookbookDetailView,
     PictureDetailView
 )
 

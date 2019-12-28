@@ -18,7 +18,6 @@ theme = responsiveFontSizes(theme);
 function App() {
   return (
     <Router>
-      <h2 style={{ textAlign: 'center' }}>Archivum</h2>
       <ThemeProvider theme={theme}>
         <ResponsiveDrawer />
       </ThemeProvider>

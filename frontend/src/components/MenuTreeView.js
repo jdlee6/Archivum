@@ -9,6 +9,18 @@ import { useSpring, animated } from 'react-spring/web.cjs'; // web.cjs is requir
 import axios from 'axios';
 import uuid from 'uuid';
 import { Link } from 'react-router-dom';
+import {
+  ThemeProvider,
+  createMuiTheme,
+  responsiveFontSizes
+} from '@material-ui/core/styles';
+
+let theme = createMuiTheme({
+  typography: {
+    fontFamily: 'Cardo'
+  }
+});
+theme = responsiveFontSizes(theme);
 
 function MinusSquare(props) {
   return (
@@ -91,23 +103,25 @@ export default function MenuTreeView() {
       .then(res => setBrands(res.data));
   }, []);
 
+  console.log(brands);
+
   const brandTree = brands.map(brand => {
     return (
-      <StyledTreeItem key={brand.id} nodeId={uuid.v4()} label={brand.name}>
-        {brand.lookbooks.map(lookbook => (
-          <Link
-            key={lookbook.id}
-            style={{ color: 'black' }}
-            to={`/${brand.url_param}/${lookbook.season}`}
-          >
-            <StyledTreeItem
-              key={lookbook.id}
-              nodeId={uuid.v4()}
-              label={lookbook.season}
-            />
-          </Link>
-        ))}
-      </StyledTreeItem>
+      <div key={brand.id}>
+        <ThemeProvider theme={theme}>
+          <StyledTreeItem nodeId={uuid.v4()} label={brand.name}>
+            {brand.lookbooks.map(lookbook => (
+              <Link
+                key={lookbook.id}
+                style={{ color: 'black' }}
+                to={`/${brand.url_param}/${lookbook.season}`}
+              >
+                <StyledTreeItem nodeId={uuid.v4()} label={lookbook.season} />
+              </Link>
+            ))}
+          </StyledTreeItem>
+        </ThemeProvider>
+      </div>
     );
   });
 

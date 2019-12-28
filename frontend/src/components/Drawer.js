@@ -27,16 +27,17 @@ function ResponsiveDrawer(props) {
       <AppBar position="fixed" color="inherit">
         <Toolbar variant="dense">
           <IconButton
-            style={{ color: 'lightblue' }}
+            style={{ color: 'black' }}
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
           >
             <MenuIcon />
           </IconButton>
-          Archivum
+          <div className="center-title">Archivum</div>
         </Toolbar>
       </AppBar>
+
       <nav>
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">

@@ -3,18 +3,17 @@
   padding: 0px;
 }
 
-h2 {
-  font-family: 'Marck Script', cursive;
-}
-
 .image-padding {
-  padding: 20%;
+  margin-top: 20%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .treeview-padding {
-  padding-top: 5%;
+  padding-top: 10px;
 }
 
-.IconButton {
-  color: red;
+.center-title {
+  font-size: large;
+  margin-left: auto;
 }
