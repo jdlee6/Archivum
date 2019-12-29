@@ -8,22 +8,25 @@
         * figure out how to order by the child model's attribute
     - implement backend testing with pytest
     - fill backend with more data
+    - selenium script to upload data
 
 * frontend *
-    - fix image scaling (Gallery.js)
-      * use an external npm package
+    - customize css for scrollbar
+    - find a better font for menu
+    - find better image effect/lazy load
     - make title centered
     - light & night theme mode switch
-    - need transition animations
     * rename containers --> pages
 
 
 ################
 #CHANGES I MADE#
 ################
-- order the brand names by name 
-- refactor LookbookListView component
-- changed font for treeview menu
+- changed image gallery component
+- custom scroll bar
+- div container for brand and season
+  * need to display the brand name not url_param
+- tweaked css
 
 * in progress *
   - picture detail page
@@ -50,3 +53,6 @@
 - found out how to display photos
 - mui grid list for image gallery & spinner
 - combined navbar + treeview 
+- order the brand names by name 
+- refactor LookbookListView component
+- changed font for treeview menu

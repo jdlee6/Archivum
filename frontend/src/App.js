@@ -7,6 +7,7 @@ import {
 import BaseRouter from './routes';
 import { BrowserRouter as Router } from 'react-router-dom';
 import ResponsiveDrawer from './components/Drawer';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 let theme = createMuiTheme({
   typography: {
@@ -17,13 +18,15 @@ theme = responsiveFontSizes(theme);
 
 function App() {
   return (
-    <Router>
-      <ThemeProvider theme={theme}>
-        <ResponsiveDrawer />
-      </ThemeProvider>
+    <Scrollbars style={{ height: '100vh' }}>
+      <Router>
+        <ThemeProvider theme={theme}>
+          <ResponsiveDrawer />
+        </ThemeProvider>
 
-      <BaseRouter />
-    </Router>
+        <BaseRouter />
+      </Router>
+    </Scrollbars>
   );
 }
 

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { CircularProgress } from '@material-ui/core';
 import axios from 'axios';
-import Gallery from '../components/Gallery';
+import ImageGallery from '../components/ImageGallery';
 
 export default function LookbookListView({ match }) {
   const brand = match.params.brand;
   const season = match.params.season;
   const [lookbook, setLookbook] = useState([]);
+
+  // console.log(match.params);
 
   useEffect(() => {
     axios
@@ -15,7 +17,18 @@ export default function LookbookListView({ match }) {
   }, [brand, season]);
 
   if (!(lookbook.length === 0)) {
-    return <Gallery lookbook={lookbook} />;
+    return (
+      <div>
+        <div className="section-container">
+          <div className="brand-season-header">
+            {brand} {season}
+          </div>
+        </div>
+        <div className="image-padding">
+          <ImageGallery lookbook={lookbook} />
+        </div>
+      </div>
+    );
   } else {
     return <CircularProgress />;
   }

@@ -4,16 +4,55 @@
 }
 
 .image-padding {
-  margin-top: 20%;
+  margin-top: 3vh;
   padding-left: 10%;
-  padding-right: 10%;
+  padding-right: 14%;
 }
 
 .treeview-padding {
   padding-top: 10px;
+  padding-right: 10px;
 }
 
 .center-title {
   font-size: large;
   margin-left: auto;
+}
+
+.brand-season-header {
+  width: max-content;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  padding: 2px 17px;
+  border: 1px solid;
+  color: #000;
+  font-family: 'Cardo';
+}
+
+.section-container {
+  padding-top: 9vh;
+  margin-left: 5%;
+}
+
+/* img:hover {
+  -moz-box-shadow: 0 0 15px #ccc;
+  -webkit-box-shadow: 0 0 15px #ccc;
+  box-shadow: 0 0 15px #ccc;
+  opacity: 1;
+} */
+
+img {
+  opacity: 0.8;
+  -webkit-transition: opacity 0.8s ease-in;
+  -moz-transition: opacity 0.8s ease-in;
+  -ms-transition: opacity 0.8s ease-in;
+  -o-transition: opacity 0.8s ease-in;
+  transition: opacity 0.8s ease-in;
+}
+
+img:hover {
+  opacity: 1;
 }
