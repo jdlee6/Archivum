@@ -17,9 +17,9 @@ class Brand(models.Model):
 
 class Lookbook(models.Model):
     season = models.CharField(max_length=120)
-    year = models.DateField()
-    brand = models.ForeignKey(
-        Brand, related_name='lookbooks', on_delete=models.CASCADE)
+    # null parameter so postman can mass upload
+    brand = models.ForeignKey(Brand, related_name='lookbooks', on_delete=models.CASCADE, null=True)
+    year = models.DateField(null=True)
 
     def save(self, *args, **kwargs):
         self.season = self.season.lower()
@@ -32,10 +32,10 @@ class Lookbook(models.Model):
 class Picture(models.Model):
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid1, editable=False, unique=True)
     uploaded_at = models.DateTimeField(auto_now=True)
-    src = models.FileField(upload_to="images/")
+    src = models.FileField(upload_to="images/", blank=True)
     lookbook = models.ForeignKey(Lookbook, related_name='pictures', on_delete=models.CASCADE)
-    width = models.IntegerField(default=1)
-    height = models.IntegerField(default=1)
+    width = models.IntegerField(default=4)
+    height = models.IntegerField(default=3)
 
     def __str__(self):
         return f'{self.src} from {self.lookbook}'

@@ -12,3 +12,4 @@ backend/media
 frontend/package-lock.json
 frontend/yarn.lock
 notes
+.vscode/

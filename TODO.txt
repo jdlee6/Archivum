@@ -4,33 +4,30 @@
 - create a readme
 
 * backend *
-    - order the lookbooks by date 
-        * figure out how to order by the child model's attribute
     - implement backend testing with pytest
-    - fill backend with more data
-    - selenium script to upload data
 
 * frontend *
-    - customize css for scrollbar
-    - find a better font for menu
     - find better image effect/lazy load
+    - find a better font for menu
     - make title centered
     - light & night theme mode switch
     * rename containers --> pages
-
+    - customize css for scrollbar
+    - need to make scrollbar for drawer?
 
 ################
 #CHANGES I MADE#
 ################
-- changed image gallery component
-- custom scroll bar
-- div container for brand and season
-  * need to display the brand name not url_param
-- tweaked css
+- order the lookbooks by date 
+    * used SerializerMethodField()
+- upload multiple photos at once in django admin
+    * using postman 
+        - how do i upload within the same field
 
 * in progress *
   - picture detail page
-
+  [brand-container]
+    * need to display the brand name not url_param
 
 #################
 ####COMPLETED####
@@ -56,3 +53,7 @@
 - order the brand names by name 
 - refactor LookbookListView component
 - changed font for treeview menu
+- changed image gallery component
+- custom scroll bar
+- div container for brand and season
+- tweaked css
