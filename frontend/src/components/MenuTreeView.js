@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import { fade, makeStyles, withStyles } from '@material-ui/core/styles';
@@ -14,6 +14,7 @@ import {
   createMuiTheme,
   responsiveFontSizes
 } from '@material-ui/core/styles';
+import { LightContext } from '../contexts/LightContext';
 
 let theme = createMuiTheme({
   typography: {
@@ -96,14 +97,13 @@ const useStyles = makeStyles({
 export default function MenuTreeView() {
   const classes = useStyles();
   const [brands, setBrands] = useState([]);
+  const { themeMode, handleThemeToggle } = useContext(LightContext);
 
   useEffect(() => {
     axios
       .get(`http://localhost:8000/api/brands/`)
       .then(res => setBrands(res.data));
   }, []);
-
-  console.log(brands);
 
   const brandTree = brands.map(brand => {
     return (
@@ -113,10 +113,19 @@ export default function MenuTreeView() {
             {brand.lookbooks.map(lookbook => (
               <Link
                 key={lookbook.id}
-                style={{ color: 'black' }}
+                style={{
+                  color: themeMode.text,
+                  textDecoration: 'none'
+                }}
                 to={`/${brand.url_param}/${lookbook.season}`}
+                onClick={() =>
+                  (window.location.href = `/${brand.url_param}/${lookbook.season}`)
+                }
               >
-                <StyledTreeItem nodeId={uuid.v4()} label={lookbook.season} />
+                <StyledTreeItem
+                  nodeId={uuid.v4()}
+                  label={lookbook.season.toUpperCase()}
+                />
               </Link>
             ))}
           </StyledTreeItem>
@@ -136,6 +145,9 @@ export default function MenuTreeView() {
       >
         {brandTree}
       </TreeView>
+      <br />
+      <br />
+      <button onClick={handleThemeToggle}>Toggle Theme</button>
     </div>
   );
 }

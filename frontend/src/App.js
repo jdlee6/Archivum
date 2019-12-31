@@ -6,8 +6,9 @@ import {
 } from '@material-ui/core/styles';
 import BaseRouter from './routes';
 import { BrowserRouter as Router } from 'react-router-dom';
-import ResponsiveDrawer from './components/Drawer';
-import { Scrollbars } from 'react-custom-scrollbars';
+import ResponsiveDrawer from './components/ResponsiveDrawer';
+import ModalContextProvider from './contexts/ModalContext';
+import LightContextProvider from './contexts/LightContext';
 
 let theme = createMuiTheme({
   typography: {
@@ -18,15 +19,17 @@ theme = responsiveFontSizes(theme);
 
 function App() {
   return (
-    <Scrollbars style={{ height: '100vh' }}>
-      <Router>
-        <ThemeProvider theme={theme}>
-          <ResponsiveDrawer />
-        </ThemeProvider>
-
-        <BaseRouter />
-      </Router>
-    </Scrollbars>
+    <Router>
+      <LightContextProvider>
+        <ModalContextProvider>
+          {/* this is for responsive font */}
+          <ThemeProvider theme={theme}>
+            <ResponsiveDrawer />
+          </ThemeProvider>
+          <BaseRouter />
+        </ModalContextProvider>
+      </LightContextProvider>
+    </Router>
   );
 }
 

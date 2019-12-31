@@ -4,7 +4,7 @@
 }
 
 .image-padding {
-  margin-top: 3vh;
+  margin-top: 4vh;
   /* padding-left: 10%; */
   /* padding-right: 14%; */
 }
@@ -14,12 +14,14 @@
   padding-right: 10px;
 }
 
-.center-title {
+.title {
   font-size: large;
   margin-left: auto;
 }
 
 .brand-season-header {
+  align-content: center;
+  margin-top: 1em;
   width: max-content;
   justify-content: center;
   text-transform: uppercase;
@@ -30,6 +32,7 @@
   border: 1px solid;
   color: #000;
   font-family: 'Cardo';
+  text-align: center;
 }
 
 .section-container {
@@ -38,14 +41,11 @@
 }
 
 /* img:hover {
-  -moz-box-shadow: 0 0 15px #ccc;
-  -webkit-box-shadow: 0 0 15px #ccc;
-  box-shadow: 0 0 15px #ccc;
   opacity: 1;
 } */
 
 img {
-  opacity: 0.8;
+  opacity: 0.9;
   -webkit-transition: opacity 0.8s ease-in;
   -moz-transition: opacity 0.8s ease-in;
   -ms-transition: opacity 0.8s ease-in;
@@ -55,4 +55,12 @@ img {
 
 img:hover {
   opacity: 1;
+}
+
+.loading-msg {
+  text-align: center;
+}
+
+.gallery-modal {
+  z-index: 999;
 }

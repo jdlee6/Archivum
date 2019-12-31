@@ -1,6 +1,6 @@
 import { Route } from 'react-router-dom';
 import React from 'react';
-import LookbookListView from './containers/LookbookListView';
+import LookbookListView from './components/pages/LookbookListView';
 
 export default function BaseRouter() {
   return (

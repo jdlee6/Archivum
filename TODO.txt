@@ -2,32 +2,38 @@
 ######TODO######
 ################
 - create a readme
+- users & profiles extension
 
 * backend *
     - implement backend testing with pytest
 
 * frontend *
-    - find better image effect/lazy load
-    - find a better font for menu
+    * scroll to top button
+    - material ui switch for theme toggle
+      - need better placement
+    - need better font for treeviewmenu
     - make title centered
-    - light & night theme mode switch
-    * rename containers --> pages
+    - create url for modal
+    - need to make scrollbar for drawer
+
+  * fix *
+    - scrollbar bug
     - customize css for scrollbar
-    - need to make scrollbar for drawer?
+    - fix desktop modal view
+
+  * extra *
+    - individual image effect when loading in
 
 ################
 #CHANGES I MADE#
 ################
-- order the lookbooks by date 
-    * used SerializerMethodField()
-- upload multiple photos at once in django admin
-    * using postman 
-        - how do i upload within the same field
+- implemented lazy load
+- force refresh when clicking on menu tree link
+- hide app bar when modal is clicked
+- light & dark theme mode context
+- display the brand name not url_param
+- duplicate key css styling fixed with Radium
 
-* in progress *
-  - picture detail page
-  [brand-container]
-    * need to display the brand name not url_param
 
 #################
 ####COMPLETED####
@@ -57,3 +63,7 @@
 - custom scroll bar
 - div container for brand and season
 - tweaked css
+- order the lookbooks by date 
+    * used SerializerMethodField()
+- upload multiple photos at once in django admin
+    * using postman 
