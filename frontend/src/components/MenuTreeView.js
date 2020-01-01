@@ -1,20 +1,20 @@
 import React, { useState, useEffect, useContext } from 'react';
-import PropTypes from 'prop-types';
+import { LightContext } from '../contexts/LightContext';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import { fade, makeStyles, withStyles } from '@material-ui/core/styles';
 import TreeView from '@material-ui/lab/TreeView';
 import TreeItem from '@material-ui/lab/TreeItem';
 import Collapse from '@material-ui/core/Collapse';
-import { useSpring, animated } from 'react-spring/web.cjs'; // web.cjs is required for IE 11 support
-import axios from 'axios';
-import uuid from 'uuid';
-import { Link } from 'react-router-dom';
 import {
   ThemeProvider,
   createMuiTheme,
   responsiveFontSizes
 } from '@material-ui/core/styles';
-import { LightContext } from '../contexts/LightContext';
+import { useSpring, animated } from 'react-spring/web.cjs'; // web.cjs is required for IE 11 support
+import axios from 'axios';
+import uuid from 'uuid';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 let theme = createMuiTheme({
   typography: {
@@ -88,16 +88,16 @@ const StyledTreeItem = withStyles(theme => ({
 
 const useStyles = makeStyles({
   root: {
-    height: 150,
+    height: 216,
     flexGrow: 1,
-    maxWidth: 200
+    maxWidth: 400
   }
 });
 
 export default function MenuTreeView() {
   const classes = useStyles();
   const [brands, setBrands] = useState([]);
-  const { themeMode, handleThemeToggle } = useContext(LightContext);
+  const { themeMode } = useContext(LightContext);
 
   useEffect(() => {
     axios
@@ -138,16 +138,12 @@ export default function MenuTreeView() {
     <div className="treeview-padding">
       <TreeView
         className={classes.root}
-        defaultExpanded={['1']}
         defaultCollapseIcon={<MinusSquare />}
         defaultExpandIcon={<PlusSquare />}
         defaultEndIcon={<CloseSquare />}
       >
         {brandTree}
       </TreeView>
-      <br />
-      <br />
-      <button onClick={handleThemeToggle}>Toggle Theme</button>
     </div>
   );
 }

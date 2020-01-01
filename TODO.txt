@@ -8,31 +8,31 @@
     - implement backend testing with pytest
 
 * frontend *
-    * scroll to top button
-    - material ui switch for theme toggle
-      - need better placement
+    - create url for carousel is opened
+    - need to make scrollbar for drawer
     - need better font for treeviewmenu
     - make title centered
-    - create url for modal
-    - need to make scrollbar for drawer
+    - plan out how to incorporate home page
 
   * fix *
-    - scrollbar bug
-    - customize css for scrollbar
-    - fix desktop modal view
-
+    - drawer width
+    
   * extra *
     - individual image effect when loading in
+
 
 ################
 #CHANGES I MADE#
 ################
-- implemented lazy load
-- force refresh when clicking on menu tree link
-- hide app bar when modal is clicked
-- light & dark theme mode context
-- display the brand name not url_param
-- duplicate key css styling fixed with Radium
+- dynamically themed (w/ hover) scroll to top button 
+- persist light/dark mode changes in localStorage
+- mui switch for theme toggle
+- customized switch color
+- icons for light/dark mode
+- tweaked drawer width
+- fixed desktop modal view
+
+* in progress *
 
 
 #################
@@ -62,8 +62,13 @@
 - changed image gallery component
 - custom scroll bar
 - div container for brand and season
-- tweaked css
 - order the lookbooks by date 
     * used SerializerMethodField()
 - upload multiple photos at once in django admin
     * using postman 
+- implemented lazy load
+- force refresh when clicking on menu tree link
+- hide app bar when modal is clicked
+- light & dark theme mode context
+- display the brand name not url_param
+- duplicate key css styling fixed with Radium

@@ -14,7 +14,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { useTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 
-var drawerStyles = {
+const drawerStyles = {
   light: {
     background: ['linear-gradient(to bottom, #f0f0f1, #e2e2e3)', '#f0f0f1']
   },
@@ -25,10 +25,12 @@ var drawerStyles = {
 
 const useStyles = makeStyles({
   paperDark: {
+    width: '40%',
     background: drawerStyles.dark.background,
     color: 'white'
   },
   paperLight: {
+    width: '40%',
     background: drawerStyles.light.background,
     color: 'black'
   }
@@ -78,7 +80,6 @@ function ResponsiveDrawer(props) {
           </Toolbar>
         </AppBar>
       ) : null}
-
       <nav>
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">

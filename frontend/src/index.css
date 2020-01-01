@@ -5,13 +5,10 @@
 
 .image-padding {
   margin-top: 4vh;
-  /* padding-left: 10%; */
-  /* padding-right: 14%; */
 }
 
 .treeview-padding {
   padding-top: 10px;
-  padding-right: 10px;
 }
 
 .title {
@@ -21,11 +18,10 @@
 
 .brand-season-header {
   align-content: center;
-  margin-top: 1em;
   width: max-content;
   justify-content: center;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 1.5px;
   padding: 2px 17px;
@@ -63,4 +59,17 @@ img:hover {
 
 .gallery-modal {
   z-index: 999;
+}
+
+.switch-container {
+  position: absolute;
+  right: 12px;
+  margin-top: -4vh;
+  margin-right: 2%;
+}
+
+.switch-icons {
+  /* position: absolute; */
+  margin-top: -20px;
+  margin-left: 40px;
 }

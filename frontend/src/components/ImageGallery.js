@@ -3,6 +3,7 @@ import Gallery from 'react-photo-gallery';
 import Carousel, { Modal, ModalGateway } from 'react-images';
 import { debounce } from '../utils';
 import { ModalContext } from '../contexts/ModalContext';
+import BackToTop from './BackToTop';
 
 export default function ImageGallery(props) {
   const [currentImage, setCurrentImage] = useState(0);
@@ -81,14 +82,11 @@ export default function ImageGallery(props) {
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal
+            allowFullScreen={false}
             styles={{
               blanket: base => ({
                 ...base,
-                backgroundColor: 'rgba(0,0,0,0.85)'
-              }),
-              dialog: base => ({
-                ...base,
-                maxWidth: 800
+                backgroundColor: 'rgba(0,0,0,0.9)'
               })
             }}
             onClose={closeLightbox}
@@ -98,14 +96,8 @@ export default function ImageGallery(props) {
               styles={{
                 view: base => ({
                   ...base,
-                  display: 'wrap',
-                  height: 'calc(100vh-20px)',
-                  paddingBottom: '5%'
-                }),
-                header: base => ({
-                  ...base,
-                  background: 'none !important',
-                  position: 'static'
+                  height: 'auto',
+                  width: 'auto'
                 }),
                 headerClose: base => ({
                   ...base,
@@ -124,6 +116,7 @@ export default function ImageGallery(props) {
         ) : null}
       </ModalGateway>
       ;
+      <BackToTop />
     </div>
   );
 }

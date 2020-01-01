@@ -1,11 +1,11 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import Radium from 'radium';
 
 export const LightContext = createContext();
 
 function LightContextProvider(props) {
   // true = light; false = dark
-  const [themeBool, setThemeBool] = useState(true);
+  const [themeBool, setThemeBool] = useState(false);
   const [theme] = useState({
     light: {
       background: styles.light.background,
@@ -21,12 +21,23 @@ function LightContextProvider(props) {
     }
   });
 
-  const themeMode = themeBool ? theme.light : theme.dark;
-
   const handleThemeToggle = e => {
     e.preventDefault();
-    setThemeBool(!themeBool);
+    if (themeBool === true) {
+      setThemeBool(false);
+      window.localStorage.setItem('theme', 'false');
+    } else {
+      setThemeBool(true);
+      window.localStorage.setItem('theme', 'true');
+    }
   };
+
+  useEffect(() => {
+    const isLight = localStorage.getItem('theme') === 'true';
+    setThemeBool(isLight);
+  }, [themeBool]);
+
+  const themeMode = themeBool ? theme.light : theme.dark;
 
   return (
     <LightContext.Provider value={{ themeMode, themeBool, handleThemeToggle }}>
