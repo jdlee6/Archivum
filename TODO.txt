@@ -8,13 +8,14 @@
     - implement backend testing with pytest
 
 * frontend *
-    - create url for carousel is opened
     - need to make scrollbar for drawer
     - need better font for treeviewmenu
     - make title centered
     - plan out how to incorporate home page
+      * react slick
 
   * fix *
+    - clean up picturedetailview/imagemodal & lookbooklistview/imagegallery
     - drawer width
     
   * extra *
@@ -24,16 +25,12 @@
 ################
 #CHANGES I MADE#
 ################
-- dynamically themed (w/ hover) scroll to top button 
-- persist light/dark mode changes in localStorage
-- mui switch for theme toggle
-- customized switch color
-- icons for light/dark mode
-- tweaked drawer width
-- fixed desktop modal view
+- started home page & created link to redirect to home
+- create url for carousel is opened 
+- created picture detail view -> renders the image modal component
 
 * in progress *
-
+  * fix the indexing of url paths for modal
 
 #################
 ####COMPLETED####
@@ -72,3 +69,10 @@
 - light & dark theme mode context
 - display the brand name not url_param
 - duplicate key css styling fixed with Radium
+- dynamically themed (w/ hover) scroll to top button 
+- persist light/dark mode changes in localStorage
+- mui switch for theme toggle
+- customized switch color
+- icons for light/dark mode
+- tweaked drawer width
+- fixed desktop modal view

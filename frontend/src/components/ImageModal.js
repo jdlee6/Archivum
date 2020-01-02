@@ -1,35 +1,32 @@
-import React, { useState, useCallback, useEffect, useContext } from 'react';
-import Gallery from 'react-photo-gallery';
+import React, { useState, useContext, useCallback, useEffect } from 'react';
 import Carousel, { Modal, ModalGateway } from 'react-images';
-import { debounce } from '../utils';
 import { ModalContext } from '../contexts/ModalContext';
-import BackToTop from './BackToTop';
+import history from '../history';
+import Gallery from 'react-photo-gallery';
+import { debounce } from '../utils';
 
-export default function ImageGallery(props) {
-  const [currentImage, setCurrentImage] = useState(0);
-  const [viewerIsOpen, setViewerIsOpen] = useState(false);
+export default function ImageModal(props) {
+  const { handleViewChange, index, lookbook, season, brand } = props;
+  const [viewerIsOpen, setViewerIsOpen] = useState(true);
   const { modalToggle, setModalToggle } = useContext(ModalContext);
-  const [images, setImages] = useState(props.lookbook.pictures.slice(0, 6));
+  const [images, setImages] = useState(lookbook.pictures.slice(0, 6));
   const [pageNum, setPageNum] = useState(1);
   const [loadedAll, setLoadedAll] = useState(false);
   const TOTAL_PAGES = 3;
-  const { history } = props;
 
   const openLightbox = useCallback(
     (event, { photo, index }) => {
-      setCurrentImage(index);
       setViewerIsOpen(true);
       setModalToggle(!modalToggle);
     },
     [modalToggle, setModalToggle]
   );
-
+  // on close should bring back to lookbook page
   const closeLightbox = () => {
-    setCurrentImage(0);
     setViewerIsOpen(false);
     setModalToggle(!modalToggle);
-    // when exit out of modal - reset url
-    history.push('/' + props.brand + '/' + props.season);
+    history.push('/' + brand + '/' + season);
+    // window.location.reload();
   };
 
   const columns = containerWidth => {
@@ -68,13 +65,6 @@ export default function ImageGallery(props) {
     }
   };
 
-  // link for specific picture
-  const handleViewChange = index => {
-    const newPath =
-      '/' + props.brand + '/' + props.season + '/' + index.toString();
-    history.push(newPath);
-  };
-
   return (
     <div>
       <Gallery
@@ -101,7 +91,6 @@ export default function ImageGallery(props) {
             onClose={closeLightbox}
           >
             <Carousel
-              frameProps={{ autoSize: 'height' }}
               trackProps={{
                 onViewChange: handleViewChange
               }}
@@ -117,18 +106,15 @@ export default function ImageGallery(props) {
                   ':hover': { color: '#DE350B' }
                 })
               }}
-              currentIndex={currentImage}
-              views={props.lookbook.pictures.map(x => ({
+              currentIndex={index}
+              views={lookbook.pictures.map(x => ({
                 ...x,
-                srcset: x.src,
-                caption: ''
+                srcset: x.src
               }))}
             />
           </Modal>
         ) : null}
       </ModalGateway>
-      ;
-      <BackToTop />
     </div>
   );
 }

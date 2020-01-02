@@ -22,7 +22,6 @@ function App() {
     <Router>
       <LightContextProvider>
         <ModalContextProvider>
-          {/* this is for responsive font */}
           <ThemeProvider theme={theme}>
             <ResponsiveDrawer />
           </ThemeProvider>

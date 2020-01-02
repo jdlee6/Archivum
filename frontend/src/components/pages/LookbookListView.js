@@ -5,11 +5,11 @@ import { LightContext } from '../../contexts/LightContext';
 import Switch from '@material-ui/core/Switch';
 import { withStyles } from '@material-ui/core/styles';
 import { CircularProgress } from '@material-ui/core';
-
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import history from '../../history';
 
-const GreySwitch = withStyles({
+export const GreySwitch = withStyles({
   switchBase: {
     color: 'white',
     '&$checked': {
@@ -44,7 +44,7 @@ export default function LookbookListView({ match }) {
       .then(res => setBrandName(res.data.name));
   }, [brand]);
 
-  if (!(lookbook.length === 0)) {
+  if (lookbook.length !== 0) {
     return (
       <div>
         <div className="section-container">
@@ -72,7 +72,13 @@ export default function LookbookListView({ match }) {
           </div>
         </div>
         <div className="image-padding">
-          <ImageGallery lookbook={lookbook} />
+          <ImageGallery
+            lookbook={lookbook}
+            history={history}
+            season={season}
+            brand={brand}
+            match={match}
+          />
         </div>
       </div>
     );

@@ -13,6 +13,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import { useTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 const drawerStyles = {
   light: {
@@ -74,8 +75,13 @@ function ResponsiveDrawer(props) {
             >
               <MenuIcon />
             </IconButton>
-            <div className="title" style={{ color: themeMode.text }}>
-              Archivum
+            <div className="title">
+              <Link
+                to="/"
+                style={{ color: themeMode.text, textDecoration: 'none' }}
+              >
+                Archivum
+              </Link>
             </div>
           </Toolbar>
         </AppBar>
