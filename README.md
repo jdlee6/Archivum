@@ -1,28 +1,26 @@
-<h1 align="center">Archivum</h1>
+<h1 align="center">Welcome to Archivum:wave:</h1>
 <p>
 </p>
 
-> A minimalist web application that displays a collection of lookbooks from various brands built with Django & React.js
+> Archivum is a minimalist web application that displays a collection of lookbooks from various brands built with Django & React.js
 
-## Demo
+## :sparkles: Demo
 
-```
 https://youtu.be/oCsnpDc2Wnc
-```
 
 <img src="https://i.imgur.com/MR6V4hG.jpg" width="350">
 
-## Frontend
+### Frontend
 
 - React v16
 - React Router v5
 
-## Backend
+### Backend
 
 - Django v3.01
 - Django-rest-framework v3.11
 
-## API endpoints
+### API endpoints
 
 ```
 List of available API at /api
@@ -33,13 +31,13 @@ List of available API at /api
 * /api/brands/{brandname}/lookbooks/{season}/{uuid}
 ```
 
-## Database & Utilities
+### Database & Utilities
 
 - PostgreSQL
 - AWS S3
 - AWS Cloudfront
 
-## Installation
+## :gear: Installation
 
 Make sure the following are installed
 
@@ -104,6 +102,8 @@ source env/bin/activate
 #### 2. Run the server and you can now access the api endpoint via http://localhost:8000/api/
 
 ```
+python manage.py makemigrations
+python manage.py migrate
 python manage.py runserver
 ```
 
