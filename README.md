@@ -41,8 +41,6 @@ List of available API at /api
 
 ## Installation
 
----
-
 Make sure the following are installed
 
 - Python 3
@@ -96,8 +94,6 @@ npm install
 
 ## Running Backend on Local Server
 
----
-
 #### 1. Activate virtual environment
 
 ```
@@ -113,8 +109,6 @@ python manage.py runserver
 
 ## Running Frontend on Local Server
 
----
-
 #### 1. Start development server
 
 ```
@@ -123,8 +117,6 @@ npm start
 ```
 
 ## Future Developments
-
----
 
 - Archivum is still a work in progress. Please take a look at the TODO.txt to stay updated.
 
