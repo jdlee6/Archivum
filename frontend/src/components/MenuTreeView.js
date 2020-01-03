@@ -101,7 +101,7 @@ export default function MenuTreeView() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/brands/`)
+      .get(`http://192.168.1.18:8000/api/brands/`)
       .then(res => setBrands(res.data));
   }, []);
 

@@ -4,6 +4,16 @@ import Carousel, { Modal, ModalGateway } from 'react-images';
 import { debounce } from '../utils';
 import { ModalContext } from '../contexts/ModalContext';
 import BackToTop from './BackToTop';
+import { CircularProgress } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+export const styles = makeStyles({
+  bottom: {
+    color: '#b8caff',
+    animationDuration: '550ms',
+    marginTop: '10px'
+  }
+});
 
 export default function ImageGallery(props) {
   const [currentImage, setCurrentImage] = useState(0);
@@ -14,6 +24,7 @@ export default function ImageGallery(props) {
   const [loadedAll, setLoadedAll] = useState(false);
   const TOTAL_PAGES = 3;
   const { history } = props;
+  const classes = styles();
 
   const openLightbox = useCallback(
     (event, { photo, index }) => {
@@ -85,7 +96,12 @@ export default function ImageGallery(props) {
       />
       {!loadedAll && (
         <div className="loading-msg" id="msg-loading-more">
-          Loading
+          <CircularProgress
+            disableShrink
+            className={classes.bottom}
+            size={15}
+            thickness={4}
+          />
         </div>
       )}
       <ModalGateway>

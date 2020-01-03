@@ -10,14 +10,13 @@
 * frontend *
     - need to make scrollbar for drawer
     - need better font for treeviewmenu
-    - make title centered
     - plan out how to incorporate home page
-      * react slick
+        - when brand is clicked -> brand page that lists all the brand's lookbooks -> when lookbook is selected -> reroute to tree menu view page
 
   * fix *
-    - clean up picturedetailview/imagemodal & lookbooklistview/imagegallery
     - drawer width
-    
+    * fix the indexing of url paths for modal
+
   * extra *
     - individual image effect when loading in
 
@@ -25,12 +24,15 @@
 ################
 #CHANGES I MADE#
 ################
-- started home page & created link to redirect to home
-- create url for carousel is opened 
-- created picture detail view -> renders the image modal component
+- background color w/ helmet
+- centered title
+- styled loading icon 
+- placeholder css for homepage brand selection
+- learned how to connect to localhost from phone 
 
 * in progress *
-  * fix the indexing of url paths for modal
+  * lookbooks list view
+
 
 #################
 ####COMPLETED####
@@ -76,3 +78,6 @@
 - icons for light/dark mode
 - tweaked drawer width
 - fixed desktop modal view
+- started home page & created link to redirect to home
+- create url for carousel is opened 
+- created picture detail view -> renders the image modal component

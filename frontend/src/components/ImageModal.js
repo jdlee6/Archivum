@@ -4,18 +4,23 @@ import { ModalContext } from '../contexts/ModalContext';
 import history from '../history';
 import Gallery from 'react-photo-gallery';
 import { debounce } from '../utils';
+import { CircularProgress } from '@material-ui/core';
+import { styles } from './ImageGallery';
 
 export default function ImageModal(props) {
   const { handleViewChange, index, lookbook, season, brand } = props;
+  const [currentImage, setCurrentImage] = useState(index);
   const [viewerIsOpen, setViewerIsOpen] = useState(true);
   const { modalToggle, setModalToggle } = useContext(ModalContext);
   const [images, setImages] = useState(lookbook.pictures.slice(0, 6));
   const [pageNum, setPageNum] = useState(1);
   const [loadedAll, setLoadedAll] = useState(false);
   const TOTAL_PAGES = 3;
+  const classes = styles();
 
   const openLightbox = useCallback(
     (event, { photo, index }) => {
+      setCurrentImage(index);
       setViewerIsOpen(true);
       setModalToggle(!modalToggle);
     },
@@ -75,7 +80,12 @@ export default function ImageModal(props) {
       />
       {!loadedAll && (
         <div className="loading-msg" id="msg-loading-more">
-          Loading
+          <CircularProgress
+            disableShrink
+            className={classes.bottom}
+            size={15}
+            thickness={4}
+          />
         </div>
       )}
       <ModalGateway>
@@ -106,7 +116,7 @@ export default function ImageModal(props) {
                   ':hover': { color: '#DE350B' }
                 })
               }}
-              currentIndex={index}
+              currentIndex={currentImage}
               views={lookbook.pictures.map(x => ({
                 ...x,
                 srcset: x.src

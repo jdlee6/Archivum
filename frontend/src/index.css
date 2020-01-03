@@ -3,6 +3,15 @@
   padding: 0px;
 }
 
+body {
+  color: black;
+}
+
+a:hover {
+  opacity: 1;
+  filter: drop-shadow(0.1rem 0.1rem 0.2rem rgb(211, 211, 211));
+}
+
 .image-padding {
   margin-top: 4vh;
 }
@@ -13,7 +22,28 @@
 
 .title {
   font-size: large;
-  margin-left: auto;
+  position: fixed;
+  left: 50%;
+  top: 3.9%;
+  transform: translate(-50%, -50%);
+}
+
+.slick-container {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  padding: 40px;
+  border: 3px dotted;
+  color: #000;
+  font-family: 'Cardo';
+}
+
+.slick-pad {
+  margin-top: 25vh;
+  padding-right: 9%;
+  padding-left: 5%;
 }
 
 .brand-season-header {
@@ -41,12 +71,24 @@
 } */
 
 img {
-  opacity: 0.9;
-  -webkit-transition: opacity 0.8s ease-in;
-  -moz-transition: opacity 0.8s ease-in;
-  -ms-transition: opacity 0.8s ease-in;
-  -o-transition: opacity 0.8s ease-in;
-  transition: opacity 0.8s ease-in;
+  margin-top: 25px;
+  font-size: 21px;
+  text-align: center;
+
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s; /* Firefox < 16 */
+  -ms-animation: fadein 2s; /* Internet Explorer */
+  -o-animation: fadein 2s; /* Opera < 12.1 */
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 img:hover {
