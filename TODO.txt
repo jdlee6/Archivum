@@ -16,6 +16,7 @@
   * fix *
     - drawer width
     * fix the indexing of url paths for modal
+    - fix mobile scroll to top 
 
   * extra *
     - individual image effect when loading in
@@ -24,11 +25,9 @@
 ################
 #CHANGES I MADE#
 ################
-- background color w/ helmet
-- centered title
-- styled loading icon 
-- placeholder css for homepage brand selection
-- learned how to connect to localhost from phone 
+- dynamic background based on theme mode
+- dynamic headers based on theme mode
+- fixed switch icon colors
 
 * in progress *
   * lookbooks list view
@@ -81,3 +80,8 @@
 - started home page & created link to redirect to home
 - create url for carousel is opened 
 - created picture detail view -> renders the image modal component
+- background color w/ helmet
+- centered title
+- styled loading icon 
+- placeholder css for homepage brand selection
+- learned how to connect to localhost from phone 

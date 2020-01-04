@@ -11,7 +11,6 @@ export default function Home() {
   const { themeBool, handleThemeToggle } = useContext(LightContext);
 
   const settings = {
-    dots: true,
     fade: true,
     infinite: true,
     speed: 800,
@@ -29,7 +28,10 @@ export default function Home() {
       .then(res => setBrands(res.data));
   }, []);
 
-  // console.log(brands);
+  // redirect user to lookpage when div is clicked
+  const handleClick = e => {
+    console.log(`redirect..`);
+  };
 
   return (
     <div className="section-container">
@@ -39,22 +41,27 @@ export default function Home() {
           color="primary"
           checked={themeBool}
           onChange={handleThemeToggle}
-          value="checkedA"
           size="small"
           inputProps={{ 'aria-label': 'inherit checkbox' }}
         />
         <div className="switch-icons">
           {themeBool ? (
-            <FontAwesomeIcon icon={faSun} color="#dea24e" />
+            <FontAwesomeIcon icon={faSun} color="#ffdf32" />
           ) : (
-            <FontAwesomeIcon icon={faMoon} color="black" />
+            <FontAwesomeIcon icon={faMoon} color="white" />
           )}
         </div>
       </div>
       <div className="slick-pad">
         <Slider {...settings}>
           {brands.map(brand => (
-            <div key={brand.id} className="slick-container">
+            <div
+              key={brand.id}
+              className={
+                themeBool ? 'slick-container-light' : 'slick-container-dark'
+              }
+              onClick={handleClick}
+            >
               <h3>{brand.name}</h3>
             </div>
           ))}

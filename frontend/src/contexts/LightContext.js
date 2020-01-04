@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
+import { Helmet } from 'react-helmet';
 import Radium from 'radium';
 
 export const LightContext = createContext();
@@ -40,9 +41,20 @@ function LightContextProvider(props) {
   const themeMode = themeBool ? theme.light : theme.dark;
 
   return (
-    <LightContext.Provider value={{ themeMode, themeBool, handleThemeToggle }}>
-      {props.children}
-    </LightContext.Provider>
+    <div>
+      <LightContext.Provider
+        value={{ themeMode, themeBool, handleThemeToggle }}
+      >
+        {props.children}
+      </LightContext.Provider>
+      <Helmet>
+        {themeBool ? (
+          <style>{'body {background-color: #ffffff }'}</style>
+        ) : (
+          <style>{`body {background-color: #404040 }`}</style>
+        )}
+      </Helmet>
+    </div>
   );
 }
 
@@ -51,7 +63,7 @@ var styles = {
     background: ['linear-gradient(to right, #f0f0f1, #e2e2e3)', '#f0f0f1']
   },
   dark: {
-    background: ['linear-gradient(to right, #404040, #313131)', '#404040']
+    background: ['linear-gradient(to right, #313131, #252525)', '#252525']
   }
 };
 

@@ -50,7 +50,13 @@ export default function PicturesListView({ match }) {
     return (
       <div>
         <div className="section-container">
-          <div className="brand-season-header">
+          <div
+            className={
+              themeBool
+                ? 'brand-season-header-light'
+                : 'brand-season-header-dark'
+            }
+          >
             {brandName}
             <br />
             {season}
@@ -66,9 +72,9 @@ export default function PicturesListView({ match }) {
             />
             <div className="switch-icons">
               {themeBool ? (
-                <FontAwesomeIcon icon={faSun} color="#EFD367" />
+                <FontAwesomeIcon icon={faSun} color="#ffdf32" />
               ) : (
-                <FontAwesomeIcon icon={faMoon} color="black" />
+                <FontAwesomeIcon icon={faMoon} color="white" />
               )}
             </div>
           </div>

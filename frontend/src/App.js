@@ -31,15 +31,8 @@ function App() {
           </ModalContextProvider>
         </LightContextProvider>
       </Router>
-      <Helmet>
-        <style>{'body {background-color: #DDDDDD }'}</style>
-      </Helmet>
     </div>
   );
 }
 
 export default App;
-
-// background: #bbd2c5; /* fallback for old browsers */
-
-//

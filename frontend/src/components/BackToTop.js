@@ -43,11 +43,11 @@ function ScrollTop(props) {
 
   const handleClick = event => {
     const anchor = (event.target.ownerDocument || document).querySelector(
-      '.brand-season-header'
+      '.section-container'
     );
 
     if (anchor) {
-      anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      anchor.scrollIntoView({ behavior: 'smooth' });
     }
   };
 

@@ -28,7 +28,7 @@ a:hover {
   transform: translate(-50%, -50%);
 }
 
-.slick-container {
+.slick-container-light {
   text-align: center;
   text-transform: uppercase;
   font-size: 0.75rem;
@@ -40,13 +40,25 @@ a:hover {
   font-family: 'Cardo';
 }
 
+.slick-container-dark {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  padding: 40px;
+  border: 3px dotted;
+  color: rgb(255, 255, 255);
+  font-family: 'Cardo';
+}
+
 .slick-pad {
   margin-top: 25vh;
   padding-right: 9%;
   padding-left: 5%;
 }
 
-.brand-season-header {
+.brand-season-header-light {
   align-content: center;
   width: max-content;
   justify-content: center;
@@ -57,6 +69,21 @@ a:hover {
   padding: 2px 17px;
   border: 1px solid;
   color: #000;
+  font-family: 'Cardo';
+  text-align: center;
+}
+
+.brand-season-header-dark {
+  align-content: center;
+  width: max-content;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  padding: 2px 17px;
+  border: 1px solid;
+  color: rgb(255, 255, 255);
   font-family: 'Cardo';
   text-align: center;
 }
