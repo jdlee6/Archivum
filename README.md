@@ -2,13 +2,12 @@
 <p>
 </p>
 
-> Archivum is a minimalist web application that displays a collection of lookbooks from various brands built with Django & React.js
+> Archivum is a minimalist web application that displays a collection of lookbooks from various clothing brands built with Django & React.js
 
 ## :sparkles: Demo
+https://youtu.be/oJ7nv2pxFWY
 
-https://youtu.be/oCsnpDc2Wnc
-
-<img src="https://i.imgur.com/MR6V4hG.jpg" width="350">
+<img src="https://imgur.com/99LusHb.jpg" width="350">
 
 ### Frontend
 
@@ -49,13 +48,13 @@ Make sure the following are installed
 #### 1. Clone the repository
 
 ```
-git clone https://github.com/jdlee6/Archivum
+git clone https://github.com/jdlee6/Archivum.git
 ```
 
 #### 2. Install the required backend dependencies
 
 ```
-cd archivum/backend
+cd Archivum/backend
 virtualenv env
 source env/bin/activate
 pip install -r requirements.txt
