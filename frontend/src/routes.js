@@ -9,7 +9,7 @@ export default function BaseRouter() {
   return (
     <div>
       <Route exact path="/" component={Home} />
-      <Route exact path="/:brand/" component={LookbookListView} />
+      <Route exact path="/:brand" component={LookbookListView} />
       <Route exact path="/:brand/:season/" component={PicturesListView} />
       <Route exact path="/:brand/:season/:pic" component={PictureDetailView} />
     </div>

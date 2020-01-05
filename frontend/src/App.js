@@ -9,7 +9,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import ResponsiveDrawer from './components/ResponsiveDrawer';
 import ModalContextProvider from './contexts/ModalContext';
 import LightContextProvider from './contexts/LightContext';
-import { Helmet } from 'react-helmet';
 
 let theme = createMuiTheme({
   typography: {

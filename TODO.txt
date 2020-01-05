@@ -1,36 +1,39 @@
 ################
 ######TODO######
 ################
-- create a readme
 - users & profiles extension
 
 * backend *
     - implement backend testing with pytest
+    - upload more data to backend
 
 * frontend *
+    * react router page transitions
+    * component transitions
     - need to make scrollbar for drawer
-    - need better font for treeviewmenu
-    - plan out how to incorporate home page
-        - when brand is clicked -> brand page that lists all the brand's lookbooks -> when lookbook is selected -> reroute to tree menu view page
 
   * fix *
     - drawer width
-    * fix the indexing of url paths for modal
+    - fix the indexing of url paths for modal
     - fix mobile scroll to top 
 
   * extra *
+    * fade transition theme mode switch
     - individual image effect when loading in
 
 
 ################
 #CHANGES I MADE#
 ################
-- dynamic background based on theme mode
-- dynamic headers based on theme mode
-- fixed switch icon colors
+- created a readme
+- redirect link to specific brand page from home page
+- switch button placed on lookbook list view
+- created lookbooks list view
+- redirect selected lookbook to picture list page
+- dynamically styled grid component
+- brand name headers on lookbooklistview
 
 * in progress *
-  * lookbooks list view
 
 
 #################
@@ -85,3 +88,6 @@
 - styled loading icon 
 - placeholder css for homepage brand selection
 - learned how to connect to localhost from phone 
+- dynamic background based on theme mode
+- dynamic headers based on theme mode
+- fixed switch icon colors

@@ -6,6 +6,7 @@ import Gallery from 'react-photo-gallery';
 import { debounce } from '../utils';
 import { CircularProgress } from '@material-ui/core';
 import { styles } from './ImageGallery';
+import BackToTop from './BackToTop';
 
 export default function ImageModal(props) {
   const { handleViewChange, index, lookbook, season, brand } = props;
@@ -125,6 +126,7 @@ export default function ImageModal(props) {
           </Modal>
         ) : null}
       </ModalGateway>
+      <BackToTop />
     </div>
   );
 }

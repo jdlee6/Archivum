@@ -5,10 +5,11 @@ import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import Slider from 'react-slick';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   const [brands, setBrands] = useState([]);
-  const { themeBool, handleThemeToggle } = useContext(LightContext);
+  const { themeMode, themeBool, handleThemeToggle } = useContext(LightContext);
 
   const settings = {
     fade: true,
@@ -27,11 +28,6 @@ export default function Home() {
       .get(`http://192.168.1.18:8000/api/brands/`)
       .then(res => setBrands(res.data));
   }, []);
-
-  // redirect user to lookpage when div is clicked
-  const handleClick = e => {
-    console.log(`redirect..`);
-  };
 
   return (
     <div className="section-container">
@@ -60,9 +56,16 @@ export default function Home() {
               className={
                 themeBool ? 'slick-container-light' : 'slick-container-dark'
               }
-              onClick={handleClick}
             >
-              <h3>{brand.name}</h3>
+              <Link
+                style={{
+                  color: themeMode.text,
+                  textDecoration: 'none'
+                }}
+                to={`/${brand.url_param}`}
+              >
+                {brand.name}
+              </Link>
             </div>
           ))}
         </Slider>
