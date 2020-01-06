@@ -6,20 +6,15 @@ from feed.api.views import LookbookListView, LookbookDetailView, PictureDetailVi
 
 
 class TestViews(TestCase):
-    @classmethod
-    def setUpClass(cls):
-        super(TestViews, cls).setUpClass()
-        cls.brand = mixer.blend('feed.Brand')
-        # establish relationship between lookbook and brand for detail view
-        cls.lookbook = mixer.blend('feed.Lookbook', brand=cls.brand)
-        cls.picture = mixer.blend('feed.Picture')
-        cls.factory = RequestFactory()
+    def setUp(self):
+        self.brand = mixer.blend('feed.Brand')
+        self.lookbook = mixer.blend('feed.Lookbook', brand=self.brand)
+        self.picture = mixer.blend('feed.Picture')
+        self.factory = RequestFactory()
 
     def test_lookbook_list_view(self):
         view = LookbookListView.as_view()
-        # create instance of get request
         request = self.factory.get(view)
-        # test view() as if it was deployed on lookbooklistview
         response = view(request, url_param=self.brand.url_param)
         self.assertEqual(response.status_code, 200)
 
