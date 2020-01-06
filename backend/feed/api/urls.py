@@ -10,7 +10,7 @@ from .views import (
 
 
 urlpatterns = [
-    path('brands/', BrandListView.as_view()),
+    path('brands/', BrandListView.as_view(), name='brands-list'),
     path('brands/<str:url_param>/', BrandDetailView.as_view(), name='brand-detail'),
     path('brands/<str:url_param>/lookbooks/', LookbookListView.as_view(), name='brand-lookbooks-list'),
     path('brands/<str:url_param>/lookbooks/<str:season>/', LookbookDetailView.as_view(), name='brand-lookbooks-detail'),

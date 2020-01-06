@@ -13,3 +13,6 @@ frontend/package-lock.json
 frontend/yarn.lock
 notes
 .vscode/
+backend/htmlcov/
+backend/feed/tests/__pycache__/
+backend/feed/tests/test_feed_serializers.py

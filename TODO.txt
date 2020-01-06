@@ -4,7 +4,6 @@
 - users & profiles extension
 
 * backend *
-    - implement backend testing with pytest
     - upload more data to backend
 
 * frontend *
@@ -25,16 +24,13 @@
 ################
 #CHANGES I MADE#
 ################
-- created a readme
-- redirect link to specific brand page from home page
-- switch button placed on lookbook list view
-- created lookbooks list view
-- redirect selected lookbook to picture list page
-- dynamically styled grid component
-- brand name headers on lookbooklistview
+- test_feed_urls .py
+- test_feed_models.py
+- test_feed_views.py (look at notes)
 
 * in progress *
-
+    - serializers
+    https://github.com/encode/django-rest-framework/blob/master/tests/test_serializer.py
 
 #################
 ####COMPLETED####
@@ -91,3 +87,10 @@
 - dynamic background based on theme mode
 - dynamic headers based on theme mode
 - fixed switch icon colors
+- created a readme
+- redirect link to specific brand page from home page
+- switch button placed on lookbook list view
+- created lookbooks list view
+- redirect selected lookbook to picture list page
+- dynamically styled grid component
+- brand name headers on lookbooklistview

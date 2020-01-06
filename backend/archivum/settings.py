@@ -96,6 +96,9 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
+        'TEST': {
+            'NAME': 'archivum_test'
+        }
     }
 }
 
@@ -147,5 +150,6 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_S3_CUSTOM_DOMAIN = 'd1n7cobwsi8961.cloudfront.net'
 # removes AWS credentials from url
 AWS_QUERYSTRING_AUTH = False
+AWS_DEFAULT_ACL = None
 
 CORS_ORIGIN_ALLOW_ALL = True
