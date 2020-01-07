@@ -4,9 +4,17 @@
 - users & profiles extension
 
 * backend *
+    * class based views for user
+    * write unittests for users app
     - upload more data to backend
 
 * frontend *
+    routes:
+        - /register 
+        - /login 
+        - /profile 
+        -/profile/update 
+
     * react router page transitions
     * component transitions
     - need to make scrollbar for drawer
@@ -24,10 +32,20 @@
 ################
 #CHANGES I MADE#
 ################
-- unit test serializers
+- split api root
+    - api/brands/... 
+    - api/users/...
+- started users app
+    - list
+    - detail
+    - update
+- profile page signal
 
-* in progress *
-    - start users app
+* in progress * 
+    * change viewset -> generic class based views
+    users:
+        - create
+        - delete
 
 
 #################
@@ -95,3 +113,4 @@
 - test_feed_urls .py
 - test_feed_models.py
 - test_feed_views.py (look at notes)
+- test_feed_serializers.py 

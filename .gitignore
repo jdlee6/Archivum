@@ -3,11 +3,10 @@ scripts/
 backend/archivum/__pycache__
 backend/feed/__pycache__
 backend/feed/api/__pycache__
-backend/feed/migrations/__pycache__
+backend/feed/migrations/
 outline
 env/
 frontend/node_modules
-backend/feed/migrations/
 backend/media
 frontend/package-lock.json
 frontend/yarn.lock
@@ -15,3 +14,6 @@ notes
 .vscode/
 backend/htmlcov/
 backend/feed/tests/__pycache__/
+backend/users/migrations/
+backend/users/__pycache__/
+backend/users/api/__pycache__/

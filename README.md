@@ -41,6 +41,9 @@ List of available API at /api/
 * /brands/<brandname>/lookbooks/
 * /brands/<brandname>/lookbooks/<season>/
 * /brands/<brandname>/lookbooks/<season>/<uuid>/
+* /users/
+* /users/<user_id>/
+* /users/<user_id>/update/
 * /upload/
 ```
 
@@ -128,6 +131,15 @@ python manage.py runserver
 cd frontend
 npm start
 ```
+
+## Backend Testing
+
+```
+cd backend
+pytest
+```
+
+* Coverage reports are outputted as html files. If you'd like to view it, launch `Archivum/backend/htmlcov/index.html` in browser.
 
 ## Future Developments
 
