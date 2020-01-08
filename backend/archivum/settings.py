@@ -27,11 +27,7 @@ SECRET_KEY = 'iq@&h&ne1kucs14j7fg&8vrddls67)368o-yojzqtjba0osq%y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.18', '0.0.0.0']
-
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,17 +36,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
+
+    # 3rd party apps
     'rest_framework',
     'rest_framework.authtoken',
-    'rest_auth',
-    'rest_auth.registration',
-    'feed',
-    'users',
+
     'storages',
-    'corsheaders'
+    'corsheaders',
+
+    # Local Apps
+    'feed',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -87,8 +83,12 @@ WSGI_APPLICATION = 'archivum.wsgi.application'
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication'
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
         # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        # 'rest_framework.permissions.IsAuthenticated'
         'rest_framework.permissions.AllowAny'
     ]
 }
@@ -145,6 +145,9 @@ USE_TZ = True
 
 SITE_ID = 1
 
+CORS_ORIGIN_ALLOW_ALL = True
+ALLOWED_HOSTS = ['*']
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_URL = '/static/'
@@ -160,7 +163,6 @@ AWS_S3_CUSTOM_DOMAIN = 'd1n7cobwsi8961.cloudfront.net'
 AWS_QUERYSTRING_AUTH = False
 AWS_DEFAULT_ACL = None
 
-CORS_ORIGIN_ALLOW_ALL = True
 
-LOGIN_REDIRECT_URL = '/api-auth/'
+LOGIN_REDIRECT_URL = '/api/users/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

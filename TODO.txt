@@ -4,7 +4,6 @@
 - users & profiles extension
 
 * backend *
-    * class based views for user
     * write unittests for users app
     - upload more data to backend
 
@@ -32,20 +31,12 @@
 ################
 #CHANGES I MADE#
 ################
-- split api root
-    - api/brands/... 
-    - api/users/...
-- started users app
-    - list
-    - detail
-    - update
-- profile page signal
+- token authentication
+- changed view to generic class based views
+- custom permission (owner&admin / owner only for update/delete)
+- started /register frontend
 
 * in progress * 
-    * change viewset -> generic class based views
-    users:
-        - create
-        - delete
 
 
 #################
@@ -114,3 +105,11 @@
 - test_feed_models.py
 - test_feed_views.py (look at notes)
 - test_feed_serializers.py 
+- split api root
+    - api/brands/... 
+    - api/users/...
+- started users app
+    - list
+    - detail
+    - update
+- profile page signal

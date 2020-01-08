@@ -48,7 +48,7 @@ export default function LookbookListView({ match }) {
     axios
       .get(`http://0.0.0.0:8000/api/brands/${brand}/`)
       .then(res => setBrandName(res.data.name));
-  }, []);
+  }, [brand]);
 
   return (
     <div>
