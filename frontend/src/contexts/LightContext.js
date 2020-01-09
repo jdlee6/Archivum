@@ -26,10 +26,10 @@ function LightContextProvider(props) {
     e.preventDefault();
     if (themeBool === true) {
       setThemeBool(false);
-      window.localStorage.setItem('theme', 'false');
+      localStorage.setItem('theme', 'false');
     } else {
       setThemeBool(true);
-      window.localStorage.setItem('theme', 'true');
+      localStorage.setItem('theme', 'true');
     }
   };
 

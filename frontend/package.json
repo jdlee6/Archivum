@@ -28,7 +28,7 @@
     "slick-carousel": "^1.8.1"
   },
   "scripts": {
-    "start": "HOST=192.168.1.18 PORT=3000 react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

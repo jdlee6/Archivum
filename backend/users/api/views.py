@@ -31,7 +31,6 @@ class UserDetailView(RetrieveAPIView):
 
 class UserUpdateView(UpdateAPIView):
     permission_classes = (IsOwner, )
-
     queryset = User.objects.all()
     serializer_class = UserUpdateSerializer
     lookup_field = 'id'
@@ -39,7 +38,6 @@ class UserUpdateView(UpdateAPIView):
 
 class UserDeleteView(DestroyAPIView):
     permission_classes = (IsOwnerOrAdmin,)
-
     queryset = User.objects.all()
     serializer_class = UserListSerializer
     lookup_field = 'id'

@@ -14,6 +14,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { useTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../contexts/AuthContext';
+import { Button } from '@material-ui/core';
 
 const drawerStyles = {
   light: {
@@ -44,6 +46,7 @@ function ResponsiveDrawer(props) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { modalToggle } = useContext(ModalContext);
   const { themeMode, themeBool } = useContext(LightContext);
+  const { isAuthenticated, handleAuth } = useContext(AuthContext);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -54,6 +57,13 @@ function ResponsiveDrawer(props) {
   const drawerMode = themeBool
     ? { paper: styles.paperLight }
     : { paper: styles.paperDark };
+
+  const handleLogout = e => {
+    e.preventDefault();
+    localStorage.removeItem('token');
+    handleAuth();
+    window.location.reload();
+  };
 
   return (
     <div>
@@ -82,6 +92,41 @@ function ResponsiveDrawer(props) {
               >
                 Archivum
               </Link>
+            </div>
+            <div className="user-menu">
+              {isAuthenticated && localStorage.getItem('token') !== null ? (
+                <Button
+                  onClick={handleLogout}
+                  style={{ color: themeMode.text, textDecoration: 'none' }}
+                >
+                  <span>Logout</span>
+                </Button>
+              ) : (
+                <ul>
+                  <li>
+                    <Link
+                      to="/register"
+                      style={{
+                        color: themeMode.text,
+                        textDecoration: 'none'
+                      }}
+                    >
+                      <span>Sign Up</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/login"
+                      style={{
+                        color: themeMode.text,
+                        textDecoration: 'none'
+                      }}
+                    >
+                      <span>Log In</span>
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </div>
           </Toolbar>
         </AppBar>

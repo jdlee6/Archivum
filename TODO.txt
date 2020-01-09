@@ -1,16 +1,13 @@
 ################
 ######TODO######
 ################
-- users & profiles extension
-
 * backend *
+    - fix up profile model 
     * write unittests for users app
     - upload more data to backend
 
 * frontend *
     routes:
-        - /register 
-        - /login 
         - /profile 
         -/profile/update 
 
@@ -31,13 +28,15 @@
 ################
 #CHANGES I MADE#
 ################
-- token authentication
-- changed view to generic class based views
-- custom permission (owner&admin / owner only for update/delete)
-- started /register frontend
+- using rest-auth for login & logout
+- created auth context 
+- /login route & storing token in local storage
+- logout button
 
 * in progress * 
-
+  * redirect after login and refresh
+  - theme the sign up and log in forms depending on theme mode
+  
 
 #################
 ####COMPLETED####
@@ -113,3 +112,7 @@
     - detail
     - update
 - profile page signal
+- token authentication
+- changed view to generic class based views
+- custom permission (owner&admin / owner only for update/delete)
+- started /register frontend
