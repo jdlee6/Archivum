@@ -35,14 +35,14 @@ export default function PicturesListView({ match }) {
   // url parameter of brand
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/brands/${brand}/lookbooks/${season}/`)
+      .get(`http://192.168.1.18:8000/api/brands/${brand}/lookbooks/${season}/`)
       .then(res => setLookbook(res.data));
   }, [brand, season]);
 
   // actual name of the brand
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/brands/${brand}/`)
+      .get(`http://192.168.1.18:8000/api/brands/${brand}/`)
       .then(res => setBrandName(res.data.name));
   }, [brand]);
 

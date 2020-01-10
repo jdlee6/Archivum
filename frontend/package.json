@@ -25,10 +25,11 @@
     "react-scripts": "3.3.0",
     "react-slick": "^0.25.2",
     "react-spring": "^8.0.27",
+    "reinspect": "^1.0.2",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HOST=192.168.1.18 PORT=3000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

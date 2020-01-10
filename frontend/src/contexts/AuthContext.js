@@ -1,31 +1,14 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { createContext } from 'react';
+import { authReducer, initialAuthState } from '../reducers/authReducer';
+import { useReducer } from 'reinspect';
 
 export const AuthContext = createContext();
 
 export default function AuthContextProvider(props) {
-  // if authenticated -> show profile page & log out
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  // when user logs in -> setIsAuthenticated to True
-  const handleAuth = () => {
-    if (isAuthenticated === true) {
-      setIsAuthenticated(false);
-      localStorage.setItem('authenticated', 'false');
-    } else {
-      setIsAuthenticated(true);
-      localStorage.setItem('authenticated', 'true');
-    }
-  };
-
-  useEffect(() => {
-    const isAuthenticated = localStorage.getItem('authenticated') === 'true';
-    setIsAuthenticated(isAuthenticated);
-  }, [isAuthenticated]);
+  const useAuthState = useReducer(authReducer, initialAuthState, 1);
 
   return (
-    <AuthContext.Provider
-      value={{ isAuthenticated, setIsAuthenticated, handleAuth }}
-    >
+    <AuthContext.Provider value={useAuthState}>
       {props.children}
     </AuthContext.Provider>
   );

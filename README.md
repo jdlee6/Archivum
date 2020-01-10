@@ -115,7 +115,7 @@ cd backend
 source env/bin/activate
 ```
 
-#### 2. Run the server and you can now access the api endpoint via http://localhost:8000/api/
+#### 2. Run the server and you can now access the api endpoint via http://192.168.1.18:8000/api/
 
 ```
 python manage.py makemigrations

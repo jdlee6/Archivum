@@ -46,7 +46,8 @@ function ResponsiveDrawer(props) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { modalToggle } = useContext(ModalContext);
   const { themeMode, themeBool } = useContext(LightContext);
-  const { isAuthenticated, handleAuth } = useContext(AuthContext);
+  const [state, authDispatch] = useContext(AuthContext);
+  const { isLoggedIn } = state;
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -60,9 +61,9 @@ function ResponsiveDrawer(props) {
 
   const handleLogout = e => {
     e.preventDefault();
+    authDispatch({ type: 'LOGOUT' });
     localStorage.removeItem('token');
-    handleAuth();
-    window.location.reload();
+    localStorage.removeItem('isLoggedIn');
   };
 
   return (
@@ -94,7 +95,7 @@ function ResponsiveDrawer(props) {
               </Link>
             </div>
             <div className="user-menu">
-              {isAuthenticated && localStorage.getItem('token') !== null ? (
+              {isLoggedIn && localStorage.getItem('token') !== null ? (
                 <Button
                   onClick={handleLogout}
                   style={{ color: themeMode.text, textDecoration: 'none' }}

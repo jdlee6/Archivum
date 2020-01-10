@@ -15,7 +15,7 @@ export default function BaseRouter() {
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/:brand" component={LookbookListView} />
-        <Route exact path="/:brand/:season/" component={PicturesListView} />
+        <Route exact path="/:brand/:season" component={PicturesListView} />
         <Route
           exact
           path="/:brand/:season/:pic"

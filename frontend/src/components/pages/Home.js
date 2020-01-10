@@ -25,7 +25,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/brands/`)
+      .get(`http://192.168.1.18:8000/api/brands/`)
       .then(res => setBrands(res.data));
   }, []);
 
@@ -60,7 +60,8 @@ export default function Home() {
               <Link
                 style={{
                   color: themeMode.text,
-                  textDecoration: 'none'
+                  textDecoration: 'none',
+                  cursor: 'pointer'
                 }}
                 to={`/${brand.url_param}`}
               >
