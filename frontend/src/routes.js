@@ -12,15 +12,11 @@ export default function BaseRouter() {
     <div>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
         <Route exact path="/:brand" component={LookbookListView} />
-        <Route exact path="/:brand/:season" component={PicturesListView} />
-        <Route
-          exact
-          path="/:brand/:season/:pic"
-          component={PictureDetailView}
-        />
+        <Route path="/:brand/:season" component={PicturesListView} />
+        <Route path="/:brand/:season/:pic" component={PictureDetailView} />
       </Switch>
     </div>
   );

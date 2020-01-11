@@ -8,7 +8,7 @@
 
 * frontend *
     routes:
-        - /profile 
+        -/profile 
         -/profile/update 
 
     * react router page transitions
@@ -27,14 +27,11 @@
 ################
 #CHANGES I MADE#
 ################
-- set up authReducer for login and register
-- refactored authContext
-- npm i reinspect -> monitors dispatches with redux dev tools
-- display token to be fetched when user is created
-- styled & customized the sign up & log in forms
+- fixed iPhone bug with react router
+- fixed switch icon alignment
+- updated read me with new demo link
 
 * in progress * 
-  ** fix iPhone bug with react router 
   - payload error message is undefined
   * redirect after login and refresh
   
@@ -121,3 +118,8 @@
 - created auth context 
 - /login route & storing token in local storage
 - logout button
+- set up authReducer for login and register
+- refactored authContext
+- npm i reinspect -> monitors dispatches with redux dev tools
+- display token to be fetched when user is created
+- styled & customized the sign up & log in forms

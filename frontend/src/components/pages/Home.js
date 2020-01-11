@@ -29,6 +29,8 @@ export default function Home() {
       .then(res => setBrands(res.data));
   }, []);
 
+  console.log('Home route: this works!');
+
   return (
     <div className="section-container">
       <br />

@@ -96,25 +96,24 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <div className="section-container">
-        <div className="switch-container-lookbook">
-          <GreySwitch
-            color="primary"
-            checked={themeBool}
-            onChange={handleThemeToggle}
-            size="small"
-            inputProps={{
-              'aria-label': 'inherit checkbox'
-            }}
-          />
-          <div className="switch-icons">
-            {themeBool ? (
-              <FontAwesomeIcon icon={faSun} color="#ffdf32" />
-            ) : (
-              <FontAwesomeIcon icon={faMoon} color="white" />
-            )}
-          </div>
+    <div className="section-container">
+      <br />
+      <div className="switch-container">
+        <GreySwitch
+          color="primary"
+          checked={themeBool}
+          onChange={handleThemeToggle}
+          size="small"
+          inputProps={{
+            'aria-label': 'inherit checkbox'
+          }}
+        />
+        <div className="switch-icons">
+          {themeBool ? (
+            <FontAwesomeIcon icon={faSun} color="#ffdf32" />
+          ) : (
+            <FontAwesomeIcon icon={faMoon} color="white" />
+          )}
         </div>
       </div>
       <div className="form-container">

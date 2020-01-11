@@ -40,13 +40,13 @@ export default function LookbookListView({ match }) {
 
   useEffect(() => {
     axios
-      .get(`http://0.0.0.0:8000/api/brands/${brand}/`)
+      .get(`http://192.168.1.18:8000/api/brands/${brand}/`)
       .then(res => setLookbooks(res.data.lookbooks));
-  }, [brand]);
+  }, []);
 
   useEffect(() => {
     axios
-      .get(`http://0.0.0.0:8000/api/brands/${brand}/`)
+      .get(`http://192.168.1.18:8000/api/brands/${brand}/`)
       .then(res => setBrandName(res.data.name));
   }, [brand]);
 

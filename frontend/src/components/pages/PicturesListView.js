@@ -37,6 +37,7 @@ export default function PicturesListView({ match }) {
     axios
       .get(`http://192.168.1.18:8000/api/brands/${brand}/lookbooks/${season}/`)
       .then(res => setLookbook(res.data));
+    console.log('data fetched!');
   }, [brand, season]);
 
   // actual name of the brand

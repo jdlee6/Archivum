@@ -24,7 +24,7 @@ a:hover {
   font-size: large;
   position: fixed;
   left: 50%;
-  top: 3.5%;
+  margin-top: 3.5%;
   transform: translate(-50%, -50%);
 }
 

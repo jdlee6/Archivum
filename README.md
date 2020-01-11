@@ -6,7 +6,7 @@
 
 ## :sparkles: Demo
 
-https://youtu.be/oJ7nv2pxFWY
+https://youtu.be/YleG8REgsHk
 
 <img src="https://imgur.com/99LusHb.jpg" width="350">
 
@@ -139,7 +139,7 @@ cd backend
 pytest
 ```
 
-* Coverage reports are outputted as html files. If you'd like to view it, launch `Archivum/backend/htmlcov/index.html` in browser.
+- Coverage reports are outputted as html files. If you'd like to view it, launch `Archivum/backend/htmlcov/index.html` in browser.
 
 ## Future Developments
 
