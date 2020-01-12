@@ -2,15 +2,15 @@
 ######TODO######
 ################
 * backend *
-    - fix up profile model 
-    * write unittests for users app
     - upload more data to backend
 
 * frontend *
     routes:
         -/profile 
         -/profile/update 
+        -/users
 
+    - refactor grey switch into a component
     * react router page transitions
     * component transitions
     - need to make scrollbar for drawer
@@ -27,11 +27,17 @@
 ################
 #CHANGES I MADE#
 ################
-- fixed iPhone bug with react router
-- fixed switch icon alignment
-- updated read me with new demo link
+- updated readme
+- image field for profile 
+- salt image & upload new picture to aws
+- separate update signal
+- updated fields for both profile and user model are saved
+- password is updated & hashed 
+- added bio to profile model
+- started unittest users urls
 
 * in progress * 
+  * write unittests for the rest of the users app
   - payload error message is undefined
   * redirect after login and refresh
   
@@ -123,3 +129,6 @@
 - npm i reinspect -> monitors dispatches with redux dev tools
 - display token to be fetched when user is created
 - styled & customized the sign up & log in forms
+- fixed iPhone bug with react router
+- fixed switch icon alignment
+- updated read me with new demo link

@@ -10,10 +10,10 @@ from users.api.views import (
 
 
 urlpatterns = [
-    path('', UserListView.as_view(), name='users-list'),
-    path('register/', UserCreateView.as_view()),
-    path('<int:id>/', UserDetailView.as_view()),
-    path('<int:id>/update/', UserUpdateView.as_view()),
-    path('<int:id>/delete/', UserDeleteView.as_view()),
+    path('', UserListView.as_view(), name='user-list'),
+    path('register/', UserCreateView.as_view(), name='user-create'),
+    path('<int:id>/', UserDetailView.as_view(), name='user-detail'),
+    path('<int:id>/update/', UserUpdateView.as_view(), name='user-update'),
+    path('<int:id>/delete/', UserDeleteView.as_view(), name='user-delete'),
     path('get_auth_token/', views.obtain_auth_token, name='get-token')
 ]

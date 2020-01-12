@@ -21,6 +21,8 @@ https://youtu.be/YleG8REgsHk
 List of available routes
 
 * /
+* /register
+* /login
 * /<brandname>/
 * /<brandname>/<season>/
 * /<brandname>/<season>/<picture_index>/

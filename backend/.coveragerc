@@ -3,4 +3,6 @@ omit =
         /home/joe/Projects/Archivum/env/*
         /home/joe/Projects/Archivum/backend/feed/tests/*
         /home/joe/Projects/Archivum/backend/feed/migrations/*
+        /home/joe/Projects/Archivum/backend/users/tests/*
+        /home/joe/Projects/Archivum/backend/users/migrations/*
         /home/joe/Projects/

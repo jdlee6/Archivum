@@ -1,9 +1,10 @@
 from django.contrib.auth.models import User
-from users.permissions import IsOwner, IsOwnerOrAdmin
+from .permissions import IsOwner, IsOwnerOrAdmin
 from users.api.serializers import (
     UserListSerializer, 
     UserCreateSerializer, 
-    UserUpdateSerializer
+    UserUpdateSerializer,
+    ProfileSerializer
 )
 from rest_framework.generics import (
     UpdateAPIView,
