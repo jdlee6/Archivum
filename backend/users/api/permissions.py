@@ -8,7 +8,5 @@ class IsOwner(permissions.BasePermission):
 
 class IsOwnerOrAdmin(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
-        if obj.username == request.user.username:
-            return True
-        elif request.user.is_staff:
+        if request.user.is_staff or obj.username == request.user.username:
             return True

@@ -2,6 +2,7 @@
 ######TODO######
 ################
 * backend *
+    - finish up model test
     - upload more data to backend
 
 * frontend *
@@ -27,17 +28,11 @@
 ################
 #CHANGES I MADE#
 ################
-- updated readme
-- image field for profile 
-- salt image & upload new picture to aws
-- separate update signal
-- updated fields for both profile and user model are saved
-- password is updated & hashed 
-- added bio to profile model
-- started unittest users urls
+- test_users_urls.py 
+- test_users_models.py
+- test_users_views.py
 
 * in progress * 
-  * write unittests for the rest of the users app
   - payload error message is undefined
   * redirect after login and refresh
   
@@ -132,3 +127,11 @@
 - fixed iPhone bug with react router
 - fixed switch icon alignment
 - updated read me with new demo link
+- updated readme
+- image field for profile 
+- salt image & upload new picture to aws
+- separate update signal
+- updated fields for both profile and user model are saved
+- password is updated & hashed 
+- added bio to profile model
+- started unittest users urls

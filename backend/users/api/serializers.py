@@ -43,11 +43,10 @@ class UserUpdateSerializer(serializers.ModelSerializer):
     password2 = serializers.CharField(write_only=True, required=False)
 
     def validate_password(self, validated_data):
-        if not validated_data.get('password1') or not validated_data.get('password2'):
-            return validated_data
-        elif validated_data.get('password1') != validated_data.get('password2'):
+        if validated_data.get('password1') != validated_data.get('password2'):
             raise serializers.ValidationError("Those passwords do not match!")
-        return validated_data
+        elif not validated_data.get('password1') or not validated_data.get('password2'):
+            return validated_data
 
     def update(self, instance, validated_data):
         self.validate_password(validated_data)

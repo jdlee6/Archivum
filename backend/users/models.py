@@ -10,7 +10,7 @@ from PIL import Image
 
 class Profile(models.Model):
     user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
-    avatar = models.FileField(upload_to='avatars/', blank=True)
+    avatar = models.FileField(upload_to='avatars/', default='avatars/default.jpg')
     bio = models.TextField(max_length=200, blank=True)
 
     def save(self, *args, **kwargs):
@@ -18,22 +18,20 @@ class Profile(models.Model):
         self.create_thumbnail()
 
     def create_thumbnail(self):
-        if not self.avatar:
-            return ''
         file_path = self.avatar.name
         base, ext = os.path.splitext(file_path)
         thumbnail_path = f'{base}_thumbnail.jpg'
-        if storage.exists('avatars/{thumbnail_path}'):
-            return "Filename already exists"
-        f = storage.open(file_path, 'r')
-        img = Image.open(f)
-        if img.height > 300 or img.width > 300:
-            output_size = (300,300)
-            img.thumbnail(output_size)
-            f_thumbnail = storage.open(thumbnail_path, 'w')
-            img.save(f_thumbnail, 'JPEG')
-            f_thumbnail.close()
-            return 'success'
+        if not storage.exists(f'avatars/{thumbnail_path}'):
+            f = storage.open(file_path, 'r')
+            img = Image.open(f)
+            if img.height != 300 or img.width != 300:
+                output_size = (300,300)
+                img.thumbnail(output_size)
+                f_thumbnail = storage.open(thumbnail_path, 'w')
+                img.save(f_thumbnail, 'JPEG')
+                f_thumbnail.close()
+            else:
+                return
 
     def __str__(self):
         return f'{self.user.username} Profile'

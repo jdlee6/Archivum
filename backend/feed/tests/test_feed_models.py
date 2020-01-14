@@ -1,6 +1,5 @@
 from mixer.backend.django import mixer
 from django.test import TestCase
-import pytest
 
 
 class TestModels(TestCase):
@@ -13,8 +12,7 @@ class TestModels(TestCase):
         self.assertEqual(str(self.brand), self.brand.name)
 
     def test_brand_save(self):
-        self.assertTrue(self.brand.url_param.islower())
-        self.assertTrue(" " not in self.brand.url_param)
+        self.assertTrue(self.brand.url_param.islower() and " " not in self.brand.url_param)
 
     def test_lookbook_str(self):
         self.assertEqual(str(self.lookbook), f'{self.lookbook.brand.name} {self.lookbook.season}') 
