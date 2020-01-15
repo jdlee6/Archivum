@@ -2,16 +2,17 @@
 ######TODO######
 ################
 * backend *
-    - finish up model test
+    - establish relationships between users app and feed app
     - upload more data to backend
 
 * frontend *
     routes:
-        -/profile 
         -/profile/update 
-        -/users
+          * requires token key 
+        -/users 
+          * implement a filter by username search bar feature
 
-    - refactor grey switch into a component
+    - add like button on image modal
     * react router page transitions
     * component transitions
     - need to make scrollbar for drawer
@@ -19,23 +20,28 @@
   * fix *
     - drawer width
     - fix mobile scroll to top 
+    * redirect after login and refresh
+    - payload error message is undefined
 
   * extra *
-    * fade transition theme mode switch
+    - fade transition for app bar
     - individual image effect when loading in
 
 
 ################
 #CHANGES I MADE#
 ################
-- test_users_urls.py 
-- test_users_models.py
-- test_users_views.py
+* fade transition theme mode switch
+- change user lookup from id to username
+- refactor grey switch into its own component
+- create profile page show on navbar
+- need to store username in localStorage when user logs in 
+- restrict access to profile route
+  * redirects to log in page if user is not logged in
 
 * in progress * 
-  - payload error message is undefined
-  * redirect after login and refresh
-  
+  * theme the tab panel
+
 
 #################
 ####COMPLETED####
@@ -135,3 +141,6 @@
 - password is updated & hashed 
 - added bio to profile model
 - started unittest users urls
+- test_users_urls.py 
+- test_users_models.py
+- test_users_views.py

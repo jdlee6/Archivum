@@ -23,6 +23,7 @@ List of available routes
 * /
 * /register
 * /login
+* /profile
 * /<brandname>/
 * /<brandname>/<season>/
 * /<brandname>/<season>/<picture_index>/
@@ -44,8 +45,12 @@ List of available API at /api/
 * /brands/<brandname>/lookbooks/<season>/
 * /brands/<brandname>/lookbooks/<season>/<uuid>/
 * /users/
-* /users/<user_id>/
-* /users/<user_id>/update/
+* /users/register
+* /users/<username>/
+* /users/<username>/update/
+* /users/<username>/delete/
+* /rest-auth/login
+* /rest-auth/logout
 * /upload/
 ```
 

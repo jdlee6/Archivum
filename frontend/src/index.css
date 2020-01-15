@@ -5,6 +5,7 @@
 
 body {
   color: black;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 a:hover {
@@ -21,10 +22,11 @@ a:hover {
 }
 
 .title {
+  font-family: 'Marck Script';
   font-size: large;
   position: fixed;
   left: 50%;
-  margin-top: 3.5%;
+  margin-top: 2vh;
   transform: translate(-50%, -50%);
 }
 
@@ -71,6 +73,7 @@ a:hover {
   color: #000;
   font-family: 'Cardo';
   text-align: center;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .brand-season-header-dark {
@@ -86,6 +89,7 @@ a:hover {
   color: rgb(255, 255, 255);
   font-family: 'Cardo';
   text-align: center;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .section-container {
@@ -93,8 +97,13 @@ a:hover {
   margin-left: 5%;
 }
 
+.section-container-lookbook {
+  padding-top: 9.85vh;
+  margin-left: 5%;
+}
+
 img {
-  margin-top: 25px;
+  /* margin-top: 25px; */
   font-size: 21px;
   text-align: center;
 
@@ -136,7 +145,7 @@ img:hover {
 .switch-container-lookbook {
   position: absolute;
   right: 12px;
-  margin-top: -2.8vh;
+  margin-top: -3vh;
   margin-right: 2%;
 }
 
@@ -169,7 +178,7 @@ span {
 
 .user-menu {
   margin-left: auto;
-  margin-top: 2%;
+  margin-top: 1.5vh;
 }
 
 .user-menu ul li {
@@ -186,4 +195,24 @@ span {
 .button-container {
   text-align: center;
   padding-top: 5px;
+}
+
+.profile-image-container {
+  position: fixed;
+  left: 50%;
+  margin-top: 5vh;
+  transform: translate(-50%, -50%);
+}
+
+.profile-info {
+  text-align: center;
+  font-family: 'Cardo';
+  margin-top: 11vh;
+  margin-right: 5%;
+}
+
+.profile-tabs {
+  text-align: center;
+  margin-top: 3vh;
+  margin-left: 5%;
 }

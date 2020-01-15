@@ -1,8 +1,7 @@
 import React, { useState, useContext } from 'react';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import MenuTreeView from './MenuTreeView';
-import { ModalContext } from '../contexts/ModalContext';
-import { LightContext } from '../contexts/LightContext';
+import PropTypes from 'prop-types';
 import Radium from 'radium';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -13,9 +12,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import { useTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
-import { Button } from '@material-ui/core';
+import { ModalContext } from '../contexts/ModalContext';
+import { LightContext } from '../contexts/LightContext';
 
 const drawerStyles = {
   light: {
@@ -64,6 +63,7 @@ function ResponsiveDrawer(props) {
     authDispatch({ type: 'LOGOUT' });
     localStorage.removeItem('token');
     localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
   };
 
   return (
@@ -96,12 +96,28 @@ function ResponsiveDrawer(props) {
             </div>
             <div className="user-menu">
               {isLoggedIn && localStorage.getItem('token') !== null ? (
-                <Button
-                  onClick={handleLogout}
-                  style={{ color: themeMode.text, textDecoration: 'none' }}
-                >
-                  <span>Logout</span>
-                </Button>
+                <ul>
+                  <li>
+                    <Link
+                      to="/profile"
+                      style={{
+                        color: themeMode.text,
+                        textDecoration: 'none'
+                      }}
+                    >
+                      <span>Profile</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/"
+                      onClick={handleLogout}
+                      style={{ color: themeMode.text, textDecoration: 'none' }}
+                    >
+                      <span>Logout</span>
+                    </Link>
+                  </li>
+                </ul>
               ) : (
                 <ul>
                   <li>

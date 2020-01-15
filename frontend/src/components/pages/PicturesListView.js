@@ -2,34 +2,17 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import ImageGallery from '../ImageGallery';
 import { LightContext } from '../../contexts/LightContext';
-import Switch from '@material-ui/core/Switch';
-import { withStyles } from '@material-ui/core/styles';
 import { CircularProgress } from '@material-ui/core';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import history from '../../history';
 import { styles } from '../ImageGallery';
-
-export const GreySwitch = withStyles({
-  switchBase: {
-    color: 'white',
-    '&$checked': {
-      color: 'lightgreen'
-    },
-    '&$checked + $track': {
-      backgroundColor: 'lightgreen'
-    }
-  },
-  checked: {},
-  track: {}
-})(Switch);
+import ThemeSwitch from '../ThemeSwitch';
 
 export default function PicturesListView({ match }) {
   const brand = match.params.brand;
   const season = match.params.season;
   const [lookbook, setLookbook] = useState([]);
   const [brandName, setBrandName] = useState('');
-  const { themeBool, handleThemeToggle } = useContext(LightContext);
+  const { themeBool } = useContext(LightContext);
   const classes = styles();
 
   // url parameter of brand
@@ -62,23 +45,9 @@ export default function PicturesListView({ match }) {
             <br />
             {season}
           </div>
-          <div className="switch-container">
-            <GreySwitch
-              color="primary"
-              checked={themeBool}
-              onChange={handleThemeToggle}
-              value="checkedA"
-              size="small"
-              inputProps={{ 'aria-label': 'inherit checkbox' }}
-            />
-            <div className="switch-icons">
-              {themeBool ? (
-                <FontAwesomeIcon icon={faSun} color="#ffdf32" />
-              ) : (
-                <FontAwesomeIcon icon={faMoon} color="white" />
-              )}
-            </div>
-          </div>
+        </div>
+        <div className="switch-container">
+          <ThemeSwitch />
         </div>
         <div className="image-padding">
           <ImageGallery

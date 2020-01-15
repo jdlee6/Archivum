@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { LightContext } from '../../contexts/LightContext';
-import { GreySwitch } from './PicturesListView';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
+import ThemeSwitch from '../ThemeSwitch';
 
 export default function Home() {
   const [brands, setBrands] = useState([]);
-  const { themeMode, themeBool, handleThemeToggle } = useContext(LightContext);
+  const { themeMode, themeBool } = useContext(LightContext);
 
   const settings = {
     fade: true,
@@ -29,26 +27,12 @@ export default function Home() {
       .then(res => setBrands(res.data));
   }, []);
 
-  console.log('Home route: this works!');
-
   return (
     <div className="section-container">
       <br />
+      <br />
       <div className="switch-container">
-        <GreySwitch
-          color="primary"
-          checked={themeBool}
-          onChange={handleThemeToggle}
-          size="small"
-          inputProps={{ 'aria-label': 'inherit checkbox' }}
-        />
-        <div className="switch-icons">
-          {themeBool ? (
-            <FontAwesomeIcon icon={faSun} color="#ffdf32" />
-          ) : (
-            <FontAwesomeIcon icon={faMoon} color="white" />
-          )}
-        </div>
+        <ThemeSwitch />
       </div>
       <div className="slick-pad">
         <Slider {...settings}>

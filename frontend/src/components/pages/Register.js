@@ -6,9 +6,7 @@ import { Button } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import { AuthContext } from '../../contexts/AuthContext';
 import { LightContext } from '../../contexts/LightContext';
-import { GreySwitch } from './PicturesListView';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ThemeSwitch from '../ThemeSwitch';
 
 export default function Register() {
   const [values, setValues] = useState({
@@ -17,7 +15,7 @@ export default function Register() {
     password: ''
   });
   const [state, authDispatch] = useContext(AuthContext);
-  const { themeMode, themeBool, handleThemeToggle } = useContext(LightContext);
+  const { themeMode, themeBool } = useContext(LightContext);
 
   // define styles after themeBool
   const useStyles = makeStyles(theme => ({
@@ -103,23 +101,9 @@ export default function Register() {
   return (
     <div className="section-container">
       <br />
+      <br />
       <div className="switch-container">
-        <GreySwitch
-          color="primary"
-          checked={themeBool}
-          onChange={handleThemeToggle}
-          size="small"
-          inputProps={{
-            'aria-label': 'inherit checkbox'
-          }}
-        />
-        <div className="switch-icons">
-          {themeBool ? (
-            <FontAwesomeIcon icon={faSun} color="#ffdf32" />
-          ) : (
-            <FontAwesomeIcon icon={faMoon} color="white" />
-          )}
-        </div>
+        <ThemeSwitch />
       </div>
       <div className="form-container">
         <div className={classes.header}>Create your account</div>
