@@ -12,6 +12,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
     avatar = models.FileField(upload_to='avatars/', default='avatars/default.jpg')
     bio = models.TextField(max_length=200, blank=True)
+    location = models.CharField(max_length=100, blank=True)
 
     def save(self, *args, **kwargs):
         super(Profile, self).save(*args, **kwargs)

@@ -199,20 +199,28 @@ span {
 
 .profile-image-container {
   position: fixed;
-  left: 50%;
-  margin-top: 5vh;
+  left: 20%;
+  margin-top: 10vh;
   transform: translate(-50%, -50%);
 }
 
 .profile-info {
-  text-align: center;
+  text-align: left;
   font-family: 'Cardo';
-  margin-top: 11vh;
+  margin-top: 16vh;
   margin-right: 5%;
+  margin-left: 5%;
 }
 
 .profile-tabs {
   text-align: center;
   margin-top: 3vh;
   margin-left: 5%;
+}
+
+.profile-edit {
+  position: absolute;
+  right: 5px;
+  margin-top: -15vh;
+  margin-right: 7%;
 }

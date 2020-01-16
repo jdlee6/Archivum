@@ -33,25 +33,25 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 201)
 
     def test_user_detail_view(self):
-        path = reverse('user-detail', kwargs={'id': self.user.id})
+        path = reverse('user-detail', kwargs={'username': self.user.username})
         view = UserDetailView.as_view()
         request = self.factory.get(path)
-        response = view(request, id=self.user.id)
+        response = view(request, username=self.user.username)
         self.assertEqual(response.status_code, 200)
 
     def test_user_update_view(self):
-        path = reverse('user-update', kwargs={'id': self.user.id})
+        path = reverse('user-update', kwargs={'username': self.user.username})
         request = self.factory.put(path, {'username': 'new_username'}, HTTP_AUTHORIZATION=f'Token {self.token}')
         force_authenticate(request, user=self.user)
         view = UserUpdateView.as_view()
-        response = view(request, id=self.user.id)
+        response = view(request, username=self.user.username)
         self.assertEqual(response.status_code, 200)
 
     def test_user_delete_view(self):
-        path = reverse('user-delete', kwargs={'id': self.user.id})
+        path = reverse('user-delete', kwargs={'username': self.user.username})
         view = UserDeleteView.as_view()
         request = self.factory.delete(path, HTTP_AUTHORIZATION=f'Token {self.token}')
         force_authenticate(request, user=self.user)
         view = UserDeleteView.as_view()
-        response = view(request, id=self.user.id)
+        response = view(request, username=self.user.username)
         self.assertEqual(response.status_code, 204)

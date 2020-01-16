@@ -22,10 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'iq@&h&ne1kucs14j7fg&8vrddls67)368o-yojzqtjba0osq%y'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+SITE_ID = 1
 
 # Application definition
 INSTALLED_APPS = [
@@ -82,6 +84,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'archivum.wsgi.application'
 
 REST_FRAMEWORK = {
+    'DATETIME_FORMAT': '%m-%d-%Y',
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -144,8 +147,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-SITE_ID = 1
-
+LOGIN_REDIRECT_URL = '/api/users/'
 CORS_ORIGIN_ALLOW_ALL = True
 ALLOWED_HOSTS = ['*']
 
@@ -164,6 +166,12 @@ AWS_S3_CUSTOM_DOMAIN = 'd1n7cobwsi8961.cloudfront.net'
 AWS_QUERYSTRING_AUTH = False
 AWS_DEFAULT_ACL = None
 
+# Email Credentials
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
-LOGIN_REDIRECT_URL = '/api/users/'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+LOGIN_URL = '/rest-auth/login/'

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
-import ThemeSwitch from '../ThemeSwitch';
 import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
-import { LightContext } from '../../contexts/LightContext';
+import ThemeSwitch from '../ThemeSwitch';
 import TabPanel from '../TabPanel';
+import { LightContext } from '../../contexts/LightContext';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,8 +19,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Profile() {
-  const username = localStorage.getItem('username');
+export default function UserProfile({ match }) {
+  const username = match.params.username;
   const [profile, setProfile] = useState({});
   const { themeMode } = useContext(LightContext);
   const classes = useStyles();
@@ -31,9 +31,6 @@ export default function Profile() {
       .get(`http://192.168.1.18:8000/api/users/${username}/`)
       .then(res => setProfile(res.data.profile));
   }, [username]);
-
-  // console.log(user);
-  // console.log(profile);
 
   return (
     <div className="section-container">
@@ -46,7 +43,7 @@ export default function Profile() {
         <Avatar src={profile.avatar} className={classes.large} />
       </div>
       <div className="profile-info" style={{ color: themeMode.text }}>
-        User: {username}
+        @{username}
         <br />
         Bio: {profile.bio}
       </div>
@@ -56,4 +53,3 @@ export default function Profile() {
     </div>
   );
 }
-// add tabs for liked brands, lookbooks, pictures

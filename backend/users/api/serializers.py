@@ -6,7 +6,7 @@ from users.models import Profile
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ('avatar', 'user', 'bio')
+        fields = ('avatar', 'user', 'bio', 'location')
 
 
 class UserCreateSerializer(serializers.ModelSerializer):
@@ -31,7 +31,7 @@ class UserListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'profile',)
+        fields = ('id', 'username', 'email', 'date_joined', 'profile',)
 
 
 class UserUpdateSerializer(serializers.ModelSerializer):
@@ -39,31 +39,18 @@ class UserUpdateSerializer(serializers.ModelSerializer):
     email = serializers.CharField(source='profile.email', required=False)
     avatar = serializers.FileField(source='profile.avatar', required=False)
     bio = serializers.CharField(source='profile.bio', required=False)
-    password1 = serializers.CharField(write_only=True, required=False)
-    password2 = serializers.CharField(write_only=True, required=False)
-
-    def validate_password(self, validated_data):
-        if validated_data.get('password1') != validated_data.get('password2'):
-            raise serializers.ValidationError("Those passwords do not match!")
-        elif not validated_data.get('password1') or not validated_data.get('password2'):
-            return validated_data
+    location = serializers.CharField(source='profile.location', required=False)
 
     def update(self, instance, validated_data):
-        self.validate_password(validated_data)
         profile_data = validated_data.pop('profile', None)
-        password1 = validated_data.pop('password1', None)
-        password2 = validated_data.pop('password2', None)
         profile = instance.profile
         user = profile.user
         
         for field, value in profile_data.items():
-            if field == 'avatar' or field == 'bio':
+            if field == 'avatar' or field == 'bio' or field == 'location':
                 setattr(profile, field, value)
             else:
                 setattr(user, field, value)
-
-        if password1:
-            user.set_password(password1)
 
         profile.save()
         user.save()
@@ -72,4 +59,4 @@ class UserUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'password1', 'password2', 'avatar', 'bio')
+        fields = ('id', 'username', 'email', 'bio', 'location', 'avatar',)

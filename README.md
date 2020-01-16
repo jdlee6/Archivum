@@ -24,6 +24,8 @@ List of available routes
 * /register
 * /login
 * /profile
+* /profile/update
+* /<username>/profile
 * /<brandname>/
 * /<brandname>/<season>/
 * /<brandname>/<season>/<picture_index>/
@@ -51,6 +53,7 @@ List of available API at /api/
 * /users/<username>/delete/
 * /rest-auth/login
 * /rest-auth/logout
+* rest-auth/password/reset/
 * /upload/
 ```
 

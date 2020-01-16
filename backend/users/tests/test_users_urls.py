@@ -19,13 +19,13 @@ class TestUrls(TestCase):
         self.assertEqual(resolve(path).view_name, 'user-create')
 
     def test_user_detail(self):
-        path = reverse('user-detail', kwargs={'id': self.user.id})
+        path = reverse('user-detail', kwargs={'username': self.user.username})
         self.assertEqual(resolve(path).view_name, 'user-detail')
 
     def test_user_update(self):
-        path = reverse('user-update', kwargs={'id': self.user.id})
+        path = reverse('user-update', kwargs={'username': self.user.username})
         self.assertEqual(resolve(path).view_name, 'user-update')
        
     def test_user_delete(self):
-        path = reverse('user-delete', kwargs={'id': self.user.id})
+        path = reverse('user-delete', kwargs={'username': self.user.username})
         self.assertEqual(resolve(path).view_name, 'user-delete')

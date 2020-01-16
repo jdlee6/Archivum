@@ -1,13 +1,15 @@
-import { Route, Switch } from 'react-router-dom';
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { PrivateRoute } from './components/PrivateRoute';
 import Home from './components/pages/Home';
 import LookbookListView from './components/pages/LookbookListView';
 import PicturesListView from './components/pages/PicturesListView';
 import PictureDetailView from './components/pages/PictureDetailView';
 import Register from './components/pages/Register';
 import Login from './components/pages/Login';
-import Profile from './components/pages/Profile';
-import { PrivateRoute } from './components/PrivateRoute';
+import MyProfile from './components/pages/MyProfile';
+import UserProfile from './components/pages/UserProfile';
+import ProfileUpdate from './components/pages/ProfileUpdate';
 
 export default function BaseRouter() {
   return (
@@ -16,7 +18,9 @@ export default function BaseRouter() {
         <Route exact path="/" component={Home} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
-        <PrivateRoute path="/profile" component={Profile} />
+        <Route path="/:username/profile" component={UserProfile} />
+        <PrivateRoute exact path="/profile" component={MyProfile} />
+        <PrivateRoute path="/profile/update" component={ProfileUpdate} />
         <Route exact path="/:brand" component={LookbookListView} />
         <Route path="/:brand/:season" component={PicturesListView} />
         <Route path="/:brand/:season/:pic" component={PictureDetailView} />
