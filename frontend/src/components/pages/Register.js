@@ -82,6 +82,7 @@ export default function Register() {
           type: 'AUTH_SUCCESS',
           payload: token
         });
+        window.location.href = '/login/';
       })
       .catch(err => {
         if (err.response) {
@@ -94,8 +95,6 @@ export default function Register() {
         }
       });
     reset();
-
-    // redirect to home page
   };
 
   return (

@@ -64,6 +64,7 @@ function ResponsiveDrawer(props) {
     localStorage.removeItem('token');
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('username');
+    window.location.href = '/';
   };
 
   return (

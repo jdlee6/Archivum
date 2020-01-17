@@ -25,7 +25,7 @@ function EditProfile(props) {
   const { children } = props;
 
   const handleClick = e => {
-    console.log('hi');
+    window.location.href = '/profile/update';
   };
 
   return (

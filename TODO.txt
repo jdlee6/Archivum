@@ -10,6 +10,7 @@
         -/users 
           * implement a filter by username search bar feature
 
+    - add expiration date to authentication
     - add like button on image modal
     * react router page transitions
     * component transitions
@@ -29,17 +30,13 @@
 ################
 #CHANGES I MADE#
 ################
-- updated pytests
-- dynamically theme the tab panel
-- edit profile button
-- MyProfile.js & UserProfile.js (profile of any user w/ no edit icon)
-- set up django-rest-auth password reset w/ email
-- added location & date joined to users api
+- started mui forms for profile update
+- prepopulated avatar and forms with current user data
+- update avatar and fields from react to drf
 
 * in progress * 
-    - ProfileUpdate.js 
-        -> on click should bring user to profile/update
-            * show edit icon only if profile belongs to user
+  * fix width of profile update page
+  * need to fix avatar when it gets updated -> the old picture is lost in the process
 
 
 #################
@@ -150,3 +147,9 @@
 - need to store username in localStorage when user logs in 
 - restrict access to profile route
   * redirects to log in page if user is not logged in
+- updated pytests
+- dynamically theme the tab panel
+- edit profile button
+- MyProfile.js & UserProfile.js (profile of any user w/ no edit icon)
+- set up django-rest-auth password reset w/ email
+- added location & date joined to users api

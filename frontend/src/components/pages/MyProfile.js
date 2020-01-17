@@ -22,15 +22,17 @@ const useStyles = makeStyles(theme => ({
 
 export default function Profile() {
   const username = localStorage.getItem('username');
-  const [profile, setProfile] = useState({});
+  const [values, setValues] = useState({
+    avatar: null,
+    bio: null
+  });
   const { themeMode } = useContext(LightContext);
   const classes = useStyles();
 
-  // profile.avatar, profile.bio
   useEffect(() => {
     axios
       .get(`http://192.168.1.18:8000/api/users/${username}/`)
-      .then(res => setProfile(res.data.profile));
+      .then(res => setValues(res.data.profile));
   }, [username]);
 
   return (
@@ -41,12 +43,12 @@ export default function Profile() {
         <ThemeSwitch />
       </div>
       <div className="profile-image-container">
-        <Avatar src={profile.avatar} className={classes.large} />
+        <Avatar src={values.avatar} className={classes.large} />
       </div>
       <div className="profile-info" style={{ color: themeMode.text }}>
         @{username}
         <br />
-        Bio: {profile.bio}
+        Bio: {values.bio}
       </div>
       <div className="profile-edit">
         <EditButton />

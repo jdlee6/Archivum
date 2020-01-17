@@ -11,6 +11,10 @@ import ThemeSwitch from '../ThemeSwitch';
 export default function Login() {
   const [state, authDispatch] = useContext(AuthContext);
   const { themeMode, themeBool } = useContext(LightContext);
+  const [values, setValues] = useState({
+    username: '',
+    password: ''
+  });
 
   // define styles after themeBool
   const useStyles = makeStyles(theme => ({
@@ -43,11 +47,6 @@ export default function Login() {
   }));
 
   const classes = useStyles();
-
-  const [values, setValues] = useState({
-    username: '',
-    password: ''
-  });
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -82,6 +81,7 @@ export default function Login() {
           payload: token,
           username
         });
+        window.location.href = '/';
       })
       .catch(err => {
         // console.log(err.response.data.non_field_errors[0]);
@@ -91,8 +91,6 @@ export default function Login() {
         });
       });
     reset();
-
-    // redirect to home page and refresh page
   };
 
   return (
