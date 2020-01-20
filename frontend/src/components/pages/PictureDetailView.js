@@ -52,7 +52,9 @@ export default function PictureDetailView(props) {
             <br />
             {season}
           </div>
-          <ThemeSwitch />
+          <div className="switch-container">
+            <ThemeSwitch />
+          </div>
         </div>
         <div className="image-padding">
           <ImageModal
@@ -61,6 +63,7 @@ export default function PictureDetailView(props) {
             lookbook={lookbook}
             brand={brand}
             season={season}
+            history={history}
           />
         </div>
       </div>

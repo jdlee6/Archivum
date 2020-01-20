@@ -1,15 +1,15 @@
 import React, { useState, useContext, useCallback, useEffect } from 'react';
 import Carousel, { Modal, ModalGateway } from 'react-images';
 import { ModalContext } from '../contexts/ModalContext';
-import history from '../history';
 import Gallery from 'react-photo-gallery';
 import { debounce } from '../utils';
 import { CircularProgress } from '@material-ui/core';
 import { styles } from './ImageGallery';
 import BackToTop from './BackToTop';
+import ImageHeader from './ImageHeader';
 
 export default function ImageModal(props) {
-  const { handleViewChange, index, lookbook, season, brand } = props;
+  const { handleViewChange, index, lookbook, season, brand, history } = props;
   const [currentImage, setCurrentImage] = useState(index);
   const [viewerIsOpen, setViewerIsOpen] = useState(true);
   const { modalToggle, setModalToggle } = useContext(ModalContext);
@@ -32,7 +32,6 @@ export default function ImageModal(props) {
     setViewerIsOpen(false);
     setModalToggle(!modalToggle);
     history.push('/' + brand + '/' + season);
-    // window.location.reload();
   };
 
   const columns = containerWidth => {
@@ -93,6 +92,7 @@ export default function ImageModal(props) {
         {viewerIsOpen ? (
           <Modal
             allowFullScreen={false}
+            closeOnBackdropClick={true}
             styles={{
               blanket: base => ({
                 ...base,
@@ -102,20 +102,10 @@ export default function ImageModal(props) {
             onClose={closeLightbox}
           >
             <Carousel
+              frameProps={{ autoSize: 'height' }}
+              components={{ Header: ImageHeader }}
               trackProps={{
                 onViewChange: handleViewChange
-              }}
-              styles={{
-                view: base => ({
-                  ...base,
-                  height: 'auto',
-                  width: 'auto'
-                }),
-                headerClose: base => ({
-                  ...base,
-                  color: 'white',
-                  ':hover': { color: '#DE350B' }
-                })
               }}
               currentIndex={currentImage}
               views={lookbook.pictures.map(x => ({

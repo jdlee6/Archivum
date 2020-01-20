@@ -8,7 +8,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { LightContext } from '../../contexts/LightContext';
 import ThemeSwitch from '../ThemeSwitch';
 
-export default function Login() {
+export default function Login({ history }) {
   const [state, authDispatch] = useContext(AuthContext);
   const { themeMode, themeBool } = useContext(LightContext);
   const [values, setValues] = useState({
@@ -60,9 +60,21 @@ export default function Login() {
     });
   };
 
+  const checkAuthTimeout = expirationTime => {
+    setTimeout(() => {
+      authDispatch({ type: 'LOGOUT' });
+      localStorage.removeItem('token');
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('username');
+      localStorage.removeItem('expirationDate');
+    }, expirationTime * 1000);
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
     const { username, password } = values;
+    const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
+
     authDispatch({
       type: 'AUTH_START'
     });
@@ -76,15 +88,16 @@ export default function Login() {
         localStorage.setItem('token', token);
         localStorage.setItem('username', username);
         localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('expirationDate', expirationDate);
         authDispatch({
           type: 'AUTH_SUCCESS',
           payload: token,
           username
         });
-        window.location.href = '/';
+        history.push('/');
+        checkAuthTimeout(3600);
       })
       .catch(err => {
-        // console.log(err.response.data.non_field_errors[0]);
         authDispatch({
           type: 'AUTH_FAIL',
           payload: err

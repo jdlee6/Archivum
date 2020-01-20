@@ -7,17 +7,16 @@
 
 * frontend *
     routes:
+        - button for password email reset 
         -/users 
           * implement a filter by username search bar feature
-
-    - add expiration date to authentication
-    - add like button on image modal
+          
+    * fully implement the likes feature
     * react router page transitions
     * component transitions
     - need to make scrollbar for drawer
 
   * fix *
-    * redirect after login and refresh
     * payload error message is undefined
     - drawer width
     - fix mobile scroll to top 
@@ -30,13 +29,20 @@
 ################
 #CHANGES I MADE#
 ################
-- started mui forms for profile update
-- prepopulated avatar and forms with current user data
-- update avatar and fields from react to drf
+- tweaked image modal header
+- figured out how to display like and close button on modal 
+- implemented history instead of window.location...
+- fixed image modal page layout
+- add expiration date to log in & log out user after time has expired
+- optional photo for profile update
 
 * in progress * 
-  * fix width of profile update page
-  * need to fix avatar when it gets updated -> the old picture is lost in the process
+  - need to figure out how to change color when like button is clicked
+
+  * profile update page *
+    * fix width of profile update page
+    * need to fix avatar when it gets updated -> the old picture is lost in the process
+
 
 
 #################
@@ -153,3 +159,6 @@
 - MyProfile.js & UserProfile.js (profile of any user w/ no edit icon)
 - set up django-rest-auth password reset w/ email
 - added location & date joined to users api
+- started mui forms for profile update
+- prepopulated avatar and forms with current user data
+- update avatar and fields from react to drf

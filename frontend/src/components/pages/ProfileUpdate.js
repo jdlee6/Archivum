@@ -9,7 +9,7 @@ import Avatar from '@material-ui/core/Avatar';
 import { LightContext } from '../../contexts/LightContext';
 import ThemeSwitch from '../../components/ThemeSwitch';
 
-export default function ProfileUpdate() {
+export default function ProfileUpdate({ history }) {
   const { themeMode, themeBool } = useContext(LightContext);
   const username = localStorage.getItem('username');
   const token = localStorage.getItem('token');
@@ -91,10 +91,11 @@ export default function ProfileUpdate() {
     form_data.append('email', values.email);
     form_data.append('bio', values.bio);
     form_data.append('location', values.location);
-    form_data.append('avatar', values.avatar);
+    if (document.getElementById('avatar').value !== '') {
+      form_data.append('avatar', values.avatar);
+    }
 
     console.log(form_data);
-
     // axios.put request to profile/update api
     axios
       .put(
@@ -112,6 +113,10 @@ export default function ProfileUpdate() {
         console.log('success', res.data);
       })
       .catch(err => console.log(err));
+
+    // is there another way to do this
+    history.push('/profile');
+    window.location.reload();
   };
 
   if (values.username !== null) {

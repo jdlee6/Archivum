@@ -22,10 +22,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function EditProfile(props) {
-  const { children } = props;
+  const { children, history } = props;
 
   const handleClick = e => {
-    window.location.href = '/profile/update';
+    history.push('/profile/update');
   };
 
   return (

@@ -39,7 +39,7 @@ const useStyles = makeStyles({
 });
 
 function ResponsiveDrawer(props) {
-  const { container } = props;
+  const { container, history } = props;
   const theme = useTheme();
   const styles = useStyles();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -64,7 +64,8 @@ function ResponsiveDrawer(props) {
     localStorage.removeItem('token');
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('username');
-    window.location.href = '/';
+    localStorage.removeItem('expirationDate');
+    history.push('/');
   };
 
   return (
@@ -164,7 +165,7 @@ function ResponsiveDrawer(props) {
             }}
           >
             {drawer}
-            <MenuTreeView />
+            <MenuTreeView history={history} />
           </Drawer>
         </Hidden>
         <Hidden xsDown implementation="css">

@@ -6,6 +6,7 @@ import { ModalContext } from '../contexts/ModalContext';
 import BackToTop from './BackToTop';
 import { CircularProgress } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import ImageHeader from './ImageHeader';
 
 export const styles = makeStyles({
   bottom: {
@@ -108,6 +109,7 @@ export default function ImageGallery(props) {
         {viewerIsOpen ? (
           <Modal
             allowFullScreen={false}
+            closeOnBackdropClick={true}
             styles={{
               blanket: base => ({
                 ...base,
@@ -118,20 +120,9 @@ export default function ImageGallery(props) {
           >
             <Carousel
               frameProps={{ autoSize: 'height' }}
+              components={{ Header: ImageHeader }}
               trackProps={{
                 onViewChange: handleViewChange
-              }}
-              styles={{
-                view: base => ({
-                  ...base,
-                  height: 'auto',
-                  width: 'auto'
-                }),
-                headerClose: base => ({
-                  ...base,
-                  color: 'white',
-                  ':hover': { color: '#DE350B' }
-                })
               }}
               currentIndex={currentImage}
               views={props.lookbook.pictures.map(x => ({

@@ -20,11 +20,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Profile() {
+export default function Profile({ history }) {
   const username = localStorage.getItem('username');
   const [values, setValues] = useState({
     avatar: null,
-    bio: null
+    bio: null,
+    location: null
   });
   const { themeMode } = useContext(LightContext);
   const classes = useStyles();
@@ -49,9 +50,11 @@ export default function Profile() {
         @{username}
         <br />
         Bio: {values.bio}
+        <br />
+        Location: {values.location}
       </div>
       <div className="profile-edit">
-        <EditButton />
+        <EditButton history={history} />
       </div>
       <div className="profile-tabs">
         <TabPanel />

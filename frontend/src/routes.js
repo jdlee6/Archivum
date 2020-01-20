@@ -22,8 +22,12 @@ export default function BaseRouter() {
         <PrivateRoute exact path="/profile" component={MyProfile} />
         <PrivateRoute path="/profile/update" component={ProfileUpdate} />
         <Route exact path="/:brand" component={LookbookListView} />
-        <Route path="/:brand/:season" component={PicturesListView} />
-        <Route path="/:brand/:season/:pic" component={PictureDetailView} />
+        <Route exact path="/:brand/:season" component={PicturesListView} />
+        <Route
+          exact
+          path="/:brand/:season/:pic"
+          component={PictureDetailView}
+        />
       </Switch>
     </div>
   );

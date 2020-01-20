@@ -94,7 +94,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function MenuTreeView() {
+export default function MenuTreeView({ history }) {
   const classes = useStyles();
   const [brands, setBrands] = useState([]);
   const { themeMode } = useContext(LightContext);
@@ -118,9 +118,10 @@ export default function MenuTreeView() {
                   textDecoration: 'none'
                 }}
                 to={`/${brand.url_param}/${lookbook.season}`}
-                onClick={() =>
-                  (window.location.href = `/${brand.url_param}/${lookbook.season}`)
-                }
+                onClick={() => {
+                  history.push(`/${brand.url_param}/${lookbook.season}`);
+                  window.location.reload();
+                }}
               >
                 <StyledTreeItem
                   nodeId={uuid.v4()}

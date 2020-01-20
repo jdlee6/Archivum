@@ -11,6 +11,7 @@ import ModalContextProvider from './contexts/ModalContext';
 import LightContextProvider from './contexts/LightContext';
 import AuthContextProvider from './contexts/AuthContext';
 import { StateInspector } from 'reinspect';
+import history from './history';
 
 let theme = createMuiTheme({
   typography: {
@@ -35,13 +36,13 @@ theme = responsiveFontSizes(theme);
 function App() {
   return (
     <div>
-      <Router>
+      <Router history={history}>
         <StateInspector>
           <AuthContextProvider>
             <LightContextProvider>
               <ModalContextProvider>
                 <ThemeProvider theme={theme}>
-                  <ResponsiveDrawer />
+                  <ResponsiveDrawer history={history} />
                 </ThemeProvider>
                 <ThemeProvider theme={formTheme}>
                   <BaseRouter />

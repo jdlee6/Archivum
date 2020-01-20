@@ -7,6 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import { AuthContext } from '../../contexts/AuthContext';
 import { LightContext } from '../../contexts/LightContext';
 import ThemeSwitch from '../ThemeSwitch';
+import ImageHeader from '../ImageHeader';
 
 export default function Register() {
   const [values, setValues] = useState({
