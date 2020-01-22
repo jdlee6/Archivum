@@ -5,7 +5,7 @@ import {
   responsiveFontSizes
 } from '@material-ui/core/styles';
 import BaseRouter from './routes';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import ResponsiveDrawer from './components/ResponsiveDrawer';
 import ModalContextProvider from './contexts/ModalContext';
 import LightContextProvider from './contexts/LightContext';

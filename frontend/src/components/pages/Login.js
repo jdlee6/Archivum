@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -7,6 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import { AuthContext } from '../../contexts/AuthContext';
 import { LightContext } from '../../contexts/LightContext';
 import ThemeSwitch from '../ThemeSwitch';
+import { checkAuthTimeout } from '../../utils';
 
 export default function Login({ history }) {
   const [state, authDispatch] = useContext(AuthContext);
@@ -15,6 +16,11 @@ export default function Login({ history }) {
     username: '',
     password: ''
   });
+
+  useEffect(() => {
+    state.userError = null;
+    state.passwordError = null;
+  }, [state]);
 
   // define styles after themeBool
   const useStyles = makeStyles(theme => ({
@@ -91,16 +97,20 @@ export default function Login({ history }) {
         localStorage.setItem('expirationDate', expirationDate);
         authDispatch({
           type: 'AUTH_SUCCESS',
-          payload: token,
+          token,
           username
         });
         history.push('/');
         checkAuthTimeout(3600);
       })
       .catch(err => {
+        // console.log(err.response.data);
+        const userError = err.response.data.non_field_errors;
+        const passwordError = err.response.data.password;
         authDispatch({
           type: 'AUTH_FAIL',
-          payload: err
+          userError,
+          passwordError
         });
       });
     reset();
@@ -117,6 +127,9 @@ export default function Login({ history }) {
         <div className={classes.header}>Log In</div>
         <Paper className={classes.paper}>
           <form className={classes.root} onSubmit={handleSubmit}>
+            {state.userError ? (
+              <div className="error-message">{state.userError}</div>
+            ) : null}
             <TextField
               InputLabelProps={{
                 style: {
@@ -133,6 +146,7 @@ export default function Login({ history }) {
               value={values.username}
               onChange={handleChange}
             />
+
             <TextField
               InputLabelProps={{
                 style: { color: themeMode.text, fontFamily: 'Cardo' }
@@ -147,6 +161,10 @@ export default function Login({ history }) {
               value={values.password}
               onChange={handleChange}
             />
+            {state.passwordError ? (
+              <p className="field-error">{state.passwordError}</p>
+            ) : null}
+
             <div className="button-container">
               <Button type="submit" variant="contained" color="inherit">
                 Log In

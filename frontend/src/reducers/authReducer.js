@@ -2,7 +2,8 @@ export const initialAuthState = {
   isLoggedIn: localStorage.getItem('isLoggedIn'),
   username: null,
   token: null,
-  error: null
+  userError: null,
+  passwordError: null
 };
 
 export const authReducer = (state, action) => {
@@ -15,25 +16,22 @@ export const authReducer = (state, action) => {
       return {
         ...state,
         isLoggedIn: true,
-        username: action.payload.username,
-        token: action.payload.token,
-        error: null
+        username: action.username,
+        token: action.token
       };
     case 'AUTH_FAIL':
       return {
         ...state,
         isLoggedIn: false,
-        username: null,
-        token: null,
-        error: action.payload.err
+        userError: action.userError,
+        passwordError: action.passwordError
       };
     case 'LOGOUT':
       return {
         ...state,
         isLoggedIn: false,
         username: null,
-        token: null,
-        error: null
+        token: null
       };
     default:
       return state;

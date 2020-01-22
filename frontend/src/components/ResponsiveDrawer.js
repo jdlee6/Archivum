@@ -28,11 +28,17 @@ const drawerStyles = {
 const useStyles = makeStyles({
   paperDark: {
     width: '40%',
+    '@media (min-width:768px)': {
+      width: '20%'
+    },
     background: drawerStyles.dark.background,
     color: 'white'
   },
   paperLight: {
     width: '40%',
+    '@media (min-width:768px)': {
+      width: '20%'
+    },
     background: drawerStyles.light.background,
     color: 'black'
   }

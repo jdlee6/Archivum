@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { LightContext } from '../../contexts/LightContext';
+import { AuthContext } from '../../contexts/AuthContext';
 import axios from 'axios';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';

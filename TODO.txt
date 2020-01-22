@@ -3,22 +3,20 @@
 ################
 * backend *
     - establish relationships between users app and feed app
-    - upload more data to backend
+    - upload more data to backend to test if our frontend menu scales
 
 * frontend *
     routes:
         - button for password email reset 
         -/users 
           * implement a filter by username search bar feature
-          
+
     * fully implement the likes feature
     * react router page transitions
     * component transitions
-    - need to make scrollbar for drawer
 
   * fix *
-    * payload error message is undefined
-    - drawer width
+    * need to check expiration time when app loads
     - fix mobile scroll to top 
 
   * extra *
@@ -29,12 +27,11 @@
 ################
 #CHANGES I MADE#
 ################
-- tweaked image modal header
-- figured out how to display like and close button on modal 
-- implemented history instead of window.location...
-- fixed image modal page layout
-- add expiration date to log in & log out user after time has expired
-- optional photo for profile update
+- responsive drawer width
+- display log in error message 
+- display sign up error message
+  * look at notes
+- clear error messages after displayed
 
 * in progress * 
   - need to figure out how to change color when like button is clicked
@@ -162,3 +159,9 @@
 - started mui forms for profile update
 - prepopulated avatar and forms with current user data
 - update avatar and fields from react to drf
+- tweaked image modal header
+- figured out how to display like and close button on modal 
+- implemented history instead of window.location...
+- fixed image modal page layout
+- add expiration date to log in & log out user after time has expired
+- optional photo for profile update

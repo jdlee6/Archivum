@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -7,7 +7,6 @@ import Paper from '@material-ui/core/Paper';
 import { AuthContext } from '../../contexts/AuthContext';
 import { LightContext } from '../../contexts/LightContext';
 import ThemeSwitch from '../ThemeSwitch';
-import ImageHeader from '../ImageHeader';
 
 export default function Register() {
   const [values, setValues] = useState({
@@ -18,11 +17,17 @@ export default function Register() {
   const [state, authDispatch] = useContext(AuthContext);
   const { themeMode, themeBool } = useContext(LightContext);
 
+  // clear errors so they do not appear on other forms
+  useEffect(() => {
+    state.userError = null;
+    state.passwordError = null;
+  }, [state]);
+
   // define styles after themeBool
   const useStyles = makeStyles(theme => ({
     root: {
       '& .MuiTextField-root': {
-        margin: theme.spacing(2, -7),
+        margin: theme.spacing(1),
         width: 200,
         display: 'flex',
         justifyContent: 'center'
@@ -86,12 +91,15 @@ export default function Register() {
         window.location.href = '/login/';
       })
       .catch(err => {
+        console.log(err.response.data);
+
         if (err.response) {
-          console.log(err.response.data.username);
-          console.log(err.response.data.email);
+          const userError = err.response.data.username;
+          const passwordError = err.response.data.password;
           authDispatch({
             type: 'AUTH_FAIL',
-            payload: err
+            userError,
+            passwordError
           });
         }
       });
@@ -125,6 +133,10 @@ export default function Register() {
               value={values.username}
               onChange={handleChange}
             />
+            {state.userError ? (
+              <p className="field-error">{state.userError}</p>
+            ) : null}
+
             <TextField
               InputLabelProps={{
                 style: { color: themeMode.text, fontFamily: 'Cardo' }
@@ -138,6 +150,7 @@ export default function Register() {
               value={values.email}
               onChange={handleChange}
             />
+
             <TextField
               InputLabelProps={{
                 style: { color: themeMode.text, fontFamily: 'Cardo' }
@@ -152,9 +165,15 @@ export default function Register() {
               value={values.password}
               onChange={handleChange}
             />
-            <Button type="submit" variant="contained" color="inherit">
-              Sign Up
-            </Button>
+            {state.passwordError ? (
+              <p className="field-error">{state.passwordError}</p>
+            ) : null}
+
+            <div className="button-container">
+              <Button type="submit" variant="contained" color="inherit">
+                Sign Up
+              </Button>
+            </div>
           </form>
         </Paper>
       </div>
