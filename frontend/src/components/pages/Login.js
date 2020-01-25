@@ -7,7 +7,6 @@ import Paper from '@material-ui/core/Paper';
 import { AuthContext } from '../../contexts/AuthContext';
 import { LightContext } from '../../contexts/LightContext';
 import ThemeSwitch from '../ThemeSwitch';
-import { checkAuthTimeout } from '../../utils';
 
 export default function Login({ history }) {
   const [state, authDispatch] = useContext(AuthContext);
@@ -117,11 +116,13 @@ export default function Login({ history }) {
   };
 
   return (
-    <div className="section-container">
-      <br />
-      <br />
-      <div className="switch-container">
-        <ThemeSwitch />
+    <div>
+      <div className="section-container">
+        <br />
+        <br />
+        <div className="switch-container">
+          <ThemeSwitch />
+        </div>
       </div>
       <div className="form-container">
         <div className={classes.header}>Log In</div>

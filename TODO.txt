@@ -18,28 +18,21 @@
   * fix *
     * need to check expiration time when app loads
     - fix mobile scroll to top 
+    - fix image modal size
 
   * extra *
     - fade transition for app bar
-    - individual image effect when loading in
 
 
 ################
 #CHANGES I MADE#
 ################
-- responsive drawer width
-- display log in error message 
-- display sign up error message
-  * look at notes
-- clear error messages after displayed
+- replaced history.push with window.history.pushState(...)
+- when image modal opens, the url is changed to a shareable link
+- mui button for picture upload
 
 * in progress * 
-  - need to figure out how to change color when like button is clicked
-
-  * profile update page *
-    * fix width of profile update page
-    * need to fix avatar when it gets updated -> the old picture is lost in the process
-
+  * fix desktop layout of profile & user profile page
 
 
 #################
@@ -165,3 +158,8 @@
 - fixed image modal page layout
 - add expiration date to log in & log out user after time has expired
 - optional photo for profile update
+- responsive drawer width
+- display log in error message 
+- display sign up error message
+  * look at notes
+- clear error messages after displayed

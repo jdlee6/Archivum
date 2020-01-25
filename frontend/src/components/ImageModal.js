@@ -21,11 +21,14 @@ export default function ImageModal(props) {
 
   const openLightbox = useCallback(
     (event, { photo, index }) => {
+      const newPath =
+        '/' + props.brand + '/' + props.season + '/' + index.toString();
       setCurrentImage(index);
       setViewerIsOpen(true);
       setModalToggle(!modalToggle);
+      window.history.pushState('object or string', 'title', newPath);
     },
-    [modalToggle, setModalToggle]
+    [modalToggle, setModalToggle, props.brand, props.season]
   );
   // on close should bring back to lookbook page
   const closeLightbox = () => {

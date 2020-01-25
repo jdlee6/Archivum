@@ -25,7 +25,7 @@ export default function ProfileUpdate({ history }) {
   const useStyles = makeStyles(theme => ({
     root: {
       '& .MuiTextField-root': {
-        margin: theme.spacing(1),
+        margin: theme.spacing(2, 8),
         width: 200,
         display: 'flex',
         justifyContent: 'center'
@@ -121,11 +121,13 @@ export default function ProfileUpdate({ history }) {
 
   if (values.username !== null) {
     return (
-      <div className="section-container">
-        <br />
-        <br />
-        <div className="switch-container">
-          <ThemeSwitch />
+      <div>
+        <div className="section-container">
+          <br />
+          <br />
+          <div className="switch-container">
+            <ThemeSwitch />
+          </div>
         </div>
         <div className={classes.header}>Edit Profile</div>
         <Paper className={classes.paper}>
@@ -133,12 +135,23 @@ export default function ProfileUpdate({ history }) {
             <div className="profile-edit-avatar">
               <Avatar src={values.avatar} className={classes.large} />
 
-              <input
-                id="avatar"
-                type="file"
-                accept="image/png, image/jpeg"
-                onChange={handleImageChange}
-              />
+              <label htmlFor="avatar">
+                <input
+                  style={{ visibility: 'hidden' }}
+                  id="avatar"
+                  type="file"
+                  accept="image/png, image/jpeg"
+                  onChange={handleImageChange}
+                />
+                <Button
+                  component="span"
+                  type="submit"
+                  variant="contained"
+                  color="inherit"
+                >
+                  Upload
+                </Button>
+              </label>
             </div>
 
             <TextField
@@ -231,9 +244,3 @@ export default function ProfileUpdate({ history }) {
     );
   }
 }
-
-/* <label htmlFor="avatar">
-  <Button component="span" className={classes.button}>
-    Upload
-  </Button>
-</label>; */

@@ -17,6 +17,7 @@ export const styles = makeStyles({
 });
 
 export default function ImageGallery(props) {
+  const { history } = props;
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
   const { modalToggle, setModalToggle } = useContext(ModalContext);
@@ -24,23 +25,24 @@ export default function ImageGallery(props) {
   const [pageNum, setPageNum] = useState(1);
   const [loadedAll, setLoadedAll] = useState(false);
   const TOTAL_PAGES = 3;
-  const { history } = props;
   const classes = styles();
 
   const openLightbox = useCallback(
     (event, { photo, index }) => {
+      const newPath =
+        '/' + props.brand + '/' + props.season + '/' + index.toString();
       setCurrentImage(index);
       setViewerIsOpen(true);
       setModalToggle(!modalToggle);
+      window.history.pushState('object or string', 'title', newPath);
     },
-    [modalToggle, setModalToggle]
+    [modalToggle, setModalToggle, props.brand, props.season]
   );
 
   const closeLightbox = () => {
     setCurrentImage(0);
     setViewerIsOpen(false);
     setModalToggle(!modalToggle);
-    // when exit out of modal - reset url
     history.push('/' + props.brand + '/' + props.season);
   };
 
@@ -84,7 +86,7 @@ export default function ImageGallery(props) {
   const handleViewChange = index => {
     const newPath =
       '/' + props.brand + '/' + props.season + '/' + index.toString();
-    history.push(newPath);
+    window.history.pushState('object or string', 'title', newPath);
   };
 
   return (

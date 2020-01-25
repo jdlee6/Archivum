@@ -226,7 +226,8 @@ span {
 }
 
 .profile-edit-avatar {
-  /* figure out how to center the avatar on profile/update */
+  margin-left: 37%;
+  padding-top: 5%;
 }
 
 .icon-menu {

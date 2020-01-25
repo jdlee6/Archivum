@@ -107,11 +107,13 @@ export default function Register() {
   };
 
   return (
-    <div className="section-container">
-      <br />
-      <br />
-      <div className="switch-container">
-        <ThemeSwitch />
+    <div>
+      <div className="section-container">
+        <br />
+        <br />
+        <div className="switch-container">
+          <ThemeSwitch />
+        </div>
       </div>
       <div className="form-container">
         <div className={classes.header}>Create your account</div>
