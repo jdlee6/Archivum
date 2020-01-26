@@ -7,6 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import { AuthContext } from '../../contexts/AuthContext';
 import { LightContext } from '../../contexts/LightContext';
 import ThemeSwitch from '../ThemeSwitch';
+import { Link } from 'react-router-dom';
 
 export default function Login({ history }) {
   const [state, authDispatch] = useContext(AuthContext);
@@ -171,6 +172,15 @@ export default function Login({ history }) {
                 Log In
               </Button>
             </div>
+            <Link
+              to="/password/reset"
+              style={{
+                fontFamily: 'Cardo',
+                marginLeft: '55%'
+              }}
+            >
+              Reset Password
+            </Link>
           </form>
         </Paper>
       </div>

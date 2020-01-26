@@ -10,12 +10,14 @@ import Login from './components/pages/Login';
 import MyProfile from './components/pages/MyProfile';
 import UserProfile from './components/pages/UserProfile';
 import ProfileUpdate from './components/pages/ProfileUpdate';
+import PasswordReset from './components/pages/PasswordReset';
 
 export default function BaseRouter() {
   return (
     <div>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/password/reset" component={PasswordReset} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/:username/profile" component={UserProfile} />

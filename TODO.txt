@@ -3,7 +3,6 @@
 ################
 * backend *
     - establish relationships between users app and feed app
-    - upload more data to backend to test if our frontend menu scales
 
 * frontend *
     routes:
@@ -21,19 +20,19 @@
     - fix image modal size
 
   * extra *
-    - fade transition for app bar
 
 
 ################
 #CHANGES I MADE#
 ################
-- replaced history.push with window.history.pushState(...)
-- when image modal opens, the url is changed to a shareable link
-- mui button for picture upload
+- fix desktop layout of profile & user profile page
+- media queries for responsive profile page layout
+- added more dummy data on backend to see if menu tree scales
+- started frontend for password reset
 
 * in progress * 
-  * fix desktop layout of profile & user profile page
-
+  - finish up the password reset page
+  
 
 #################
 ####COMPLETED####
@@ -163,3 +162,6 @@
 - display sign up error message
   * look at notes
 - clear error messages after displayed
+- replaced history.push with window.history.pushState(...)
+- when image modal opens, the url is changed to a shareable link
+- mui button for picture upload

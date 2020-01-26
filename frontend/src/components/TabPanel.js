@@ -13,6 +13,9 @@ export default function CenteredTabs() {
     paper: {
       flexGrow: 1,
       width: '90%',
+      '@media (min-width:768px)': {
+        width: '100%'
+      },
       backgroundColor: themeBool ? '#e9e9e9' : '#444444',
       display: 'flex',
       justifyContent: 'center',

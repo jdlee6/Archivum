@@ -37,27 +37,31 @@ export default function Profile({ history }) {
   }, [username]);
 
   return (
-    <div className="section-container">
-      <br />
-      <br />
-      <div className="switch-container">
-        <ThemeSwitch />
-      </div>
-      <div className="profile-image-container">
-        <Avatar src={values.avatar} className={classes.large} />
-      </div>
-      <div className="profile-info" style={{ color: themeMode.text }}>
-        @{username}
+    <div>
+      <div className="section-container">
         <br />
-        Bio: {values.bio}
         <br />
-        Location: {values.location}
+        <div className="switch-container">
+          <ThemeSwitch />
+        </div>
       </div>
-      <div className="profile-edit">
-        <EditButton history={history} />
-      </div>
-      <div className="profile-tabs">
-        <TabPanel />
+      <div className="profile-container">
+        <div className="profile-image-container">
+          <Avatar src={values.avatar} className={classes.large} />
+        </div>
+        <div className="profile-info" style={{ color: themeMode.text }}>
+          @{username}
+          <br />
+          Bio: {values.bio}
+          <br />
+          Location: {values.location}
+        </div>
+        <div className="profile-edit">
+          <EditButton history={history} />
+        </div>
+        <div className="profile-tabs">
+          <TabPanel />
+        </div>
       </div>
     </div>
   );

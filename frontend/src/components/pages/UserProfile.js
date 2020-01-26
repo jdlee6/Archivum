@@ -25,7 +25,6 @@ export default function UserProfile({ match }) {
   const { themeMode } = useContext(LightContext);
   const classes = useStyles();
 
-  // profile.avatar, profile.bio
   useEffect(() => {
     axios
       .get(`http://192.168.1.18:8000/api/users/${username}/`)
@@ -33,22 +32,26 @@ export default function UserProfile({ match }) {
   }, [username]);
 
   return (
-    <div className="section-container">
-      <br />
-      <br />
-      <div className="switch-container">
-        <ThemeSwitch />
-      </div>
-      <div className="profile-image-container">
-        <Avatar src={profile.avatar} className={classes.large} />
-      </div>
-      <div className="profile-info" style={{ color: themeMode.text }}>
-        @{username}
+    <div>
+      <div className="section-container">
         <br />
-        Bio: {profile.bio}
+        <br />
+        <div className="switch-container">
+          <ThemeSwitch />
+        </div>
       </div>
-      <div className="profile-tabs">
-        <TabPanel />
+      <div className="profile-container">
+        <div className="profile-image-container">
+          <Avatar src={profile.avatar} className={classes.large} />
+        </div>
+        <div className="profile-info" style={{ color: themeMode.text }}>
+          @{username}
+          <br />
+          Bio: {profile.bio}
+        </div>
+        <div className="profile-tabs">
+          <TabPanel />
+        </div>
       </div>
     </div>
   );

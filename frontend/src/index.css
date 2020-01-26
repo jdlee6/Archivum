@@ -197,11 +197,31 @@ span {
   padding-top: 5px;
 }
 
+.profile-container {
+  padding-top: 9vh;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+@media screen and (min-width: 768px) {
+  .profile-container {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}
+
 .profile-image-container {
-  position: fixed;
-  left: 20%;
-  margin-top: 10vh;
-  transform: translate(-50%, -50%);
+  position: absolute;
+  margin-top: 6vh;
+  margin-left: 3%;
+}
+
+@media screen and (min-width: 768px) {
+  .profile-image-container {
+    position: absolute;
+    margin-top: 8vh;
+    margin-left: 3%;
+  }
 }
 
 .profile-info {
@@ -222,7 +242,14 @@ span {
   position: absolute;
   right: 5px;
   margin-top: -15vh;
-  margin-right: 7%;
+  margin-right: 15%;
+}
+
+@media screen and (min-width: 768px) {
+  .profile-edit {
+    margin-top: -8vh;
+    margin-right: 20%;
+  }
 }
 
 .profile-edit-avatar {
