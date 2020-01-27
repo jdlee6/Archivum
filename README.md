@@ -23,6 +23,7 @@ List of available routes
 * /
 * /register
 * /login
+* /password/reset
 * /profile
 * /profile/update
 * /<username>/profile
@@ -53,7 +54,7 @@ List of available API at /api/
 * /users/<username>/delete/
 * /rest-auth/login
 * /rest-auth/logout
-* rest-auth/password/reset/
+* /rest-auth/password/reset/
 * /upload/
 ```
 

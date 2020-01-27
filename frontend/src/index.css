@@ -199,7 +199,7 @@ span {
 
 .profile-container {
   padding-top: 9vh;
-  margin-left: 10%;
+  margin-left: 14%;
   margin-right: 10%;
 }
 
@@ -212,7 +212,7 @@ span {
 
 .profile-image-container {
   position: absolute;
-  margin-top: 6vh;
+  margin-top: 4vh;
   margin-left: 3%;
 }
 
@@ -272,6 +272,14 @@ span {
   padding-top: 15px;
   margin-bottom: -10px;
   color: red;
+  text-align: center;
+  font-family: Cardo;
+}
+
+.success-message {
+  postion: sticky;
+  padding-top: 5px;
+  color: rgb(106, 224, 106);
   text-align: center;
   font-family: Cardo;
 }

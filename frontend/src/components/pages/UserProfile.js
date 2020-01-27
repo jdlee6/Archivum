@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
 export default function UserProfile({ match }) {
   const username = match.params.username;
   const [profile, setProfile] = useState({});
+  const [dateJoined, setDateJoined] = useState('');
   const { themeMode } = useContext(LightContext);
   const classes = useStyles();
 
@@ -29,6 +30,12 @@ export default function UserProfile({ match }) {
     axios
       .get(`http://192.168.1.18:8000/api/users/${username}/`)
       .then(res => setProfile(res.data.profile));
+  }, [username]);
+
+  useEffect(() => {
+    axios
+      .get(`http://192.168.1.18:8000/api/users/${username}/`)
+      .then(res => setDateJoined(res.data.date_joined));
   }, [username]);
 
   return (
@@ -48,6 +55,8 @@ export default function UserProfile({ match }) {
           @{username}
           <br />
           Bio: {profile.bio}
+          <br />
+          Joined: {dateJoined}
         </div>
         <div className="profile-tabs">
           <TabPanel />

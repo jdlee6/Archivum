@@ -25,14 +25,14 @@
 ################
 #CHANGES I MADE#
 ################
-- fix desktop layout of profile & user profile page
-- media queries for responsive profile page layout
-- added more dummy data on backend to see if menu tree scales
-- started frontend for password reset
+- frontend for user date joined
+- finished up the password reset page
+- display success message
+- started frontend for the password change page
 
 * in progress * 
-  - finish up the password reset page
-  
+  - password change page -> redirect to login page if success
+
 
 #################
 ####COMPLETED####
@@ -165,3 +165,7 @@
 - replaced history.push with window.history.pushState(...)
 - when image modal opens, the url is changed to a shareable link
 - mui button for picture upload
+- fix desktop layout of profile & user profile page
+- media queries for responsive profile page layout
+- added more dummy data on backend to see if menu tree scales
+- started frontend for password reset

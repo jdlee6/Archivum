@@ -27,6 +27,7 @@ export default function Profile({ history }) {
     bio: null,
     location: null
   });
+  const [dateJoined, setDateJoined] = useState('');
   const { themeMode } = useContext(LightContext);
   const classes = useStyles();
 
@@ -34,6 +35,12 @@ export default function Profile({ history }) {
     axios
       .get(`http://192.168.1.18:8000/api/users/${username}/`)
       .then(res => setValues(res.data.profile));
+  }, [username]);
+
+  useEffect(() => {
+    axios
+      .get(`http://192.168.1.18:8000/api/users/${username}/`)
+      .then(res => setDateJoined(res.data.date_joined));
   }, [username]);
 
   return (
@@ -55,6 +62,8 @@ export default function Profile({ history }) {
           Bio: {values.bio}
           <br />
           Location: {values.location}
+          <br />
+          Joined: {dateJoined}
         </div>
         <div className="profile-edit">
           <EditButton history={history} />

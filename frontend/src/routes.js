@@ -11,6 +11,7 @@ import MyProfile from './components/pages/MyProfile';
 import UserProfile from './components/pages/UserProfile';
 import ProfileUpdate from './components/pages/ProfileUpdate';
 import PasswordReset from './components/pages/PasswordReset';
+import PasswordChange from './components/pages/PasswordChange';
 
 export default function BaseRouter() {
   return (
@@ -18,6 +19,11 @@ export default function BaseRouter() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/password/reset" component={PasswordReset} />
+        <Route
+          exact
+          path="/password/change/:token"
+          component={PasswordChange}
+        />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/:username/profile" component={UserProfile} />

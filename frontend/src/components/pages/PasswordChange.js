@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import ThemeSwitch from '../ThemeSwitch';
 import { makeStyles } from '@material-ui/core/styles';
 import { LightContext } from '../../contexts/LightContext';
@@ -7,11 +7,13 @@ import { Button } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import axios from 'axios';
 
-export default function PasswordReset() {
+export default function PasswordChange({ match }) {
+  const token = match.params.token;
   const { themeMode, themeBool } = useContext(LightContext);
-  const [email, setEmail] = useState('');
-  const [accounts, setAccounts] = useState([]);
-  const [message, setMessage] = useState('');
+  const { values, setValues } = useState({
+    password1: '',
+    password2: ''
+  });
 
   const useStyles = makeStyles(theme => ({
     root: {
@@ -44,34 +46,14 @@ export default function PasswordReset() {
 
   const classes = useStyles();
 
-  useEffect(() => {
-    axios
-      .get(`http://192.168.1.18:8000/api/users`)
-      .then(res => setAccounts(res.data));
-  }, []);
-
-  const emails = accounts.map(account => account.email);
-  // console.log(emails);
-
-  const handleChange = e => {
-    setEmail(e.target.value);
-  };
-
   const handleSubmit = e => {
     e.preventDefault();
-    // check if the email exists in the api
-    const exists = emails.indexOf(email) > -1;
-    console.log(exists);
-
-    if (exists) {
-      axios
-        .post(`http://localhost:8000/rest-auth/password/reset/`, {
-          email
-        })
-        .then(res => setMessage(res.data.detail))
-        .catch(err => console.log(err.response.data));
-    }
+    // axios.post request to change the password
   };
+
+  const handleChange = () => {};
+
+  console.log(token);
 
   return (
     <div>
@@ -83,8 +65,7 @@ export default function PasswordReset() {
         </div>
       </div>
       <div className="form-container">
-        <div className={classes.header}>Reset Password</div>
-        {message ? <div className="success-message">{message}</div> : null}
+        <div className={classes.header}>Change Password</div>
         <Paper className={classes.paper}>
           <form className={classes.root} onSubmit={handleSubmit}>
             <TextField
@@ -97,15 +78,31 @@ export default function PasswordReset() {
               InputProps={{
                 style: { color: themeMode.text, fontFamily: 'Cardo' }
               }}
-              id="standard-email-input"
-              label="Email"
-              name="email"
-              value={email}
+              id="standard-password1-input"
+              label="New password"
+              name="password1"
+              value={values.password1}
+              onChange={handleChange}
+            />
+            <TextField
+              InputLabelProps={{
+                style: {
+                  color: themeMode.text,
+                  fontFamily: 'Cardo'
+                }
+              }}
+              InputProps={{
+                style: { color: themeMode.text, fontFamily: 'Cardo' }
+              }}
+              id="standard-password2-input"
+              label="Confirm password"
+              name="password2"
+              value={values.password2}
               onChange={handleChange}
             />
             <div className="button-container">
               <Button type="submit" variant="contained" color="inherit">
-                Send Reset Password Link
+                Change Password
               </Button>
             </div>
           </form>
