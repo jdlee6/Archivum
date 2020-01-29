@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
-
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "archivum.settings")
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -57,8 +56,8 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -149,6 +148,7 @@ USE_TZ = True
 
 LOGIN_REDIRECT_URL = '/api/users/'
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_HEADERS = ['X-CSRFTOKEN']
 ALLOWED_HOSTS = ['*']
 
 # Static files (CSS, JavaScript, Images)

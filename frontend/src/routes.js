@@ -21,7 +21,7 @@ export default function BaseRouter() {
         <Route exact path="/password/reset" component={PasswordReset} />
         <Route
           exact
-          path="/password/change/:token"
+          path="/accounts/reset/:uidb64/:token"
           component={PasswordChange}
         />
         <Route path="/register" component={Register} />

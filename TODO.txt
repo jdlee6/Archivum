@@ -25,13 +25,10 @@
 ################
 #CHANGES I MADE#
 ################
-- frontend for user date joined
-- finished up the password reset page
-- display success message
-- started frontend for the password change page
+* changed the email password reset link to redirect to react frontend
 
 * in progress * 
-  - password change page -> redirect to login page if success
+  - figure out how to get rid of forbidden cookie error & make a successful post request with new passwords
 
 
 #################
@@ -169,3 +166,7 @@
 - media queries for responsive profile page layout
 - added more dummy data on backend to see if menu tree scales
 - started frontend for password reset
+- frontend for user date joined
+- finished up the password reset page
+- display success message
+- started frontend for the password change page

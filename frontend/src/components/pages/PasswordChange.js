@@ -6,11 +6,13 @@ import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import axios from 'axios';
+import { useCookies } from 'react-cookie';
 
 export default function PasswordChange({ match }) {
   const token = match.params.token;
+  const uidb64 = match.params.uidb64;
   const { themeMode, themeBool } = useContext(LightContext);
-  const { values, setValues } = useState({
+  const [values, setValues] = useState({
     password1: '',
     password2: ''
   });
@@ -45,15 +47,36 @@ export default function PasswordChange({ match }) {
   }));
 
   const classes = useStyles();
+  const [cookies] = useCookies('csrftoken');
+
+  console.log(cookies.csrftoken);
 
   const handleSubmit = e => {
     e.preventDefault();
-    // axios.post request to change the password
+    const data = {
+      new_password1: values.password1,
+      new_password2: values.password2
+    };
+    // still getting cookie error
+    axios
+      .post(
+        `http://192.168.1.18:8000/accounts/reset/${uidb64}/${token}/`,
+        data,
+        {
+          headers: {
+            'X-CSRFTOKEN': cookies.csrftoken
+          }
+        }
+      )
+      .then(res => console.log('success', res.data))
+      .catch(err => console.log('error', err.response.data));
   };
+  console.log(token, uidb64);
 
-  const handleChange = () => {};
-
-  console.log(token);
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
+  };
 
   return (
     <div>
