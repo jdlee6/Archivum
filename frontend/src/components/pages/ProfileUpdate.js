@@ -98,17 +98,13 @@ export default function ProfileUpdate({ history }) {
     console.log(form_data);
     // axios.put request to profile/update api
     axios
-      .put(
-        `http://192.168.1.18:8000/api/users/${username}/update/`,
-        form_data,
-        {
-          headers: {
-            Accept: 'application/json',
-            'content-type': 'multipart/form-data',
-            Authorization: `Token ${token}`
-          }
+      .put(`http://192.168.1.18:8000/api/users/${username}/update/`, form_data, {
+        headers: {
+          Accept: 'application/json',
+          'content-type': 'multipart/form-data',
+          Authorization: `Token ${token}`
         }
-      )
+      })
       .then(res => {
         console.log('success', res.data);
       })

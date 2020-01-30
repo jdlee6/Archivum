@@ -49,7 +49,8 @@ export default function PasswordChange({ match }) {
   const classes = useStyles();
   const [cookies] = useCookies('csrftoken');
 
-  console.log(cookies.csrftoken);
+  // console.log(cookies.csrftoken);
+  // console.log(token, uidb64);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -57,21 +58,8 @@ export default function PasswordChange({ match }) {
       new_password1: values.password1,
       new_password2: values.password2
     };
-    // still getting cookie error
-    axios
-      .post(
-        `http://192.168.1.18:8000/accounts/reset/${uidb64}/${token}/`,
-        data,
-        {
-          headers: {
-            'X-CSRFTOKEN': cookies.csrftoken
-          }
-        }
-      )
-      .then(res => console.log('success', res.data))
-      .catch(err => console.log('error', err.response.data));
+    // pass
   };
-  console.log(token, uidb64);
 
   const handleChange = e => {
     const { name, value } = e.target;

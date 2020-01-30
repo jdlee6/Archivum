@@ -148,7 +148,6 @@ USE_TZ = True
 
 LOGIN_REDIRECT_URL = '/api/users/'
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_HEADERS = ['X-CSRFTOKEN']
 ALLOWED_HOSTS = ['*']
 
 # Static files (CSS, JavaScript, Images)

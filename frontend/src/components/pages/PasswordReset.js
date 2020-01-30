@@ -65,7 +65,7 @@ export default function PasswordReset() {
 
     if (exists) {
       axios
-        .post(`http://localhost:8000/rest-auth/password/reset/`, {
+        .post(`http://192.168.1.18:8000/rest-auth/password/reset/`, {
           email
         })
         .then(res => setMessage(res.data.detail))

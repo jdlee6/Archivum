@@ -2,11 +2,20 @@
 ######TODO######
 ################
 * backend *
+    ** need to create password change view instead of using prebuilt module
+        * UpdateAPIView 
+        * takes in uidb64 & token as params 
+            1. make sure that the token is valid
+            2. decode uidb64 -> if user id in users list
+                - if validated_data['password1'] & validated_data['password2']
+                - .set_password()
+            3. if uid doesn't exist -> throw error
+    ** the frontend will interact with the updateview by sending a 'put' request
+
     - establish relationships between users app and feed app
 
 * frontend *
     routes:
-        - button for password email reset 
         -/users 
           * implement a filter by username search bar feature
 
@@ -25,10 +34,8 @@
 ################
 #CHANGES I MADE#
 ################
-* changed the email password reset link to redirect to react frontend
 
 * in progress * 
-  - figure out how to get rid of forbidden cookie error & make a successful post request with new passwords
 
 
 #################
@@ -170,3 +177,5 @@
 - finished up the password reset page
 - display success message
 - started frontend for the password change page
+- changed the email password reset link to redirect to react frontend
+- button for password email reset 
