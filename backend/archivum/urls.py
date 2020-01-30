@@ -17,14 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-import django.contrib.auth.urls
+# from django.contrib.auth import views
+from users.api.views import PasswordResetConfirmView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/brands/', include('feed.api.urls')),
     path('api/users/', include('users.api.urls')),
     path('rest-auth/', include('rest_auth.urls')),
-    path('accounts/', include('django.contrib.auth.urls'))
+    # this needs to be our own view
+    path('password/change/<uidb64>/<token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    # path('accounts/', include('django.contrib.auth.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

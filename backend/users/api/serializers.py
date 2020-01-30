@@ -60,3 +60,11 @@ class UserUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'bio', 'location', 'avatar',)
+
+class UserPasswordUpdateSerializer(serializers.ModelSerializer):
+    password_1 = serializers.CharField(write_only=True)
+    password_2 = serializers.CharField(write_only=True)
+
+    class Meta:
+        model = User
+        fields = ('password_1', 'password_2',)

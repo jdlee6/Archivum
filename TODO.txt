@@ -2,16 +2,6 @@
 ######TODO######
 ################
 * backend *
-    ** need to create password change view instead of using prebuilt module
-        * UpdateAPIView 
-        * takes in uidb64 & token as params 
-            1. make sure that the token is valid
-            2. decode uidb64 -> if user id in users list
-                - if validated_data['password1'] & validated_data['password2']
-                - .set_password()
-            3. if uid doesn't exist -> throw error
-    ** the frontend will interact with the updateview by sending a 'put' request
-
     - establish relationships between users app and feed app
 
 * frontend *
@@ -34,8 +24,13 @@
 ################
 #CHANGES I MADE#
 ################
+- finished custom passwordresetconfirmview
+- fully functional backend for changing password
+    1. if password exists -> error
+    2. if fresh password -> succesfully changed
 
 * in progress * 
+    - need to start front end for password reset c:
 
 
 #################
