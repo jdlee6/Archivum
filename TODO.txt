@@ -24,13 +24,9 @@
 ################
 #CHANGES I MADE#
 ################
-- finished custom passwordresetconfirmview
-- fully functional backend for changing password
-    1. if password exists -> error
-    2. if fresh password -> succesfully changed
+* fully implemented password reset frontend
 
 * in progress * 
-    - need to start front end for password reset c:
 
 
 #################
@@ -174,3 +170,7 @@
 - started frontend for the password change page
 - changed the email password reset link to redirect to react frontend
 - button for password email reset 
+- finished custom passwordresetconfirmview
+- fully functional backend for changing password
+    1. if password exists -> error
+    2. if fresh password -> succesfully changed

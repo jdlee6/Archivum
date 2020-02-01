@@ -6,12 +6,13 @@ import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import axios from 'axios';
-import { useCookies } from 'react-cookie';
 
-export default function PasswordChange({ match }) {
+export default function PasswordChange({ match, history }) {
   const token = match.params.token;
   const uidb64 = match.params.uidb64;
   const { themeMode, themeBool } = useContext(LightContext);
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [values, setValues] = useState({
     password1: '',
     password2: ''
@@ -47,23 +48,36 @@ export default function PasswordChange({ match }) {
   }));
 
   const classes = useStyles();
-  const [cookies] = useCookies('csrftoken');
-
-  // console.log(cookies.csrftoken);
-  // console.log(token, uidb64);
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    const data = {
-      new_password1: values.password1,
-      new_password2: values.password2
-    };
-    // pass
-  };
 
   const handleChange = e => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
+  };
+
+  const reset = () => {
+    setValues({
+      password1: '',
+      password2: ''
+    });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const data = {
+      password_1: values.password1,
+      password_2: values.password2
+    };
+    axios
+      .put(`http://192.168.1.18:8000/password/change/${uidb64}/${token}/`, data)
+      .then(res => {
+        const successMessage = res.data.detail;
+        setSuccessMessage(successMessage);
+      })
+      .catch(err => {
+        const errorMessage = err.response.data.detail;
+        setErrorMessage(errorMessage);
+      });
+    reset();
   };
 
   return (
@@ -77,6 +91,11 @@ export default function PasswordChange({ match }) {
       </div>
       <div className="form-container">
         <div className={classes.header}>Change Password</div>
+        {successMessage ? (
+          <div className="success-message">{successMessage}</div>
+        ) : (
+          <div className="error-message">{errorMessage}</div>
+        )}
         <Paper className={classes.paper}>
           <form className={classes.root} onSubmit={handleSubmit}>
             <TextField
@@ -91,6 +110,7 @@ export default function PasswordChange({ match }) {
               }}
               id="standard-password1-input"
               label="New password"
+              type="password"
               name="password1"
               value={values.password1}
               onChange={handleChange}
@@ -107,6 +127,7 @@ export default function PasswordChange({ match }) {
               }}
               id="standard-password2-input"
               label="Confirm password"
+              type="password"
               name="password2"
               value={values.password2}
               onChange={handleChange}
