@@ -4,7 +4,9 @@
 * backend *
 
 * frontend *
-    * fully implement the likes feature
+    * start the like button
+        - ajax request to like toggle api
+            * get request with token as header
 
     routes:
         -/users 
@@ -24,12 +26,11 @@
 ################
 #CHANGES I MADE#
 ################
-- finished backend for picture likes
-    * must send a get request with the token header to identify the user
-- added manytomany field attribute between picture & user
+- backend tests for picture like toggle
+- show liked pictures on user api view
+- specified liked image instead of just uuid (user list view)
 
 * in progress * 
-    - backend tests for picture like toggle
     
 
 #################
@@ -179,3 +180,6 @@
     2. if fresh password -> succesfully changed
 * fully implemented password reset frontend
 - shows success and error messages
+- finished backend for picture likes
+    * must send a get request with the token header to identify the user
+- added manytomany field attribute between picture & user

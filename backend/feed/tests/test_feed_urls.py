@@ -29,3 +29,7 @@ class TestUrls(TestCase):
     def test_picture_detail(self):
         path = reverse('picture-detail', kwargs={'url_param': self.brand.url_param, 'season': self.lookbook.season, 'uuid': self.picture.uuid})
         self.assertEqual(resolve(path).view_name, 'picture-detail')
+
+    def test_picture_like(self):
+        path = reverse('picture-like', kwargs={'url_param': self.brand.url_param, 'season': self.lookbook.season, 'uuid': self.picture.uuid})
+        self.assertEqual(resolve(path).view_name, 'picture-like')

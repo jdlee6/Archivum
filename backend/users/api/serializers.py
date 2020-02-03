@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from rest_framework.response import Response
 from users.models import Profile
+import json
 
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
@@ -25,10 +27,21 @@ class UserCreateSerializer(serializers.ModelSerializer):
 
 class UserListSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(many=False, read_only=True)
+    likes = serializers.SerializerMethodField()
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'date_joined', 'profile',)
+        fields = ('id', 'username', 'email', 'date_joined', 'profile', 'likes',)
+   
+    def get_likes(self, instance):
+        likes = instance.likes.all()
+        res = set()
+        for like in likes:
+            brand = str(like.lookbook.brand.url_param)
+            season = like.lookbook.season
+            uuid = like.uuid
+            res.add(f'{brand} {season} {uuid}')
+        return res
 
 class UserUpdateSerializer(serializers.ModelSerializer):
     username = serializers.CharField(source='profile.username', required=False)
@@ -36,6 +49,10 @@ class UserUpdateSerializer(serializers.ModelSerializer):
     avatar = serializers.FileField(source='profile.avatar', required=False)
     bio = serializers.CharField(source='profile.bio', required=False)
     location = serializers.CharField(source='profile.location', required=False)
+
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email', 'bio', 'location', 'avatar',)
 
     def update(self, instance, validated_data):
         profile_data = validated_data.pop('profile', None)
@@ -51,9 +68,6 @@ class UserUpdateSerializer(serializers.ModelSerializer):
         instance.save()
         return instance
 
-    class Meta:
-        model = User
-        fields = ('id', 'username', 'email', 'bio', 'location', 'avatar',)
 
 class UserPasswordUpdateSerializer(serializers.ModelSerializer):
     password_1 = serializers.CharField(write_only=True)

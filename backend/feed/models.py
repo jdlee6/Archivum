@@ -37,11 +37,5 @@ class Picture(models.Model):
     width = models.IntegerField(default=4)
     height = models.IntegerField(default=3)
 
-    def get_absolute_url(self):
-        url_param = self.lookbook.brand.url_param
-        season = self.lookbook.season
-        uuid = str(self.uuid)
-        return reverse('picture-detail', kwargs={'url_param': url_param, 'season': season, 'uuid': uuid})
-
     def __str__(self):
         return f'{self.src} from {self.lookbook}'

@@ -2,7 +2,7 @@ from mixer.backend.django import mixer
 from django.urls import reverse
 from django.test import TestCase
 from rest_framework.test import APIRequestFactory
-from feed.api.views import LookbookListView, LookbookDetailView, PictureDetailView
+from feed.api.views import LookbookListView, LookbookDetailView, PictureDetailView, PictureLikeToggle
 
 class TestViews(TestCase):
     def setUp(self):
@@ -28,6 +28,13 @@ class TestViews(TestCase):
     def test_picture_detail_view(self):
         path = reverse('picture-detail', kwargs={'url_param': self.brand.url_param, 'season': self.lookbook.season, 'uuid': self.picture.uuid})
         view = PictureDetailView().as_view()
+        request = self.factory.get(path)
+        response = view(request, uuid=self.picture.uuid)
+        self.assertEqual(response.status_code, 200)
+
+    def test_picture_like_view(self):
+        path = reverse('picture-like', kwargs={'url_param': self.brand.url_param, 'season': self.lookbook.season, 'uuid': self.picture.uuid})
+        view = PictureLikeToggle().as_view()
         request = self.factory.get(path)
         response = view(request, uuid=self.picture.uuid)
         self.assertEqual(response.status_code, 200)
