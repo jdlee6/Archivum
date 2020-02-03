@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { LightContext } from '../contexts/LightContext';
+import { Link } from 'react-router-dom';
+import { useSpring, animated } from 'react-spring/web.cjs'; // web.cjs is required for IE 11 support
 import SvgIcon from '@material-ui/core/SvgIcon';
 import { fade, makeStyles, withStyles } from '@material-ui/core/styles';
 import TreeView from '@material-ui/lab/TreeView';
@@ -10,10 +11,9 @@ import {
   createMuiTheme,
   responsiveFontSizes
 } from '@material-ui/core/styles';
-import { useSpring, animated } from 'react-spring/web.cjs'; // web.cjs is required for IE 11 support
-import axios from 'axios';
+import { LightContext } from '../contexts/LightContext';
 import uuid from 'uuid';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 
 let theme = createMuiTheme({

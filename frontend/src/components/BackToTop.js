@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Fab from '@material-ui/core/Fab';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import Zoom from '@material-ui/core/Zoom';
 import { LightContext } from '../contexts/LightContext';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   root: {

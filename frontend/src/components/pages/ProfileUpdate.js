@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import { CircularProgress } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
-import { LightContext } from '../../contexts/LightContext';
 import ThemeSwitch from '../../components/ThemeSwitch';
+import { LightContext } from '../../contexts/LightContext';
+import axios from 'axios';
 
 export default function ProfileUpdate({ history }) {
   const { themeMode, themeBool } = useContext(LightContext);
@@ -98,13 +98,17 @@ export default function ProfileUpdate({ history }) {
     console.log(form_data);
     // axios.put request to profile/update api
     axios
-      .put(`http://192.168.1.18:8000/api/users/${username}/update/`, form_data, {
-        headers: {
-          Accept: 'application/json',
-          'content-type': 'multipart/form-data',
-          Authorization: `Token ${token}`
+      .put(
+        `http://192.168.1.18:8000/api/users/${username}/update/`,
+        form_data,
+        {
+          headers: {
+            Accept: 'application/json',
+            'content-type': 'multipart/form-data',
+            Authorization: `Token ${token}`
+          }
         }
-      })
+      )
       .then(res => {
         console.log('success', res.data);
       })

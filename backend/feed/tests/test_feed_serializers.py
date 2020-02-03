@@ -20,15 +20,12 @@ class TestSerializers(TestCase):
             ]
         }
 
-
     def test_brand_serializer(self):
         qs1, qs2 = [], []
         serializer = self.Serializer(data=self.data).get_lookbooks(self.brand)
         lookbooks = self.brand.lookbooks.all().order_by('year')
-
         for i in range(2):
             season = json.dumps(serializer[i]['season']).replace('"', '')
             qs1.append(season)
             qs2.append(lookbooks[i].season)
-
         self.assertEqual(qs1, qs2)

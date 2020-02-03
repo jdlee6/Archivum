@@ -4,7 +4,6 @@ from django.test import TestCase
 from rest_framework.test import APIRequestFactory
 from feed.api.views import LookbookListView, LookbookDetailView, PictureDetailView
 
-
 class TestViews(TestCase):
     def setUp(self):
         self.brand = mixer.blend('feed.Brand')

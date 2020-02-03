@@ -1,8 +1,5 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import MenuTreeView from './MenuTreeView';
-import PropTypes from 'prop-types';
-import Radium from 'radium';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -15,6 +12,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AuthContext } from '../contexts/AuthContext';
 import { ModalContext } from '../contexts/ModalContext';
 import { LightContext } from '../contexts/LightContext';
+import MenuTreeView from './MenuTreeView';
+import PropTypes from 'prop-types';
+import Radium from 'radium';
 
 const drawerStyles = {
   light: {

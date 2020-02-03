@@ -22,15 +22,12 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 
-
 UserModel = get_user_model()
-
 
 class UserListView(ListAPIView):
     permission_classes = (AllowAny,)
     queryset = User.objects.all()
     serializer_class = UserListSerializer
-
 
 class UserCreateView(CreateAPIView):
     permission_classes = (AllowAny,)
@@ -45,13 +42,11 @@ class UserCreateView(CreateAPIView):
         token, created = Token.objects.get_or_create(user=serializer.instance)
         return Response({'key': token.key}, status=status.HTTP_201_CREATED, headers=headers)
 
-
 class UserDetailView(RetrieveAPIView):
     permission_classes = (AllowAny,)
     queryset = User.objects.all()
     serializer_class = UserListSerializer
     lookup_field = 'username'
-
 
 class UserUpdateView(UpdateAPIView):
     permission_classes = (IsOwner, )
@@ -59,13 +54,11 @@ class UserUpdateView(UpdateAPIView):
     serializer_class = UserUpdateSerializer
     lookup_field = 'username'
 
-
 class UserDeleteView(DestroyAPIView):
     permission_classes = (IsOwnerOrAdmin,)
     queryset = User.objects.all()
     serializer_class = UserListSerializer
     lookup_field = 'username'
-
 
 class PasswordResetConfirmView(UpdateAPIView):
     permission_classes = (IsOwnerOrAdmin,)
@@ -74,7 +67,6 @@ class PasswordResetConfirmView(UpdateAPIView):
 
     def get_queryset(self, *args, **kwargs):
         uid = self.get_user(self.kwargs['uidb64'])
-        # print(uid, UserModel._default_manager.get(pk=uid))
         user = UserModel._default_manager.get(pk=uid)
         return user
 
@@ -86,7 +78,6 @@ class PasswordResetConfirmView(UpdateAPIView):
         uid = self.get_user(self.kwargs['uidb64'])
         user = UserModel._default_manager.get(pk=uid)
         serializer = self.get_serializer(data=request.data)
-
         if serializer.is_valid():
             if not user.check_password(request.data['password_1']):
                 if request.data['password_1'] == request.data['password_2']:

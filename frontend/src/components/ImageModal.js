@@ -1,12 +1,12 @@
 import React, { useState, useContext, useCallback, useEffect } from 'react';
 import Carousel, { Modal, ModalGateway } from 'react-images';
-import { ModalContext } from '../contexts/ModalContext';
 import Gallery from 'react-photo-gallery';
-import { debounce } from '../utils';
 import { CircularProgress } from '@material-ui/core';
 import { styles } from './ImageGallery';
 import BackToTop from './BackToTop';
 import ImageHeader from './ImageHeader';
+import { debounce } from '../utils';
+import { ModalContext } from '../contexts/ModalContext';
 
 export default function ImageModal(props) {
   const { handleViewChange, index, lookbook, season, brand, history } = props;

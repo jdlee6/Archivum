@@ -1,12 +1,12 @@
 import React, { useState, useCallback, useEffect, useContext } from 'react';
-import Gallery from 'react-photo-gallery';
 import Carousel, { Modal, ModalGateway } from 'react-images';
-import { debounce } from '../utils';
-import { ModalContext } from '../contexts/ModalContext';
-import BackToTop from './BackToTop';
+import Gallery from 'react-photo-gallery';
 import { CircularProgress } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { debounce } from '../utils';
 import ImageHeader from './ImageHeader';
+import BackToTop from './BackToTop';
+import { ModalContext } from '../contexts/ModalContext';
 
 export const styles = makeStyles({
   bottom: {

@@ -2,12 +2,10 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from users.models import Profile
 
-
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = ('avatar', 'user', 'bio', 'location')
-
 
 class UserCreateSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
@@ -25,14 +23,12 @@ class UserCreateSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id', 'username', 'email', 'password')
 
-
 class UserListSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(many=False, read_only=True)
 
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'date_joined', 'profile',)
-
 
 class UserUpdateSerializer(serializers.ModelSerializer):
     username = serializers.CharField(source='profile.username', required=False)
@@ -45,13 +41,11 @@ class UserUpdateSerializer(serializers.ModelSerializer):
         profile_data = validated_data.pop('profile', None)
         profile = instance.profile
         user = profile.user
-        
         for field, value in profile_data.items():
             if field == 'avatar' or field == 'bio' or field == 'location':
                 setattr(profile, field, value)
             else:
                 setattr(user, field, value)
-
         profile.save()
         user.save()
         instance.save()

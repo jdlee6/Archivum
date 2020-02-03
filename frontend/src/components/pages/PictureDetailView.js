@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react';
-import axios from 'axios';
-import history from '../../history';
-import { ModalContext } from '../../contexts/ModalContext';
-import { LightContext } from '../../contexts/LightContext';
-import ImageModal from '../ImageModal';
 import { CircularProgress } from '@material-ui/core';
+import history from '../../history';
+import ImageModal from '../ImageModal';
 import { styles } from '../ImageGallery';
 import ThemeSwitch from '../ThemeSwitch';
+import { ModalContext } from '../../contexts/ModalContext';
+import { LightContext } from '../../contexts/LightContext';
+import axios from 'axios';
 
 export default function PictureDetailView(props) {
   const brand = props.match.params.brand;

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
-import { LightContext } from '../contexts/LightContext';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { LightContext } from '../contexts/LightContext';
 
 export const GreySwitch = withStyles({
   switchBase: {

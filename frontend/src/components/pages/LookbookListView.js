@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
-import { LightContext } from '../../contexts/LightContext';
+import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
 import ThemeSwitch from '../ThemeSwitch';
+import { LightContext } from '../../contexts/LightContext';
+import axios from 'axios';
 
 export default function LookbookListView({ match }) {
   const brand = match.params.brand;

@@ -2,14 +2,14 @@
 ######TODO######
 ################
 * backend *
-    - establish relationships between users app and feed app
 
 * frontend *
+    * fully implement the likes feature
+
     routes:
         -/users 
           * implement a filter by username search bar feature
 
-    * fully implement the likes feature
     * react router page transitions
     * component transitions
 
@@ -24,10 +24,13 @@
 ################
 #CHANGES I MADE#
 ################
-* fully implemented password reset frontend
+- finished backend for picture likes
+    * must send a get request with the token header to identify the user
+- added manytomany field attribute between picture & user
 
 * in progress * 
-
+    - backend tests for picture like toggle
+    
 
 #################
 ####COMPLETED####
@@ -174,3 +177,5 @@
 - fully functional backend for changing password
     1. if password exists -> error
     2. if fresh password -> succesfully changed
+* fully implemented password reset frontend
+- shows success and error messages

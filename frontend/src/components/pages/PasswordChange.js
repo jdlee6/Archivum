@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
-import ThemeSwitch from '../ThemeSwitch';
 import { makeStyles } from '@material-ui/core/styles';
-import { LightContext } from '../../contexts/LightContext';
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
+import ThemeSwitch from '../ThemeSwitch';
+import { LightContext } from '../../contexts/LightContext';
 import axios from 'axios';
 
 export default function PasswordChange({ match, history }) {
@@ -70,12 +70,10 @@ export default function PasswordChange({ match, history }) {
     axios
       .put(`http://192.168.1.18:8000/password/change/${uidb64}/${token}/`, data)
       .then(res => {
-        const successMessage = res.data.detail;
-        setSuccessMessage(successMessage);
+        setSuccessMessage(res.data.detail);
       })
       .catch(err => {
-        const errorMessage = err.response.data.detail;
-        setErrorMessage(errorMessage);
+        setErrorMessage(err.response.data.detail);
       });
     reset();
   };

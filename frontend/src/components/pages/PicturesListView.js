@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
-import ImageGallery from '../ImageGallery';
-import { LightContext } from '../../contexts/LightContext';
 import { CircularProgress } from '@material-ui/core';
 import history from '../../history';
+import ImageGallery from '../ImageGallery';
 import { styles } from '../ImageGallery';
 import ThemeSwitch from '../ThemeSwitch';
+import { LightContext } from '../../contexts/LightContext';
+import axios from 'axios';
 
 export default function PicturesListView({ match }) {
   const brand = match.params.brand;

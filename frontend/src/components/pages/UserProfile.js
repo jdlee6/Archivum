@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
-import ThemeSwitch from '../ThemeSwitch';
 import TabPanel from '../TabPanel';
+import ThemeSwitch from '../ThemeSwitch';
 import { LightContext } from '../../contexts/LightContext';
+import axios from 'axios';
 
 const useStyles = makeStyles(theme => ({
   root: {

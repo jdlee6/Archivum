@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
-import ThemeSwitch from '../ThemeSwitch';
-import { makeStyles } from '@material-ui/core/styles';
-import { LightContext } from '../../contexts/LightContext';
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+import ThemeSwitch from '../ThemeSwitch';
+import { LightContext } from '../../contexts/LightContext';
 import axios from 'axios';
 
 export default function PasswordReset() {
@@ -51,7 +51,6 @@ export default function PasswordReset() {
   }, []);
 
   const emails = accounts.map(account => account.email);
-  // console.log(emails);
 
   const handleChange = e => {
     setEmail(e.target.value);
@@ -59,7 +58,6 @@ export default function PasswordReset() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // check if the email exists in the api
     const exists = emails.indexOf(email) > -1;
     console.log(exists);
 
