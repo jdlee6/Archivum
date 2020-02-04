@@ -3,10 +3,12 @@ from feed.models import Brand, Lookbook, Picture
 
 class PictureSerializer(serializers.ModelSerializer):
     lookbook_id = serializers.PrimaryKeyRelatedField(queryset=Lookbook.objects.all(), source='lookbook.id')
+    lookbook_season = serializers.PrimaryKeyRelatedField(queryset=Lookbook.objects.all(), source='lookbook.season')
+    brand_url_param = serializers.PrimaryKeyRelatedField(queryset=Lookbook.objects.all(), source='lookbook.brand.url_param')
 
     class Meta:
         model = Picture
-        fields = ('uuid', 'lookbook_id', 'src', 'width', 'height', 'likes')
+        fields = ('uuid', 'lookbook_id', 'brand_url_param', 'lookbook_season', 'src', 'width', 'height', 'likes')
 
 class LookbookSerializer(serializers.ModelSerializer):
     pictures = PictureSerializer(many=True, read_only=True)

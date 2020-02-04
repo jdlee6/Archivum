@@ -4,9 +4,7 @@
 * backend *
 
 * frontend *
-    * start the like button
-        - ajax request to like toggle api
-            * get request with token as header
+    * show liked pictures on profile page
 
     routes:
         -/users 
@@ -16,6 +14,7 @@
     * component transitions
 
   * fix *
+    - profile picture loading on mobile
     * need to check expiration time when app loads
     - fix mobile scroll to top 
     - fix image modal size
@@ -26,12 +25,15 @@
 ################
 #CHANGES I MADE#
 ################
-- backend tests for picture like toggle
-- show liked pictures on user api view
-- specified liked image instead of just uuid (user list view)
+- made some changes to picture serializer for ease of use
+- started frontend like button logic
+- change color of like button on click
+- like button click -> ajax request to like toggle api view -> creates relationship between user & picture
+- persist liked data
+- update image header when swiping the carousel
 
 * in progress * 
-    
+
 
 #################
 ####COMPLETED####
@@ -183,3 +185,6 @@
 - finished backend for picture likes
     * must send a get request with the token header to identify the user
 - added manytomany field attribute between picture & user
+- backend tests for picture like toggle
+- show liked pictures on user api view
+- specified liked image in <brand season uuid> format instead of just uuid (user list view)
