@@ -2,10 +2,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 import EditButton from '../EditButton';
-import TabPanel from '../TabPanel';
 import ThemeSwitch from '../ThemeSwitch';
 import { LightContext } from '../../contexts/LightContext';
 import axios from 'axios';
+import CenteredTabs from '../CenteredTabs';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,25 +22,23 @@ const useStyles = makeStyles(theme => ({
 
 export default function Profile({ history }) {
   const username = localStorage.getItem('username');
+  const token = localStorage.getItem('token');
   const [values, setValues] = useState({
     avatar: null,
     bio: null,
     location: null
   });
   const [dateJoined, setDateJoined] = useState('');
+  const [likedPhotos, setLikedPhotos] = useState([]);
   const { themeMode } = useContext(LightContext);
   const classes = useStyles();
 
   useEffect(() => {
-    axios
-      .get(`http://192.168.1.18:8000/api/users/${username}/`)
-      .then(res => setValues(res.data.profile));
-  }, [username]);
-
-  useEffect(() => {
-    axios
-      .get(`http://192.168.1.18:8000/api/users/${username}/`)
-      .then(res => setDateJoined(res.data.date_joined));
+    axios.get(`http://192.168.1.18:8000/api/users/${username}/`).then(res => {
+      setDateJoined(res.data.date_joined);
+      setLikedPhotos(res.data.likes);
+      setValues(res.data.profile);
+    });
   }, [username]);
 
   return (
@@ -69,7 +67,7 @@ export default function Profile({ history }) {
           <EditButton history={history} />
         </div>
         <div className="profile-tabs">
-          <TabPanel />
+          <CenteredTabs likedPhotos={likedPhotos} token={token} />
         </div>
       </div>
     </div>

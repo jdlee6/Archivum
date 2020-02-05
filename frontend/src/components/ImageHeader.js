@@ -21,7 +21,7 @@ export default function ImageHeader({ currentIndex, views, modalProps }) {
       const exists = likedPhotos.indexOf(currentPhoto) > -1;
       setLiked(exists);
     });
-  }, [index]);
+  }, [index, brand, season, username, uuid]);
 
   const handleClick = e => {
     e.preventDefault();

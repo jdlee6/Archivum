@@ -4,8 +4,6 @@
 * backend *
 
 * frontend *
-    * show liked pictures on profile page
-
     routes:
         -/users 
           * implement a filter by username search bar feature
@@ -25,14 +23,16 @@
 ################
 #CHANGES I MADE#
 ################
-- made some changes to picture serializer for ease of use
-- started frontend like button logic
-- change color of like button on click
-- like button click -> ajax request to like toggle api view -> creates relationship between user & picture
-- persist liked data
-- update image header when swiping the carousel
+- figured out how to display content depending on selected tab
+- create photo detail endpoint from backend api
+- list of endpoints
+  1. map through each endpoint
+  2. ajax request
+  3. store the res.data.src in state
 
 * in progress * 
+  ** array of photo sources is not being expanded
+  - show liked pictures on profile page
 
 
 #################
@@ -188,3 +188,9 @@
 - backend tests for picture like toggle
 - show liked pictures on user api view
 - specified liked image in <brand season uuid> format instead of just uuid (user list view)
+- made some changes to picture serializer for ease of use
+- started frontend like button logic
+- change color of like button on click
+- like button click -> ajax request to like toggle api view -> creates relationship between user & picture
+- persist liked data
+- update image header when swiping the carousel

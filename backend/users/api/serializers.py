@@ -40,7 +40,7 @@ class UserListSerializer(serializers.ModelSerializer):
             brand = str(like.lookbook.brand.url_param)
             season = like.lookbook.season
             uuid = like.uuid
-            res.add(f'{brand} {season} {uuid}')
+            res.add(f'/api/brands/{brand}/lookbooks/{season}/{uuid}/')
         return res
 
 class UserUpdateSerializer(serializers.ModelSerializer):

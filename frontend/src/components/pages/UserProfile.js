@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
-import TabPanel from '../TabPanel';
+import CenteredTabs from '../CenteredTabs';
 import ThemeSwitch from '../ThemeSwitch';
 import { LightContext } from '../../contexts/LightContext';
 import axios from 'axios';
@@ -59,7 +59,7 @@ export default function UserProfile({ match }) {
           Joined: {dateJoined}
         </div>
         <div className="profile-tabs">
-          <TabPanel />
+          <CenteredTabs />
         </div>
       </div>
     </div>
