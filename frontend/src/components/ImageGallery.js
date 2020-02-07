@@ -82,7 +82,6 @@ export default function ImageGallery(props) {
     }
   };
 
-  // link for specific picture
   const handleViewChange = index => {
     const newPath =
       '/' + props.brand + '/' + props.season + '/' + index.toString();
@@ -121,7 +120,7 @@ export default function ImageGallery(props) {
             onClose={closeLightbox}
           >
             <Carousel
-              frameProps={{ autoSize: 'height' }}
+              frameProps={{ autoSize: 'width' }}
               components={{ Header: ImageHeader }}
               trackProps={{
                 onViewChange: handleViewChange
@@ -136,7 +135,6 @@ export default function ImageGallery(props) {
           </Modal>
         ) : null}
       </ModalGateway>
-      ;
       <BackToTop />
     </div>
   );

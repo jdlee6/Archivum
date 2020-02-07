@@ -15,14 +15,12 @@ export default function PicturesListView({ match }) {
   const { themeBool } = useContext(LightContext);
   const classes = styles();
 
-  // url parameter of brand
   useEffect(() => {
     axios
       .get(`http://192.168.1.18:8000/api/brands/${brand}/lookbooks/${season}/`)
       .then(res => setLookbook(res.data));
   }, [brand, season]);
 
-  // actual name of the brand
   useEffect(() => {
     axios
       .get(`http://192.168.1.18:8000/api/brands/${brand}/`)

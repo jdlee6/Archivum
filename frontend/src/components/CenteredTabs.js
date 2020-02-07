@@ -21,7 +21,11 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box p={3}>{children}</Box>}
+      {value === index && (
+        <Box component="span" m={1}>
+          {children}
+        </Box>
+      )}
     </Typography>
   );
 }
@@ -67,15 +71,17 @@ export default function CenteredTabs(props) {
           onChange={handleChange}
           centered
         >
-          <Tab label={<span style={{ color: themeMode.text }}>Looks</span>} />
           <Tab label={<span style={{ color: themeMode.text }}>Brands</span>} />
+          <Tab label={<span style={{ color: themeMode.text }}>Looks</span>} />
         </Tabs>
       </Paper>
       <TabPanel value={value} index={0}>
         Placeholder 1
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <ProfileImageGallery likedPhotos={likedPhotos} />
+        <div className="profile-gallery-padding">
+          <ProfileImageGallery photos={likedPhotos} />
+        </div>
       </TabPanel>
     </div>
   );

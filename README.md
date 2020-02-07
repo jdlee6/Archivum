@@ -6,7 +6,7 @@
 
 ## :sparkles: Demo
 
-https://youtu.be/YleG8REgsHk
+https://youtu.be/PruHZXClimU
 
 <img src="https://imgur.com/99LusHb.jpg" width="350">
 
@@ -21,12 +21,13 @@ https://youtu.be/YleG8REgsHk
 List of available routes
 
 * /
-* /register
-* /login
-* /password/reset
-* /profile
-* /profile/update
-* /<username>/profile
+* /register/
+* /login/
+* /password/reset/
+* /password/change/<uidb64>/<token>/
+* /profile/
+* /profile/update/
+* /<username>/profile/
 * /<brandname>/
 * /<brandname>/<season>/
 * /<brandname>/<season>/<picture_index>/
@@ -40,22 +41,23 @@ List of available routes
 ### API endpoints
 
 ```
-List of available API at /api/
+List of available API
 
-* /brands/
-* /brands/<brandname>/
-* /brands/<brandname>/lookbooks/
-* /brands/<brandname>/lookbooks/<season>/
-* /brands/<brandname>/lookbooks/<season>/<uuid>/
-* /users/
-* /users/register
-* /users/<username>/
-* /users/<username>/update/
-* /users/<username>/delete/
-* /rest-auth/login
-* /rest-auth/logout
+* /api/brands/
+* /api/brands/<brandname>/
+* /api/brands/<brandname>/lookbooks/
+* /api/brands/<brandname>/lookbooks/<season>/
+* /api/brands/<brandname>/lookbooks/<season>/<uuid>/
+* /api/brands/upload/
+* /api/users/
+* /api/users/register
+* /api/users/<username>/
+* /api/users/<username>/update/
+* /api/users/<username>/delete/
+* /rest-auth/login/
+* /rest-auth/logout/
 * /rest-auth/password/reset/
-* /upload/
+* /password/change/<uidb64>/<token>/
 ```
 
 ### Database & Utilities
@@ -93,6 +95,8 @@ pip install -r requirements.txt
 ```
 AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY
+EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD
 ```
 
 and change this section in settings.py to point to your local database

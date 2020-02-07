@@ -2,20 +2,23 @@
 ######TODO######
 ################
 * backend *
+  * more tests
 
 * frontend *
-    routes:
-        -/users 
-          * implement a filter by username search bar feature
+  * figure out how to style homepage
+  - refactor folders into shared components & nested components
 
-    * react router page transitions
-    * component transitions
+  routes:
+      -/users 
+        * implement a filter by username search bar feature
+
+  * react router page transitions
+  * component transitions
 
   * fix *
-    - profile picture loading on mobile
-    * need to check expiration time when app loads
-    - fix mobile scroll to top 
     - fix image modal size
+    - profile picture loading on mobile
+    - fix mobile scroll to top 
 
   * extra *
 
@@ -23,11 +26,12 @@
 ################
 #CHANGES I MADE#
 ################
-- instead of having individual endpoints for picture detail view for each liked photo -> image source in the serializer to prevent multiple AJAX requests
-- tweaked the get_likes serializer method so we have the brand, season, uuid & src
+- update readme with new demo link
+- fixed css of profile image gallery (media query)
+  * able to unlike photos from profile page
+- can view other user profiles as well
 
 * in progress * 
-  * working on how to display the gallery of liked photos on profile page
   - show liked pictures on profile page
 
 
@@ -192,3 +196,5 @@
 - update image header when swiping the carousel
 - figured out how to display content depending on selected tab
 - create photo detail endpoint from backend api
+- instead of having individual endpoints for picture detail view for each liked photo -> image source in the serializer to prevent multiple AJAX requests
+- tweaked the get_likes serializer method so we have the brand, season, uuid & src

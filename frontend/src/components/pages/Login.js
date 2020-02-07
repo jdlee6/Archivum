@@ -22,7 +22,6 @@ export default function Login({ history }) {
     state.passwordError = null;
   }, [state]);
 
-  // define styles after themeBool
   const useStyles = makeStyles(theme => ({
     root: {
       '& .MuiTextField-root': {
@@ -104,7 +103,6 @@ export default function Login({ history }) {
         checkAuthTimeout(3600);
       })
       .catch(err => {
-        // console.log(err.response.data);
         const userError = err.response.data.non_field_errors;
         const passwordError = err.response.data.password;
         authDispatch({
@@ -172,11 +170,12 @@ export default function Login({ history }) {
                 Log In
               </Button>
             </div>
+            <br />
             <Link
               to="/password/reset"
               style={{
                 fontFamily: 'Cardo',
-                marginLeft: '55%'
+                marginLeft: '58%'
               }}
             >
               Reset Password

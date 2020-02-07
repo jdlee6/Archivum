@@ -21,21 +21,22 @@ const useStyles = makeStyles(theme => ({
 
 export default function UserProfile({ match }) {
   const username = match.params.username;
-  const [profile, setProfile] = useState({});
   const [dateJoined, setDateJoined] = useState('');
+  const [likedPhotos, setLikedPhotos] = useState([]);
+  const [values, setValues] = useState({
+    avatar: null,
+    bio: null,
+    location: null
+  });
   const { themeMode } = useContext(LightContext);
   const classes = useStyles();
 
   useEffect(() => {
-    axios
-      .get(`http://192.168.1.18:8000/api/users/${username}/`)
-      .then(res => setProfile(res.data.profile));
-  }, [username]);
-
-  useEffect(() => {
-    axios
-      .get(`http://192.168.1.18:8000/api/users/${username}/`)
-      .then(res => setDateJoined(res.data.date_joined));
+    axios.get(`http://192.168.1.18:8000/api/users/${username}/`).then(res => {
+      setDateJoined(res.data.date_joined);
+      setLikedPhotos(res.data.likes);
+      setValues(res.data.profile);
+    });
   }, [username]);
 
   return (
@@ -49,17 +50,17 @@ export default function UserProfile({ match }) {
       </div>
       <div className="profile-container">
         <div className="profile-image-container">
-          <Avatar src={profile.avatar} className={classes.large} />
+          <Avatar src={values.avatar} className={classes.large} />
         </div>
         <div className="profile-info" style={{ color: themeMode.text }}>
           @{username}
           <br />
-          Bio: {profile.bio}
+          Bio: {values.bio}
           <br />
           Joined: {dateJoined}
         </div>
         <div className="profile-tabs">
-          <CenteredTabs />
+          <CenteredTabs likedPhotos={likedPhotos} />
         </div>
       </div>
     </div>

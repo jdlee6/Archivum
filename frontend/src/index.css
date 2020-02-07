@@ -17,6 +17,12 @@ a:hover {
   margin-top: 4vh;
 }
 
+@media screen and (min-width: 300px) and (max-width: 767px) {
+  .profile-gallery-padding {
+    margin-right: 9%;
+  }
+}
+
 .treeview-padding {
   padding-top: 10px;
 }
@@ -277,7 +283,7 @@ span {
 }
 
 .success-message {
-  postion: sticky;
+  position: sticky;
   padding-top: 5px;
   color: rgb(106, 224, 106);
   text-align: center;
@@ -288,10 +294,4 @@ span {
   color: red;
   text-align: center;
   font-family: Cardo;
-}
-
-.halfsize {
-  -moz-transform: scale(0.5);
-  -webkit-transform: scale(0.5);
-  transform: scale(0.5);
 }
