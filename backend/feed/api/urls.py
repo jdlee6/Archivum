@@ -9,6 +9,7 @@ from .views import (
     Upload
 )
 
+
 urlpatterns = [
     path('', BrandListView.as_view(), name='brands-list'),
     path('<str:url_param>/', BrandDetailView.as_view(), name='brand-detail'),

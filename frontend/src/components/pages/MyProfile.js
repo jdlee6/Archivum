@@ -22,7 +22,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function Profile({ history }) {
   const username = localStorage.getItem('username');
-  const token = localStorage.getItem('token');
   const [values, setValues] = useState({
     avatar: null,
     bio: null,
@@ -67,7 +66,7 @@ export default function Profile({ history }) {
           <EditButton history={history} />
         </div>
         <div className="profile-tabs">
-          <CenteredTabs likedPhotos={likedPhotos} token={token} />
+          <CenteredTabs likedPhotos={likedPhotos} />
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 from mixer.backend.django import mixer
 from django.test import TestCase
 
+
 class TestModels(TestCase):
     def setUp(self):
         self.brand = mixer.blend('feed.Brand')

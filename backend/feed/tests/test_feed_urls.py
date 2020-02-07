@@ -3,6 +3,7 @@ from django.test import TestCase
 from mixer.backend.django import mixer
 import pytest
 
+
 @pytest.mark.django_db
 class TestUrls(TestCase):
     def setUp(self):

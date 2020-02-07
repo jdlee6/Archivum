@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
@@ -6,14 +6,15 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Typography';
 import { LightContext } from '../contexts/LightContext';
-import axios from 'axios';
+import ProfileImageGallery from './ProfileImageGallery';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
     <Typography
-      component="div"
+      component={'span'}
+      variant={'body2'}
       role="tabpanel"
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
@@ -28,24 +29,7 @@ function TabPanel(props) {
 export default function CenteredTabs(props) {
   const { likedPhotos } = props;
   const [value, setValue] = useState(0);
-  const [photoSources, setPhotoSources] = useState([]);
   const { themeBool, themeMode } = useContext(LightContext);
-
-  useEffect(() => {
-    const endpoints = likedPhotos.map(photo => {
-      const endpoint = 'http://192.168.1.18:8000' + photo;
-      return endpoint;
-    });
-
-    endpoints.map(endpoint => {
-      axios
-        .get(endpoint)
-        .then(res => console.log(res.data.src))
-        .catch(err => console.log(err.response));
-    });
-  }, [likedPhotos]);
-
-  // console.log(photoSources);
 
   const useStyles = makeStyles({
     paper: {
@@ -83,25 +67,15 @@ export default function CenteredTabs(props) {
           onChange={handleChange}
           centered
         >
-          <Tab
-            label={<span style={{ color: themeMode.text }}> Brands </span>}
-          />
-          <Tab
-            label={<span style={{ color: themeMode.text }}>Lookbooks</span>}
-          />
-          <Tab
-            label={<span style={{ color: themeMode.text }}>Pictures</span>}
-          />
+          <Tab label={<span style={{ color: themeMode.text }}>Looks</span>} />
+          <Tab label={<span style={{ color: themeMode.text }}>Brands</span>} />
         </Tabs>
       </Paper>
       <TabPanel value={value} index={0}>
         Placeholder 1
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Placeholder 2
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Placeholder 3
+        <ProfileImageGallery likedPhotos={likedPhotos} />
       </TabPanel>
     </div>
   );

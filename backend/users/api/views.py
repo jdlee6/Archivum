@@ -1,15 +1,12 @@
+from .permissions import IsOwner, IsOwnerOrAdmin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.utils.http import urlsafe_base64_decode
-from .permissions import IsOwner, IsOwnerOrAdmin
-from users.api.serializers import (
-    UserListSerializer, 
-    UserCreateSerializer, 
-    UserUpdateSerializer,
-    ProfileSerializer,
-    UserPasswordUpdateSerializer
-)
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.authtoken.models import Token
 from rest_framework.generics import (
     UpdateAPIView,
     RetrieveAPIView,
@@ -17,17 +14,23 @@ from rest_framework.generics import (
     DestroyAPIView,
     CreateAPIView
 )
-from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
-from rest_framework import status
-from rest_framework.response import Response
-from rest_framework.authtoken.models import Token
+from users.api.serializers import (
+    UserListSerializer, 
+    UserCreateSerializer, 
+    UserUpdateSerializer,
+    ProfileSerializer,
+    UserPasswordUpdateSerializer
+)
+
 
 UserModel = get_user_model()
+
 
 class UserListView(ListAPIView):
     permission_classes = (AllowAny,)
     queryset = User.objects.all()
     serializer_class = UserListSerializer
+
 
 class UserCreateView(CreateAPIView):
     permission_classes = (AllowAny,)
@@ -42,11 +45,13 @@ class UserCreateView(CreateAPIView):
         token, created = Token.objects.get_or_create(user=serializer.instance)
         return Response({'key': token.key}, status=status.HTTP_201_CREATED, headers=headers)
 
+
 class UserDetailView(RetrieveAPIView):
     permission_classes = (AllowAny,)
     queryset = User.objects.all()
     serializer_class = UserListSerializer
     lookup_field = 'username'
+
 
 class UserUpdateView(UpdateAPIView):
     permission_classes = (IsOwner, )
@@ -54,11 +59,13 @@ class UserUpdateView(UpdateAPIView):
     serializer_class = UserUpdateSerializer
     lookup_field = 'username'
 
+
 class UserDeleteView(DestroyAPIView):
     permission_classes = (IsOwnerOrAdmin,)
     queryset = User.objects.all()
     serializer_class = UserListSerializer
     lookup_field = 'username'
+
 
 class PasswordResetConfirmView(UpdateAPIView):
     permission_classes = (IsOwnerOrAdmin,)

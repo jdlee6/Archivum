@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from feed.models import Brand, Lookbook, Picture
 
+
 class PictureSerializer(serializers.ModelSerializer):
     lookbook_id = serializers.PrimaryKeyRelatedField(queryset=Lookbook.objects.all(), source='lookbook.id')
     lookbook_season = serializers.PrimaryKeyRelatedField(queryset=Lookbook.objects.all(), source='lookbook.season')
@@ -9,6 +10,7 @@ class PictureSerializer(serializers.ModelSerializer):
     class Meta:
         model = Picture
         fields = ('uuid', 'lookbook_id', 'brand_url_param', 'lookbook_season', 'src', 'width', 'height', 'likes')
+
 
 class LookbookSerializer(serializers.ModelSerializer):
     pictures = PictureSerializer(many=True, read_only=True)
@@ -24,6 +26,7 @@ class LookbookSerializer(serializers.ModelSerializer):
             # NOTE change lookbook id when in use
             picture = Picture.objects.create(lookbook_id=7, src=image_data)
         return picture
+
 
 class BrandSerializer(serializers.ModelSerializer):
     lookbooks = serializers.SerializerMethodField()

@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from users.api.views import PasswordResetConfirmView
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/brands/', include('feed.api.urls')),

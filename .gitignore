@@ -18,3 +18,4 @@ backend/users/migrations/
 backend/users/__pycache__/
 backend/users/api/__pycache__/
 backend/users/tests/__pycache__/
+frontend/src/components/ProfileImageGallery.js

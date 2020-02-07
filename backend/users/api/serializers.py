@@ -2,12 +2,15 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from rest_framework.response import Response
 from users.models import Profile
+from archivum.settings import AWS_S3_CUSTOM_DOMAIN
 import json
+
 
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = ('avatar', 'user', 'bio', 'location')
+
 
 class UserCreateSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
@@ -25,6 +28,7 @@ class UserCreateSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id', 'username', 'email', 'password')
 
+
 class UserListSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(many=False, read_only=True)
     likes = serializers.SerializerMethodField()
@@ -32,16 +36,27 @@ class UserListSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'date_joined', 'profile', 'likes',)
-   
+    
     def get_likes(self, instance):
         likes = instance.likes.all()
-        res = set()
+        res = []
         for like in likes:
-            brand = str(like.lookbook.brand.url_param)
+            brand = like.lookbook.brand.url_param
             season = like.lookbook.season
             uuid = like.uuid
-            res.add(f'/api/brands/{brand}/lookbooks/{season}/{uuid}/')
+            width = like.width
+            height = like.height
+            liked_photo_source = 'https://' + AWS_S3_CUSTOM_DOMAIN + '/' + str(like.src)
+            res.append({
+                'brand': brand,
+                'season': season,
+                'uuid': uuid,
+                'width': width,
+                'height': height,
+                'src': liked_photo_source
+                })
         return res
+
 
 class UserUpdateSerializer(serializers.ModelSerializer):
     username = serializers.CharField(source='profile.username', required=False)

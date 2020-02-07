@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from rest_framework.test import APIRequestFactory
 from users.api.views import UserUpdateView, UserCreateView, UserDeleteView
 
+
 class TestUrls(TestCase):
     def setUp(self):
         self.factory = APIRequestFactory()

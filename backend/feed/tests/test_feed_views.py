@@ -2,7 +2,13 @@ from mixer.backend.django import mixer
 from django.urls import reverse
 from django.test import TestCase
 from rest_framework.test import APIRequestFactory
-from feed.api.views import LookbookListView, LookbookDetailView, PictureDetailView, PictureLikeToggle
+from feed.api.views import (
+    LookbookListView, 
+    LookbookDetailView, 
+    PictureDetailView, 
+    PictureLikeToggle
+)
+
 
 class TestViews(TestCase):
     def setUp(self):

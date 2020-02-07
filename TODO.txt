@@ -23,15 +23,11 @@
 ################
 #CHANGES I MADE#
 ################
-- figured out how to display content depending on selected tab
-- create photo detail endpoint from backend api
-- list of endpoints
-  1. map through each endpoint
-  2. ajax request
-  3. store the res.data.src in state
+- instead of having individual endpoints for picture detail view for each liked photo -> image source in the serializer to prevent multiple AJAX requests
+- tweaked the get_likes serializer method so we have the brand, season, uuid & src
 
 * in progress * 
-  ** array of photo sources is not being expanded
+  * working on how to display the gallery of liked photos on profile page
   - show liked pictures on profile page
 
 
@@ -194,3 +190,5 @@
 - like button click -> ajax request to like toggle api view -> creates relationship between user & picture
 - persist liked data
 - update image header when swiping the carousel
+- figured out how to display content depending on selected tab
+- create photo detail endpoint from backend api

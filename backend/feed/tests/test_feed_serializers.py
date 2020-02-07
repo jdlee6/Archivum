@@ -4,6 +4,7 @@ from feed.models import Brand, Lookbook
 from feed.api.serializers import BrandSerializer
 import json
 
+
 class TestSerializers(TestCase):
     def setUp(self):
         self.Serializer = BrandSerializer

@@ -17,11 +17,11 @@ export default function ImageHeader({ currentIndex, views, modalProps }) {
   useEffect(() => {
     axios.get(`http://192.168.1.18:8000/api/users/${username}/`).then(res => {
       const likedPhotos = res.data.likes;
-      const currentPhoto = brand + ' ' + season + ' ' + uuid;
-      const exists = likedPhotos.indexOf(currentPhoto) > -1;
+      const uuids = likedPhotos.map(photo => photo.uuid);
+      const exists = uuids.indexOf(uuid) > -1;
       setLiked(exists);
     });
-  }, [index, brand, season, username, uuid]);
+  }, [index, username, uuid]);
 
   const handleClick = e => {
     e.preventDefault();

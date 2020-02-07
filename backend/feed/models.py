@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 import uuid
 
+
 class Brand(models.Model):
     name = models.CharField(max_length=120)
     url_param = models.CharField(max_length=120, default='url')
@@ -15,9 +16,9 @@ class Brand(models.Model):
     def __str__(self):
         return self.name
 
+
 class Lookbook(models.Model):
     season = models.CharField(max_length=120)
-    # null parameter so postman can mass upload
     brand = models.ForeignKey(Brand, related_name='lookbooks', on_delete=models.CASCADE, null=True)
     year = models.DateField(null=True)
 
@@ -27,6 +28,7 @@ class Lookbook(models.Model):
 
     def __str__(self):
         return f'{self.brand} {self.season}'
+
 
 class Picture(models.Model):
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid1, editable=False, unique=True)

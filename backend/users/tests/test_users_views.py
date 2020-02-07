@@ -11,6 +11,7 @@ from users.api.views import (
     UserDeleteView
 )
 
+
 class TestViews(TestCase):
     def setUp(self):
         self.user = User.objects.create(username='newtest1', email='newtest1@mail.com', password='123')
