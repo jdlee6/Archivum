@@ -105,10 +105,15 @@ export default function ImageModal(props) {
             onClose={closeLightbox}
           >
             <Carousel
-              frameProps={{ autoSize: 'height' }}
               components={{ Header: ImageHeader }}
               trackProps={{
                 onViewChange: handleViewChange
+              }}
+              styles={{
+                view: base => ({
+                  ...base,
+                  height: '90vh'
+                })
               }}
               currentIndex={currentImage}
               views={lookbook.pictures.map(x => ({

@@ -15,6 +15,7 @@ export default function ImageHeader({ currentIndex, views, modalProps }) {
   const season = views[index].lookbook_season;
   const brand = views[index].brand_url_param;
 
+  // fix this
   useEffect(() => {
     axios.get(`http://192.168.1.18:8000/api/users/${username}/`).then(res => {
       const likedPhotos = res.data.likes;

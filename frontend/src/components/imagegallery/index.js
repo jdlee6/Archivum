@@ -120,12 +120,17 @@ export default function ImageGallery(props) {
             onClose={closeLightbox}
           >
             <Carousel
-              frameProps={{ autoSize: 'true' }}
               components={{ Header: ImageHeader }}
               trackProps={{
                 onViewChange: handleViewChange
               }}
               currentIndex={currentImage}
+              styles={{
+                view: base => ({
+                  ...base,
+                  height:'90vh',
+                })
+              }}
               views={props.lookbook.pictures.map(x => ({
                 ...x,
                 srcset: x.src,

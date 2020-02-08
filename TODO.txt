@@ -6,6 +6,7 @@
 
 * frontend *
   * figure out how to style homepage
+  * reducers for user actions
 
   routes:
       -/users 
