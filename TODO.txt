@@ -6,18 +6,16 @@
 
 * frontend *
   * figure out how to style homepage
-  - refactor folders into shared components & nested components
 
   routes:
       -/users 
         * implement a filter by username search bar feature
-
   * react router page transitions
   * component transitions
 
   * fix *
     - fix image modal size
-    - profile picture loading on mobile
+    - fix profile picture loading on mobile
     - fix mobile scroll to top 
 
   * extra *
@@ -26,13 +24,11 @@
 ################
 #CHANGES I MADE#
 ################
-- update readme with new demo link
-- fixed css of profile image gallery (media query)
-  * able to unlike photos from profile page
-- can view other user profiles as well
+- added caption for profile gallery
+- refactored all the containers
+- refactored components into shared & nested
 
 * in progress * 
-  - show liked pictures on profile page
 
 
 #################
@@ -198,3 +194,7 @@
 - create photo detail endpoint from backend api
 - instead of having individual endpoints for picture detail view for each liked photo -> image source in the serializer to prevent multiple AJAX requests
 - tweaked the get_likes serializer method so we have the brand, season, uuid & src
+- update readme with new demo link
+- fixed css of profile image gallery (media query)
+  * able to unlike photos from profile page
+- can view other user profiles as well

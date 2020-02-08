@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core/styles';
 import BaseRouter from './routes';
 import { Router } from 'react-router-dom';
-import ResponsiveDrawer from './components/ResponsiveDrawer';
+import ResponsiveDrawer from './components/shared/responsivedrawer';
 import ModalContextProvider from './contexts/ModalContext';
 import LightContextProvider from './contexts/LightContext';
 import AuthContextProvider from './contexts/AuthContext';
@@ -23,7 +23,6 @@ let formTheme = createMuiTheme({
     MuiInput: {
       underline: {
         '&:before': {
-          //underline color when textfield is inactive
           backgroundColor: 'white',
           height: 1
         }

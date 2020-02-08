@@ -41,7 +41,7 @@ class UserListSerializer(serializers.ModelSerializer):
         likes = instance.likes.all()
         res = []
         for like in likes:
-            brand = like.lookbook.brand.url_param
+            brand = like.lookbook.brand.name
             season = like.lookbook.season
             uuid = like.uuid
             width = like.width

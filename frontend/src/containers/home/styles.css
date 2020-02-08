@@ -1,0 +1,49 @@
+.section-container {
+  padding-top: 9vh;
+  margin-left: 5%;
+}
+
+.switch-container {
+  position: absolute;
+  right: 12px;
+  margin-top: -4vh;
+  margin-right: 2%;
+}
+
+.slick-container-light {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  padding: 40px;
+  border: 3px dotted;
+  color: #000;
+  font-family: 'Cardo';
+}
+
+.slick-container-dark {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  padding: 40px;
+  border: 3px dotted;
+  color: rgb(255, 255, 255);
+  font-family: 'Cardo';
+}
+
+.slick-pad {
+  margin-top: 25vh;
+  padding-right: 9%;
+  padding-left: 5%;
+}
+
+.slick-slide {
+  visibility: hidden;
+}
+
+.slick-slide.slick-active {
+  visibility: visible;
+}

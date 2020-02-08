@@ -1,0 +1,51 @@
+.section-container-lookbook {
+  padding-top: 9.85vh;
+  margin-left: 5%;
+}
+
+.brand-season-header-light {
+  align-content: center;
+  width: max-content;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  padding: 2px 17px;
+  border: 1px solid;
+  color: #000;
+  font-family: 'Cardo';
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.brand-season-header-dark {
+  align-content: center;
+  width: max-content;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  padding: 2px 17px;
+  border: 1px solid;
+  color: rgb(255, 255, 255);
+  font-family: 'Cardo';
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.switch-container-lookbook {
+  position: absolute;
+  right: 12px;
+  margin-top: -3vh;
+  margin-right: 2%;
+}
+
+.season-containers {
+  margin-right: 5%;
+}
+
+.season-pad {
+  margin-top: 10vh;
+}

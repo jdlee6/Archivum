@@ -1,0 +1,66 @@
+.section-container {
+  padding-top: 9vh;
+  margin-left: 5%;
+}
+
+.switch-container {
+  position: absolute;
+  right: 12px;
+  margin-top: -4vh;
+  margin-right: 2%;
+}
+
+.profile-container {
+  padding-top: 9vh;
+  margin-left: 14%;
+  margin-right: 10%;
+}
+
+@media screen and (min-width: 768px) {
+  .profile-container {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}
+
+.profile-image-container {
+  position: absolute;
+  margin-top: 4vh;
+  margin-left: 3%;
+}
+
+@media screen and (min-width: 768px) {
+  .profile-image-container {
+    position: absolute;
+    margin-top: 8vh;
+    margin-left: 3%;
+  }
+}
+
+.profile-info {
+  text-align: left;
+  font-family: 'Cardo';
+  margin-top: 16vh;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.profile-tabs {
+  text-align: center;
+  margin-top: 3vh;
+  margin-left: 5%;
+}
+
+.profile-edit {
+  position: absolute;
+  right: 5px;
+  margin-top: -15vh;
+  margin-right: 15%;
+}
+
+@media screen and (min-width: 768px) {
+  .profile-edit {
+    margin-top: -8vh;
+    margin-right: 20%;
+  }
+}

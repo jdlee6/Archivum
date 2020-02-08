@@ -1,0 +1,39 @@
+.section-container {
+  padding-top: 9vh;
+  margin-left: 5%;
+}
+
+.switch-container {
+  position: absolute;
+  right: 12px;
+  margin-top: -4vh;
+  margin-right: 2%;
+}
+
+.form-container {
+  margin-top: 10vh;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.success-message {
+  position: sticky;
+  padding-top: 5px;
+  color: rgb(106, 224, 106);
+  text-align: center;
+  font-family: Cardo;
+}
+
+.error-message {
+  position: sticky;
+  padding-top: 15px;
+  margin-bottom: -10px;
+  color: red;
+  text-align: center;
+  font-family: Cardo;
+}
+
+.button-container {
+  text-align: center;
+  padding-top: 5px;
+}
