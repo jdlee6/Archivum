@@ -5,7 +5,7 @@ import pytest
 
 
 @pytest.mark.django_db
-class TestUrls(TestCase):
+class TestFeedUrls(TestCase):
     def setUp(self):
         self.brand = mixer.blend('feed.Brand')
         self.lookbook = mixer.blend('feed.Lookbook')

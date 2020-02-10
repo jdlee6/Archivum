@@ -5,7 +5,7 @@ from rest_framework.test import APIRequestFactory
 from users.api.views import UserUpdateView, UserCreateView, UserDeleteView
 
 
-class TestUrls(TestCase):
+class TestUsersUrls(TestCase):
     def setUp(self):
         self.factory = APIRequestFactory()
         self.user = User.objects.create(username='test', email='test@mail.com', password='123')

@@ -5,7 +5,7 @@ from feed.api.serializers import BrandSerializer
 import json
 
 
-class TestSerializers(TestCase):
+class TestFeedSerializers(TestCase):
     def setUp(self):
         self.Serializer = BrandSerializer
         self.brand = Brand.objects.create(name='bape')

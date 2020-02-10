@@ -10,7 +10,7 @@ from feed.api.views import (
 )
 
 
-class TestViews(TestCase):
+class TestFeedViews(TestCase):
     def setUp(self):
         self.brand = mixer.blend('feed.Brand')
         self.lookbook = mixer.blend('feed.Lookbook', brand=self.brand)

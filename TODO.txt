@@ -2,7 +2,6 @@
 ######TODO######
 ################
 * backend *
-  * more tests
 
 * frontend *
   * figure out how to style homepage
@@ -25,11 +24,11 @@
 ################
 #CHANGES I MADE#
 ################
-- added caption for profile gallery
-- refactored all the containers
-- refactored components into shared & nested
+- test_users_serializers.py
+- test_users_views.py
 
 * in progress * 
+  * more tests
 
 
 #################
@@ -199,3 +198,6 @@
 - fixed css of profile image gallery (media query)
   * able to unlike photos from profile page
 - can view other user profiles as well
+- added caption for profile gallery
+- refactored all the containers
+- refactored components into shared & nested

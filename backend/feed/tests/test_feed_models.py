@@ -2,7 +2,7 @@ from mixer.backend.django import mixer
 from django.test import TestCase
 
 
-class TestModels(TestCase):
+class TestFeedModels(TestCase):
     def setUp(self):
         self.brand = mixer.blend('feed.Brand')
         self.lookbook = mixer.blend('feed.Lookbook')

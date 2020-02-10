@@ -6,7 +6,7 @@ from django.core.files.storage import default_storage as storage
 from PIL import Image
 
 
-class TestModels(TestCase):
+class TestUsersModels(TestCase):
     def setUp(self):
         self.user = User.objects.create(username='new_test', email='test@mail.com', password='123')
         self.profile = self.user.profile
