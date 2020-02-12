@@ -24,11 +24,9 @@
 ################
 #CHANGES I MADE#
 ################
-- test_users_serializers.py
-- test_users_views.py
+* update readme with backend/frontend images
 
 * in progress * 
-  * more tests
 
 
 #################
@@ -201,3 +199,5 @@
 - added caption for profile gallery
 - refactored all the containers
 - refactored components into shared & nested
+- test_users_serializers.py
+- test_users_views.py

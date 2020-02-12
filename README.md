@@ -2,13 +2,17 @@
 <p>
 </p>
 
-> Archivum is a minimalist web application that displays a collection of lookbooks from various clothing brands built with Django & React.js
+> Archivum is a Django & React.js web application that displays a collection of lookbooks from various clothing brands where users are able to log in and share & like their favorite looks
 
 ## :sparkles: Demo
 
 https://youtu.be/PruHZXClimU
 
-<img src="https://imgur.com/99LusHb.jpg" width="350">
+![Home](/preview/frontend1.png)
+![Profile](/preview/frontend2.png)
+![Lookbook Season](/preview/frontend3.png)
+![Brand API](/preview/backend1.png)
+![User API](/preview/backend2.png)
 
 ### Frontend
 
