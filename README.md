@@ -8,6 +8,8 @@
 
 https://youtu.be/PruHZXClimU
 
+### Demo Screenshots
+
 ![Home](/preview/frontend1.png)
 ![Profile](/preview/frontend2.png)
 ![Lookbook Season](/preview/frontend3.png)
