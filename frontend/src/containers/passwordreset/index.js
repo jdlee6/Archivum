@@ -47,7 +47,7 @@ export default function PasswordReset() {
 
   useEffect(() => {
     axios
-      .get(`http://192.168.1.18:8000/api/users`)
+      .get(`/api/users`)
       .then(res => setAccounts(res.data));
   }, []);
 
@@ -64,7 +64,7 @@ export default function PasswordReset() {
 
     if (exists) {
       axios
-        .post(`http://192.168.1.18:8000/rest-auth/password/reset/`, {
+        .post(`/rest-auth/password/reset/`, {
           email
         })
         .then(res => setMessage(res.data.detail))

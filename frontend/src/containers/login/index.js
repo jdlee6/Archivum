@@ -85,7 +85,7 @@ export default function Login({ history }) {
       type: 'AUTH_START'
     });
     axios
-      .post(`http://192.168.1.18:8000/rest-auth/login/`, {
+      .post(`/rest-auth/login/`, {
         username: username,
         password: password
       })

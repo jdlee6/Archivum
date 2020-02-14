@@ -37,7 +37,7 @@ export default function LookbookList({ match }) {
   const classes = useStyles();
 
   useEffect(() => {
-    axios.get(`http://192.168.1.18:8000/api/brands/${brand}/`).then(res => {
+    axios.get(`/api/brands/${brand}/`).then(res => {
       setLookbooks(res.data.lookbooks);
       setBrandName(res.data.name);
     });

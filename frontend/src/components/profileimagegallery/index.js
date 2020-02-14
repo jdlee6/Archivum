@@ -56,7 +56,20 @@ export default function ProfileImageGallery(props) {
               onClose={closeLightbox}
             >
               <Carousel
-                frameProps={{ autoSize: 'true' }}
+                frameProps={{ autoSize: 'height' }}
+                styles={{
+                  container: base => ({
+                    ...base,
+                    height: '85vh'
+                  }),
+                  view: base => ({
+                    ...base,
+                    alignItems: 'center',
+                    display: 'flex ',
+                    height: 'calc(100vh - 10em)',
+                    justifyContent: 'center'
+                  })
+                }}
                 components={{ Header: ImageHeader }}
                 currentIndex={currentImage}
                 views={photos.map(x => ({

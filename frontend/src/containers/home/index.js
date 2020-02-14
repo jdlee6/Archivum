@@ -24,7 +24,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get(`http://192.168.1.18:8000/api/brands/`)
+      .get(`/api/brands/`)
       .then(res => setBrands(res.data));
   }, []);
 

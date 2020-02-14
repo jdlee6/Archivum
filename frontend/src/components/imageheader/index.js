@@ -17,7 +17,7 @@ export default function ImageHeader({ currentIndex, views, modalProps }) {
 
   // fix this
   useEffect(() => {
-    axios.get(`http://192.168.1.18:8000/api/users/${username}/`).then(res => {
+    axios.get(`/api/users/${username}/`).then(res => {
       const likedPhotos = res.data.likes;
       const uuids = likedPhotos.map(photo => photo.uuid);
       const exists = uuids.indexOf(uuid) > -1;
@@ -32,7 +32,7 @@ export default function ImageHeader({ currentIndex, views, modalProps }) {
     } else {
       axios
         .get(
-          `http://192.168.1.18:8000/api/brands/${brand}/lookbooks/${season}/${uuid}/like/`,
+          `/api/brands/${brand}/lookbooks/${season}/${uuid}/like/`,
           {
             headers: {
               Accept: 'application/json',

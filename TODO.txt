@@ -1,6 +1,8 @@
 ################
 ######TODO######
 ################
+* deploy! 
+
 * backend *
 
 * frontend *
@@ -14,7 +16,6 @@
   * component transitions
 
   * fix *
-    - fix image modal size
     - fix profile picture loading on mobile
     - fix mobile scroll to top 
 
@@ -24,7 +25,9 @@
 ################
 #CHANGES I MADE#
 ################
-* update readme with backend/frontend images
+- set proxy 
+- set admin permission in upload 
+- figure out how to fix image modal sizing
 
 * in progress * 
 
@@ -201,3 +204,4 @@
 - refactored components into shared & nested
 - test_users_serializers.py
 - test_users_views.py
+- update readme with backend/frontend images

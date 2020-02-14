@@ -69,7 +69,7 @@ export default function PasswordChange({ match, history }) {
       password_2: values.password2
     };
     axios
-      .put(`http://192.168.1.18:8000/password/change/${uidb64}/${token}/`, data)
+      .put(`/password/change/${uidb64}/${token}/`, data)
       .then(res => {
         setSuccessMessage(res.data.detail);
       })

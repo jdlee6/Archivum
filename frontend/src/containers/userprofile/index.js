@@ -33,7 +33,7 @@ export default function UserProfile({ match }) {
   const classes = useStyles();
 
   useEffect(() => {
-    axios.get(`http://192.168.1.18:8000/api/users/${username}/`).then(res => {
+    axios.get(`/api/users/${username}/`).then(res => {
       setDateJoined(res.data.date_joined);
       setLikedPhotos(res.data.likes);
       setValues(res.data.profile);

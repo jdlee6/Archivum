@@ -109,10 +109,18 @@ export default function ImageModal(props) {
               trackProps={{
                 onViewChange: handleViewChange
               }}
+              frameProps={{ autoSize: 'height' }}
               styles={{
+                container: base => ({
+                  ...base,
+                  height: '85vh'
+                }),
                 view: base => ({
                   ...base,
-                  height: '90vh'
+                  alignItems: 'center',
+                  display: 'flex ',
+                  height: 'calc(100vh - 10em)',
+                  justifyContent: 'center'
                 })
               }}
               currentIndex={currentImage}

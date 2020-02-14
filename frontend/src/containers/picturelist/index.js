@@ -17,13 +17,13 @@ export default function PictureList({ match }) {
 
   useEffect(() => {
     axios
-      .get(`http://192.168.1.18:8000/api/brands/${brand}/lookbooks/${season}/`)
+      .get(`/api/brands/${brand}/lookbooks/${season}/`)
       .then(res => setLookbook(res.data));
   }, [brand, season]);
 
   useEffect(() => {
     axios
-      .get(`http://192.168.1.18:8000/api/brands/${brand}/`)
+      .get(`/api/brands/${brand}/`)
       .then(res => setBrandName(res.data.name));
   }, [brand]);
 

@@ -74,7 +74,7 @@ export default function Register() {
       type: 'AUTH_START'
     });
     axios
-      .post(`http://192.168.1.18:8000/api/users/register/`, {
+      .post(`/api/users/register/`, {
         username: username,
         email: email,
         password: password
