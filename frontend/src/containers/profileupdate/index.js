@@ -15,12 +15,12 @@ export default function ProfileUpdate({ history }) {
   const username = localStorage.getItem('username');
   const token = localStorage.getItem('token');
   const [values, setValues] = useState({
-    username: null,
-    email: null,
-    date_joined: null,
-    bio: null,
-    avatar: null,
-    location: null
+    username: '',
+    email: '',
+    date_joined: '',
+    bio: '',
+    avatar: '',
+    location: ''
   });
 
   const useStyles = makeStyles(theme => ({
@@ -96,17 +96,13 @@ export default function ProfileUpdate({ history }) {
 
     console.log(form_data);
     axios
-      .put(
-        `/api/users/${username}/update/`,
-        form_data,
-        {
-          headers: {
-            Accept: 'application/json',
-            'content-type': 'multipart/form-data',
-            Authorization: `Token ${token}`
-          }
+      .put(`/api/users/${username}/update/`, form_data, {
+        headers: {
+          Accept: 'application/json',
+          'content-type': 'multipart/form-data',
+          Authorization: `Token ${token}`
         }
-      )
+      })
       .then(res => {
         console.log('success', res.data);
       })

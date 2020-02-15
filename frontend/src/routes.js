@@ -18,11 +18,11 @@ export default function BaseRouter() {
     <div>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <Route path="/:username/profile" component={UserProfile} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/:username/profile" component={UserProfile} />
         <PrivateRoute exact path="/profile" component={MyProfile} />
-        <PrivateRoute path="/profile/update" component={ProfileUpdate} />
+        <PrivateRoute exact path="/profile/update" component={ProfileUpdate} />
         <Route
           exact
           path="/password/change/:uidb64/:token"

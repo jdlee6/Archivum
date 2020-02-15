@@ -46,12 +46,8 @@ export default function PasswordReset() {
   const classes = useStyles();
 
   useEffect(() => {
-    axios
-      .get(`/api/users`)
-      .then(res => setAccounts(res.data));
+    axios.get(`/api/users`).then(res => setAccounts(res.data));
   }, []);
-
-  const emails = accounts.map(account => account.email);
 
   const handleChange = e => {
     setEmail(e.target.value);
@@ -59,8 +55,8 @@ export default function PasswordReset() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    const emails = accounts.map(account => account.email);
     const exists = emails.indexOf(email) > -1;
-    console.log(exists);
 
     if (exists) {
       axios

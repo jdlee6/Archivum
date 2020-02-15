@@ -1,8 +1,6 @@
 ################
 ######TODO######
 ################
-* deploy! 
-
 * backend *
 
 * frontend *
@@ -25,8 +23,8 @@
 ################
 #CHANGES I MADE#
 ################
-- fix profile picture styling on mobile
-- fixed lookbook load header bug
+- tweaked frontend so its fully functional in production
+- deployed 
 
 * in progress * 
   
@@ -207,3 +205,5 @@
 - set proxy 
 - set admin permission in upload 
 - figure out how to fix image modal sizing
+- fix profile picture styling on mobile
+- fixed lookbook load header bug
