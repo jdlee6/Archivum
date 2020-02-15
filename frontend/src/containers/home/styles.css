@@ -22,6 +22,12 @@
   font-family: 'Cardo';
 }
 
+.menu:hover {
+  color: #ccc;
+  text-decoration: none;
+  background: #333;
+}
+
 .slick-container-dark {
   text-align: center;
   text-transform: uppercase;
@@ -36,8 +42,8 @@
 
 .slick-pad {
   margin-top: 25vh;
-  padding-right: 9%;
-  padding-left: 5%;
+  padding-right: 19%;
+  padding-left: 15%;
 }
 
 .slick-slide {

@@ -43,39 +43,43 @@ export default function LookbookList({ match }) {
     });
   }, [brand]);
 
-  return (
-    <div className="section-container-lookbook">
-      <div
-        className={
-          themeBool ? 'brand-season-header-light' : 'brand-season-header-dark'
-        }
-      >
-        {brandName}
-      </div>
-      <div className="switch-container-lookbook">
-        <ThemeSwitch />
-      </div>
-      <div className="season-pad">
-        <div className="season-containers">
-          {lookbooks.map(lookbook => (
-            <Paper key={lookbook.id} className={classes.paper}>
-              <Grid item xs>
-                <Typography>
-                  <Link
-                    style={{
-                      color: themeMode.text,
-                      textDecoration: 'none'
-                    }}
-                    to={`${brand}/${lookbook.season}`}
-                  >
-                    <span>{lookbook.season.toUpperCase()}</span>
-                  </Link>
-                </Typography>
-              </Grid>
-            </Paper>
-          ))}
+  if (brandName !== '') {
+    return (
+      <div className="section-container-lookbook">
+        <div
+          className={
+            themeBool ? 'brand-season-header-light' : 'brand-season-header-dark'
+          }
+        >
+          {brandName}
+        </div>
+        <div className="switch-container-lookbook">
+          <ThemeSwitch />
+        </div>
+        <div className="season-pad">
+          <div className="season-containers">
+            {lookbooks.map(lookbook => (
+              <Paper key={lookbook.id} className={classes.paper}>
+                <Grid item xs>
+                  <Typography>
+                    <Link
+                      style={{
+                        color: themeMode.text,
+                        textDecoration: 'none'
+                      }}
+                      to={`${brand}/${lookbook.season}`}
+                    >
+                      <span>{lookbook.season.toUpperCase()}</span>
+                    </Link>
+                  </Typography>
+                </Grid>
+              </Paper>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return null;
+  }
 }

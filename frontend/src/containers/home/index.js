@@ -23,9 +23,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    axios
-      .get(`/api/brands/`)
-      .then(res => setBrands(res.data));
+    axios.get(`/api/brands/`).then(res => setBrands(res.data));
   }, []);
 
   return (

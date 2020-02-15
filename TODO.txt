@@ -25,12 +25,11 @@
 ################
 #CHANGES I MADE#
 ################
-- set proxy 
-- set admin permission in upload 
-- figure out how to fix image modal sizing
+- fix profile picture styling on mobile
+- fixed lookbook load header bug
 
 * in progress * 
-
+  
 
 #################
 ####COMPLETED####
@@ -205,3 +204,6 @@
 - test_users_serializers.py
 - test_users_views.py
 - update readme with backend/frontend images
+- set proxy 
+- set admin permission in upload 
+- figure out how to fix image modal sizing
