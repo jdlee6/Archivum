@@ -3,7 +3,6 @@ scripts/
 backend/archivum/__pycache__
 backend/feed/__pycache__
 backend/feed/api/__pycache__
-backend/feed/migrations/
 outline
 env/
 frontend/node_modules
@@ -14,7 +13,6 @@ notes
 .vscode/
 backend/htmlcov/
 backend/feed/tests/__pycache__/
-backend/users/migrations/
 backend/users/__pycache__/
 backend/users/api/__pycache__/
 backend/users/tests/__pycache__/
