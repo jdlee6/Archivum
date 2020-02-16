@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from users.api.views import PasswordResetConfirmView
+from feed.api.views import Upload
 
 
 urlpatterns = [
@@ -26,6 +27,7 @@ urlpatterns = [
     path('api/users/', include('users.api.urls')),
     path('rest-auth/', include('rest_auth.urls')),
     path('password/change/<uidb64>/<token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('upload/', Upload.as_view())
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

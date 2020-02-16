@@ -4,8 +4,8 @@
 * backend *
 
 * frontend *
-  * figure out how to style homepage
-  * reducers for user actions
+  - create a url tab icon
+  - fix like button for non logged in user
 
   routes:
       -/users 
@@ -23,8 +23,7 @@
 ################
 #CHANGES I MADE#
 ################
-- tweaked frontend so its fully functional in production
-- deployed 
+- fixed multiple upload api 
 
 * in progress * 
   
@@ -207,3 +206,5 @@
 - figure out how to fix image modal sizing
 - fix profile picture styling on mobile
 - fixed lookbook load header bug
+- tweaked frontend so its fully functional in production
+- deployed 

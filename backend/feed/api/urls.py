@@ -6,7 +6,6 @@ from .views import (
     LookbookDetailView,
     PictureDetailView,
     PictureLikeToggle,
-    Upload
 )
 
 
@@ -17,5 +16,4 @@ urlpatterns = [
     path('<str:url_param>/lookbooks/<str:season>/', LookbookDetailView.as_view(), name='brand-lookbooks-detail'),
     path('<str:url_param>/lookbooks/<str:season>/<str:uuid>/', PictureDetailView.as_view(), name='picture-detail'),
     path('<str:url_param>/lookbooks/<str:season>/<str:uuid>/like/', PictureLikeToggle.as_view(), name='picture-like'),
-    path('upload/', Upload.as_view())
 ]

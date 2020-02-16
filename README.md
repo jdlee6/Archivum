@@ -8,6 +8,9 @@
 
 https://youtu.be/PruHZXClimU
 
+## :sparkles: Live
+https://archivum.herokuapp.com/
+
 ### Demo Screenshots
 
 ![Home](/preview/frontend1.png)
@@ -54,7 +57,6 @@ List of available API
 * /api/brands/<brandname>/lookbooks/
 * /api/brands/<brandname>/lookbooks/<season>/
 * /api/brands/<brandname>/lookbooks/<season>/<uuid>/
-* /api/brands/upload/
 * /api/users/
 * /api/users/register
 * /api/users/<username>/
@@ -64,6 +66,7 @@ List of available API
 * /rest-auth/logout/
 * /rest-auth/password/reset/
 * /password/change/<uidb64>/<token>/
+* /upload/
 ```
 
 ### Database & Utilities

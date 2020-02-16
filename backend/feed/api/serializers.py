@@ -24,7 +24,7 @@ class LookbookSerializer(serializers.ModelSerializer):
         images_data = self.context.get('view').request.FILES
         for image_data in images_data.values():
             # NOTE change lookbook id when in use
-            picture = Picture.objects.create(lookbook_id=7, src=image_data)
+            picture = Picture.objects.create(lookbook_id=24, src=image_data)
         return picture
 
 
