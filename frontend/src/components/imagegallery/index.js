@@ -22,7 +22,7 @@ export default function ImageGallery(props) {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
   const { modalToggle, setModalToggle } = useContext(ModalContext);
-  const [images, setImages] = useState(props.lookbook.pictures.slice(0, 6));
+  const [images, setImages] = useState(props.lookbook.pictures.slice(0, 9));
   const [pageNum, setPageNum] = useState(1);
   const [loadedAll, setLoadedAll] = useState(false);
   const TOTAL_PAGES = 3;
@@ -61,7 +61,7 @@ export default function ImageGallery(props) {
     }
     setImages(
       images.concat(
-        props.lookbook.pictures.slice(images.length, images.length + 6)
+        props.lookbook.pictures.slice(images.length, images.length + 9)
       )
     );
     setPageNum(pageNum + 1);

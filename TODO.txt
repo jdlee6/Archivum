@@ -4,6 +4,7 @@
 * backend *
 
 * frontend *
+  - loading spinner for components
   - create a url tab icon
   - fix like button for non logged in user
 
@@ -23,7 +24,7 @@
 ################
 #CHANGES I MADE#
 ################
-- fixed multiple upload api 
+- change image load count
 
 * in progress * 
   
@@ -208,3 +209,4 @@
 - fixed lookbook load header bug
 - tweaked frontend so its fully functional in production
 - deployed 
+- fixed multiple upload api 
