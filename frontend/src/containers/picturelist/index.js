@@ -22,9 +22,7 @@ export default function PictureList({ match }) {
   }, [brand, season]);
 
   useEffect(() => {
-    axios
-      .get(`/api/brands/${brand}/`)
-      .then(res => setBrandName(res.data.name));
+    axios.get(`/api/brands/${brand}/`).then(res => setBrandName(res.data.name));
   }, [brand]);
 
   if (lookbook.length !== 0) {

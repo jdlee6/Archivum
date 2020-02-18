@@ -15,31 +15,29 @@ export default function ImageHeader({ currentIndex, views, modalProps }) {
   const season = views[index].lookbook_season;
   const brand = views[index].brand_url_param;
 
-  // fix this
   useEffect(() => {
-    axios.get(`/api/users/${username}/`).then(res => {
-      const likedPhotos = res.data.likes;
-      const uuids = likedPhotos.map(photo => photo.uuid);
-      const exists = uuids.indexOf(uuid) > -1;
-      setLiked(exists);
-    });
+    if (username !== null) {
+      axios.get(`/api/users/${username}/`).then(res => {
+        const likedPhotos = res.data.likes;
+        const uuids = likedPhotos.map(photo => photo.uuid);
+        const exists = uuids.indexOf(uuid) > -1;
+        setLiked(exists);
+      });
+    }
   }, [index, username, uuid]);
 
   const handleClick = e => {
     e.preventDefault();
-    if (isLoggedIn === false) {
+    if (isLoggedIn === null) {
       window.location.href = '/login';
     } else {
       axios
-        .get(
-          `/api/brands/${brand}/lookbooks/${season}/${uuid}/like/`,
-          {
-            headers: {
-              Accept: 'application/json',
-              Authorization: `Token ${token}`
-            }
+        .get(`/api/brands/${brand}/lookbooks/${season}/${uuid}/like/`, {
+          headers: {
+            Accept: 'application/json',
+            Authorization: `Token ${token}`
           }
-        )
+        })
         .then(res => {
           setLiked(res.data.liked);
         })

@@ -1,14 +1,32 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
+import { CircularProgress } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import ThemeSwitch from '../../components/shared/themeswitch';
 import { LightContext } from '../../contexts/LightContext';
 import axios from 'axios';
 import './styles.css';
 
+export const styles = makeStyles({
+  loading: {
+    color: '#b8caff',
+    animationDuration: '550ms',
+    marginTop: '200px',
+    marginRight: '10px',
+    '@media (min-width:768px)': {
+      color: '#b8caff',
+      animationDuration: '550ms',
+      marginTop: '200px',
+      marginRight: '60px'
+    }
+  }
+});
+
 export default function Home() {
   const [brands, setBrands] = useState([]);
   const { themeMode, themeBool } = useContext(LightContext);
+  const classes = styles();
 
   const settings = {
     fade: true,
@@ -33,29 +51,40 @@ export default function Home() {
       <div className="switch-container">
         <ThemeSwitch />
       </div>
-      <div className="slick-pad">
-        <Slider {...settings}>
-          {brands.map(brand => (
-            <div
-              key={brand.id}
-              className={
-                themeBool ? 'slick-container-light' : 'slick-container-dark'
-              }
-            >
-              <Link
-                style={{
-                  color: themeMode.text,
-                  textDecoration: 'none',
-                  cursor: 'pointer'
-                }}
-                to={`/${brand.url_param}`}
+      {brands.length !== 0 ? (
+        <div className="slick-pad">
+          <Slider {...settings}>
+            {brands.map(brand => (
+              <div
+                key={brand.id}
+                className={
+                  themeBool ? 'slick-container-light' : 'slick-container-dark'
+                }
               >
-                {brand.name}
-              </Link>
-            </div>
-          ))}
-        </Slider>
-      </div>
+                <Link
+                  style={{
+                    color: themeMode.text,
+                    textDecoration: 'none',
+                    cursor: 'pointer'
+                  }}
+                  to={`/${brand.url_param}`}
+                >
+                  {brand.name}
+                </Link>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      ) : (
+        <div className="loading-msg" id="msg-loading-more">
+          <CircularProgress
+            disableShrink
+            className={classes.loading}
+            size={15}
+            thickness={4}
+          />
+        </div>
+      )}
     </div>
   );
 }

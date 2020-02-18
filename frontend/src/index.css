@@ -37,6 +37,14 @@ img:hover {
   opacity: 1;
 }
 
+@media screen and (min-width: 768px) {
+  span {
+    font-family: 'Cardo';
+    font-size: 0.9em;
+    font-variant: small-caps;
+  }
+}
+
 span {
   font-family: 'Cardo';
   font-size: 0.8em;

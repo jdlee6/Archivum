@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring/web.cjs'; // web.cjs is required for IE 11 support
+import { CircularProgress } from '@material-ui/core';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import { fade, makeStyles, withStyles } from '@material-ui/core/styles';
 import TreeView from '@material-ui/lab/TreeView';
@@ -92,6 +93,17 @@ const useStyles = makeStyles({
     height: 216,
     flexGrow: 1,
     maxWidth: 400
+  },
+  loading: {
+    color: '#b8caff',
+    animationDuration: '550ms',
+    marginTop: '200px',
+    marginRight: '10px',
+    '@media (min-width:768px)': {
+      color: '#b8caff',
+      animationDuration: '550ms',
+      marginTop: '200px'
+    }
   }
 });
 
@@ -101,9 +113,7 @@ export default function MenuTree({ history }) {
   const { themeMode } = useContext(LightContext);
 
   useEffect(() => {
-    axios
-      .get(`/api/brands/`)
-      .then(res => setBrands(res.data));
+    axios.get(`/api/brands/`).then(res => setBrands(res.data));
   }, []);
 
   const brandTree = brands.map(brand => {
@@ -138,14 +148,25 @@ export default function MenuTree({ history }) {
 
   return (
     <div className="treeview-padding">
-      <TreeView
-        className={classes.root}
-        defaultCollapseIcon={<MinusSquare />}
-        defaultExpandIcon={<PlusSquare />}
-        defaultEndIcon={<CloseSquare />}
-      >
-        {brandTree}
-      </TreeView>
+      {brands.length !== 0 ? (
+        <TreeView
+          className={classes.root}
+          defaultCollapseIcon={<MinusSquare />}
+          defaultExpandIcon={<PlusSquare />}
+          defaultEndIcon={<CloseSquare />}
+        >
+          {brandTree}
+        </TreeView>
+      ) : (
+        <div className="loading-msg" id="msg-loading-more">
+          <CircularProgress
+            disableShrink
+            className={classes.loading}
+            size={15}
+            thickness={4}
+          />
+        </div>
+      )}
     </div>
   );
 }

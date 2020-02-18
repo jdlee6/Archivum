@@ -4,9 +4,7 @@
 * backend *
 
 * frontend *
-  - loading spinner for components
-  - create a url tab icon
-  - fix like button for non logged in user
+  - back button from gallery -> lookbooks page
 
   routes:
       -/users 
@@ -25,9 +23,16 @@
 #CHANGES I MADE#
 ################
 - change image load count
+- homepage and menu loading spinner
+- custom favicon
+- home page desktop view of slider
+- fix like button for non logged in user
 
 * in progress * 
-  
+  - make container fonts larger
+    * lookbook page
+    * gallery page
+    
 
 #################
 ####COMPLETED####
